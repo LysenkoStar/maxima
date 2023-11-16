@@ -13,6 +13,10 @@
     "Mon-Sat: :time": "Mon-Sat: :time",
     "Sun": "Sun",
     "Day off": "Day off",
+    "Address": "Address",
+    "Full address": "Kharkov, Vishnevaya st., 27",
+    "Schedule": "Work schedule",
+    "Phone": "Phone",
 
     "English": "English",
     "Russian": "Russian",
@@ -22,5 +26,14 @@
     "High-quality products": "High-quality products in accordance with technical requirements, as well as metalworking services in Kharkov",
 
     "View products": "View products",
-    "Submit application": "Submit your application"
+    "Submit application": "Submit your application",
+
+    "Quality assurance": "Quality assurance",
+    "Modern technologies": "In our robot we use modern technologies and equipment",
+    "Work on time": "Work on time",
+    "Work quickly": "We will do the work quickly and efficiently",
+    "Team of professionals": "Team of professionals",
+    "Specialists take details": "During production, our specialists take into account the smallest details",
+    "Nice prices": "Nice prices",
+    "Surprise prices": "Our prices will pleasantly surprise you"
 }

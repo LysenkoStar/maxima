@@ -36,8 +36,8 @@
                                 <use xlink:href="static/images/sprite/symbol/sprite.svg#cup"></use>
                             </svg>
                         </div>
-                        <div class="offer__title">ГАРАНТИЯ КАЧЕСТВА</div>
-                        <div class="offer__info">В своей роботе мы используем современные технологии и оборудование.</div>
+                        <div class="offer__title uppercase">{{ __('Quality assurance') }}</div>
+                        <div class="offer__info">{{ __('Modern technologies') }}.</div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4 mb-sm-2 mb-md-0">
@@ -47,8 +47,8 @@
                                 <use xlink:href="static/images/sprite/symbol/sprite.svg#watch"></use>
                             </svg>
                         </div>
-                        <div class="offer__title">РАБОТА В СРОК</div>
-                        <div class="offer__info">Мы выполним работу быстро и качественно.</div>
+                        <div class="offer__title uppercase">{{ __('Work on time') }}</div>
+                        <div class="offer__info">{{ __('Work quickly') }}.</div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4 mb-sm-2 mb-md-0">
@@ -58,8 +58,8 @@
                                 <use xlink:href="static/images/sprite/symbol/sprite.svg#people"></use>
                             </svg>
                         </div>
-                        <div class="offer__title">КОМАНДА ПРОФЕССИОНАЛОВ</div>
-                        <div class="offer__info">При изготовлении наши специалисты учитывают мельчайшие детали.</div>
+                        <div class="offer__title uppercase">{{ __('Team of professionals') }}</div>
+                        <div class="offer__info">{{ __('Specialists take details') }}.</div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4 mb-sm-2 mb-md-0">
@@ -69,8 +69,8 @@
                                 <use xlink:href="static/images/sprite/symbol/sprite.svg#pig"></use>
                             </svg>
                         </div>
-                        <div class="offer__title">ПРИЯТНЫЕ ЦЕНЫ</div>
-                        <div class="offer__info">Наши цены вас приятно удивят.</div>
+                        <div class="offer__title uppercase">{{ __('Nice prices') }}</div>
+                        <div class="offer__info">{{ __('Surprise prices') }}.</div>
                     </div>
                 </div>
             </div>
@@ -80,24 +80,35 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-start">
-                    <div class="section__title">Продукция</div>
+                    <div class="section__title">{{ __('Products') }}</div>
                 </div>
             </div>
             <div class="row mt-5">
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="category"><a class="category__link" href="#">
+                    <div class="category">
+                        <a class="category__link" href="#">
                             <div class="category__image"><img class="img-fluid" src="{{ asset('images/hero.jpg') }}" alt=""></div>
-                            <div class="category__title">Опоры трубопроводов</div></a></div>
+                            <div class="category__title">Опоры трубопроводов</div>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="category"><a class="category__link" href="#">
+                    <div class="category">
+                        <a class="category__link" href="#">
                             <div class="category__image"><img class="img-fluid" src="./static/images/content/product_2.png" alt=""></div>
-                            <div class="category__title">Сальники</div></a></div>
+                            <div class="category__title">Сальники</div>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="category"><a class="category__link" href="#">
-                            <div class="category__image"><img class="img-fluid" src="./static/images/content/product_3.png" alt=""></div>
-                            <div class="category__title">Блоки пружинные</div></a></div>
+                    <div class="category">
+                        <a class="category__link" href="#">
+                            <div class="category__image">
+                                <img class="img-fluid" src="./static/images/content/product_3.png" alt="">
+                            </div>
+                            <div class="category__title">Блоки пружинные</div>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
                     <div class="category"><a class="category__link" href="#">
@@ -121,7 +132,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-start">
-                    <div class="section__title">Услуги</div>
+                    <div class="section__title">{{ __('Services') }}</div>
                 </div>
             </div>
             <div class="row mt-5">
@@ -220,7 +231,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-start">
-                    <div class="section__title">Оплата и Доставка</div>
+                    <div class="section__title">{{ __('Payment and delivery') }}</div>
                 </div>
             </div>
             <div class="row">
@@ -242,7 +253,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-start">
-                        <div class="section__title">О нас</div>
+                        <div class="section__title">{{ __('About Us') }}</div>
                     </div>
                 </div>
                 <div class="row">
