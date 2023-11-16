@@ -1,0 +1,17 @@
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Settings */
+@import "reset";
+@import "fonts";
+@import "variables";
+@import "base";
+@import "buttons";
+@import "scroll";
+
+/* Custom Components */
+@import "components/preloader";
+@import "components/header";
+@import "components/footer";

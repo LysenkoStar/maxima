@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'Open Sans';
+  src:
+      url("../fonts/opensans/opensans.woff") format("woff"),
+      url("../fonts/opensans/opensans.woff2") format("woff2"),
+      url("../fonts/opensans/opensans.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sans Semi Bold';
+  src:
+      url("../fonts/opensanssemibold/opensanssemibold.woff") format("woff"),
+      url("../fonts/opensanssemibold/opensanssemibold.woff2") format("woff2"),
+      url("../fonts/opensanssemibold/opensanssemibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src:
+      url("../fonts/montserrat/montserrat.woff") format("woff"),
+      url("../fonts/montserrat/montserrat.woff2") format("woff2"),
+      url("../fonts/montserrat/montserrat.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat Medium';
+  src:
+      url("../fonts/montserratmedium/montserratmedium.woff") format("woff"),
+      url("../fonts/montserratmedium/montserratmedium.woff2") format("woff2"),
+      url("../fonts/montserratmedium/montserratmedium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat Semi Bold';
+  src:
+      url("../fonts/montserratsemibold/montserratsemibold.woff") format("woff"),
+      url("../fonts/montserratsemibold/montserratsemibold.woff2") format("woff2"),
+      url("../fonts/montserratsemibold/montserratsemibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat Bold';
+  src:
+      url("../fonts/montserratbold/montserratbold.woff") format("woff"),
+      url("../fonts/montserratbold/montserratbold.woff2") format("woff2"),
+      url("../fonts/montserratbold/montserratbold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}

@@ -1,0 +1,20 @@
+.btn {
+  @apply
+  inline-block
+  rounded-lg
+  px-7
+  py-5
+  font-montserrat_b
+  text-base
+  border-2
+}
+
+.btn-primary {
+  @apply
+  border-transparent
+}
+
+.btn-outline {
+  @apply
+  bg-transparent
+}
