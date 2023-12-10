@@ -1,6 +1,12 @@
 @extends('layout/base_page')
 
-@section('title', 'Page Title')
+@section('extended_styles')
+    @parent
+
+    @vite([
+        'resources/scss/pages/main.scss',
+    ])
+@show
 
 @section('content')
     <section class="hero relative h-screen bg-[url('../../public/images/hero.jpg')] bg-cover bg-fixed bg-center bg-no-repeat">
@@ -14,8 +20,9 @@
                         {{ __('Specialized production') }}
                     </h1>
                     <p class="mb-6 max-w-xl text-base font-light text-white md:text-lg">{{ __('High-quality products') }}</p>
-                   <button>{{ __('View products') }}</button>
-                   <button>{{ __('Submit application') }}</button>
+
+                    <a href="#" class="btn btn-primary mr-6 bg-accent-500 filter" style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);">{{ __('View products') }}</a>
+                    <a href="#" class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500">{{ __('Submit application') }}</a>
                 </div>
             </div>
         </div>
@@ -23,107 +30,119 @@
 
     <div class="section section__offer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-start">
-                    <div class="section__title">{{ __('Why us') }}</div>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4 mb-sm-2 mb-md-0">
+            <div class="section__title">{{ __('Why us') }}</div>
+            <div class="block md:grid sm:grid-cols-4 sm:gap-12 mt-7">
+                <div class="block md:flex justify-center mb-7 md:mb-0">
                     <div class="offer">
-                        <div class="offer__image">
-                            <svg class="icon icon-cup ">
-                                <use xlink:href="static/images/sprite/symbol/sprite.svg#cup"></use>
+                        <div class="offer__image w-20 h-20 mb-7">
+                            <svg class="icon icon-cup h-full w-full fill-lightblue-500">
+                                <use xlink:href="{{ asset('images/sprite.svg') }}#cup"></use>
                             </svg>
                         </div>
-                        <div class="offer__title uppercase">{{ __('Quality assurance') }}</div>
-                        <div class="offer__info">{{ __('Modern technologies') }}.</div>
+                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('Quality assurance') }}</div>
+                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('Modern technologies') }}.</div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4 mb-sm-2 mb-md-0">
+                <div class="block md:flex justify-center mb-7 md:mb-0">
                     <div class="offer">
-                        <div class="offer__image">
-                            <svg class="icon icon-watch ">
-                                <use xlink:href="static/images/sprite/symbol/sprite.svg#watch"></use>
+                        <div class="offer__image w-20 h-20 mb-7">
+                            <svg class="icon icon-watch h-full w-full fill-lightblue-500">
+                                <use xlink:href="{{ asset('images/sprite.svg') }}#watch"></use>
                             </svg>
                         </div>
-                        <div class="offer__title uppercase">{{ __('Work on time') }}</div>
-                        <div class="offer__info">{{ __('Work quickly') }}.</div>
+                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('Work on time') }}</div>
+                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('Work quickly') }}.</div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4 mb-sm-2 mb-md-0">
+                <div class="block md:flex justify-center mb-7 md:mb-0">
                     <div class="offer">
-                        <div class="offer__image">
-                            <svg class="icon icon-people ">
-                                <use xlink:href="static/images/sprite/symbol/sprite.svg#people"></use>
+                        <div class="offer__image w-20 h-20 mb-7">
+                            <svg class="icon icon-people h-full w-full fill-lightblue-500">
+                                <use xlink:href="{{ asset('images/sprite.svg') }}#people"></use>
                             </svg>
                         </div>
-                        <div class="offer__title uppercase">{{ __('Team of professionals') }}</div>
-                        <div class="offer__info">{{ __('Specialists take details') }}.</div>
+                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('Team of professionals') }}</div>
+                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('Specialists take details') }}.</div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4 mb-sm-2 mb-md-0">
+                <div class="block md:flex justify-center mb-7 md:mb-0">
                     <div class="offer">
-                        <div class="offer__image">
-                            <svg class="icon icon-pig ">
-                                <use xlink:href="static/images/sprite/symbol/sprite.svg#pig"></use>
+                        <div class="offer__image w-20 h-20 mb-7">
+                            <svg class="icon icon-pig h-full w-full fill-lightblue-500">
+                                <use xlink:href="{{ asset('images/sprite.svg') }}#pig"></use>
                             </svg>
                         </div>
-                        <div class="offer__title uppercase">{{ __('Nice prices') }}</div>
-                        <div class="offer__info">{{ __('Surprise prices') }}.</div>
+                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('Nice prices') }}</div>
+                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('Surprise prices') }}.</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="section section__production">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-start">
-                    <div class="section__title">{{ __('Products') }}</div>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="category">
-                        <a class="category__link" href="#">
-                            <div class="category__image"><img class="img-fluid" src="{{ asset('images/hero.jpg') }}" alt=""></div>
-                            <div class="category__title">Опоры трубопроводов</div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="category">
-                        <a class="category__link" href="#">
-                            <div class="category__image"><img class="img-fluid" src="./static/images/content/product_2.png" alt=""></div>
-                            <div class="category__title">Сальники</div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="category">
-                        <a class="category__link" href="#">
+            <div class="section__title">{{ __('Products') }}</div>
+            <div class="block md:grid md:grid-cols-3 lg:grid-cols-4 sm:gap-8 mt-7">
+                <div class="block md:flex justify-center mb-7 md:mb-0">
+                    <div class="category w-full">
+                        <a class="category__link p-5 text-center" href="#">
                             <div class="category__image">
-                                <img class="img-fluid" src="./static/images/content/product_3.png" alt="">
+                                <img class="max-h-48 m-auto" src="{{ asset('images/products/product_1.png') }}" alt="">
                             </div>
-                            <div class="category__title">Блоки пружинные</div>
+                            <div class="category__title font-montserrat_b text-lg">Опоры трубопроводов</div>
                         </a>
                     </div>
                 </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="category"><a class="category__link" href="#">
-                            <div class="category__image"><img class="img-fluid" src="./static/images/content/product_1.png" alt=""></div>
-                            <div class="category__title">Запчасти Ж/Д</div></a></div>
+                <div class="block md:flex justify-center mb-7 md:mb-0">
+                    <div class="category w-full">
+                        <a class="category__link p-5 text-center" href="#">
+                            <div class="category__image">
+                                <img class="max-h-48 m-auto" src="{{ asset('images/products/product_2.png') }}" alt="">
+                            </div>
+                            <div class="category__title font-montserrat_b text-lg">Сальники</div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="category"><a class="category__link" href="#">
-                            <div class="category__image"><img class="img-fluid" src="./static/images/content/product_2.png" alt=""></div>
-                            <div class="category__title">Колонки управления задвижками</div></a></div>
+                <div class="block md:flex justify-center mb-7 md:mb-0">
+                    <div class="category w-full">
+                        <a class="category__link p-5 text-center" href="#">
+                            <div class="category__image">
+                                <img class="max-h-48 m-auto" src="{{ asset('images/products/product_3.png') }}" alt="">
+                            </div>
+                            <div class="category__title font-montserrat_b text-lg">Блоки пружинные</div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="category"><a class="category__link" href="#">
-                            <div class="category__image"><img class="img-fluid" src="./static/images/content/product_3.png" alt=""></div>
-                            <div class="category__title">Нестандартные изделия</div></a></div>
+                <div class="block md:flex justify-center mb-7 md:mb-0">
+                    <div class="category w-full">
+                        <a class="category__link p-5 text-center" href="#">
+                            <div class="category__image">
+                                <img class="max-h-48 m-auto" src="{{ asset('images/products/product_1.png') }}" alt="">
+                            </div>
+                            <div class="category__title font-montserrat_b text-lg">Запчасти Ж/Д</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="block md:flex justify-center mb-7 md:mb-0">
+                    <div class="category w-full">
+                        <a class="category__link p-5 text-center" href="#">
+                            <div class="category__image">
+                                <img class="max-h-48 m-auto" src="{{ asset('images/products/product_2.png') }}" alt="">
+                            </div>
+                            <div class="category__title font-montserrat_b text-lg">Колонки управления задвижками</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="block md:flex justify-center mb-7 md:mb-0">
+                    <div class="category w-full">
+                        <a class="category__link p-5 text-center" href="#">
+                            <div class="category__image">
+                                <img class="max-h-48 m-auto" src="{{ asset('images/products/product_3.png') }}" alt="">
+                            </div>
+                            <div class="category__title font-montserrat_b text-lg">Нестандартные изделия</div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -136,92 +155,94 @@
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="service">
-                        <div class="service__image">
-                            <svg class="icon icon-ruler ">
-                                <use xlink:href="static/images/sprite/symbol/sprite.svg#ruler"></use>
-                            </svg>
+                <div class="md:grid sm:grid-cols-4 sm:gap-6">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
+                        <div class="service">
+                            <div class="service__image w-20 h-20 mb-7">
+                                <svg class="icon icon-ruler h-full w-full fill-lightblue-500">
+                                    <use xlink:href="{{ asset('images/sprite.svg') }}#ruler"></use>
+                                </svg>
+                            </div>
+                            <div class="service__title text-lightblue-500 font-montserrat_sb uppercase text-lg">ТОКАРНЫЕ РАБОТЫ</div>
+                            <div class="service__text font-montserrat text-lg">В Maxima доступно индивидуальное исполнение токарных работ по образцам или чертежам клиентов.</div>
                         </div>
-                        <div class="service__title">ТОКАРНЫЕ РАБОТЫ</div>
-                        <div class="service__text">В Maxima доступно индивидуальное исполнение токарных работ по образцам или чертежам клиентов.</div>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="service">
-                        <div class="service__image">
-                            <svg class="icon icon-ruler ">
-                                <use xlink:href="static/images/sprite/symbol/sprite.svg#ruler"></use>
-                            </svg>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
+                        <div class="service">
+                            <div class="service__image w-20 h-20 mb-7">
+                                <svg class="icon icon-ruler h-full w-full fill-lightblue-500">
+                                    <use xlink:href="{{ asset('images/sprite.svg') }}#ruler"></use>
+                                </svg>
+                            </div>
+                            <div class="service__title text-lightblue-500 font-montserrat_sb uppercase text-lg">ФРЕЗЕРНЫЕ РАБОТЫ</div>
+                            <div class="service__text font-montserrat text-lg">Компания Maxima предлагает все виды токарно-фрезерных работ любой сложности.</div>
                         </div>
-                        <div class="service__title">ФРЕЗЕРНЫЕ РАБОТЫ</div>
-                        <div class="service__text">Компания Maxima предлагает все виды токарно-фрезерных работ любой сложности.</div>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="service">
-                        <div class="service__image">
-                            <svg class="icon icon-ruler ">
-                                <use xlink:href="static/images/sprite/symbol/sprite.svg#ruler"></use>
-                            </svg>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
+                        <div class="service">
+                            <div class="service__image w-20 h-20 mb-7">
+                                <svg class="icon icon-ruler h-full w-full fill-lightblue-500">
+                                    <use xlink:href="{{ asset('images/sprite.svg') }}#ruler"></use>
+                                </svg>
+                            </div>
+                            <div class="service__title text-lightblue-500 font-montserrat_sb uppercase text-lg">СВАРОЧНЫЕ РАБОТЫ</div>
+                            <div class="service__text font-montserrat text-lg">Мы предлагаем доступные цены, кратчайшие сроки выполнения, высокую точность и надёжность готовых конструкций.</div>
                         </div>
-                        <div class="service__title">СВАРОЧНЫЕ РАБОТЫ</div>
-                        <div class="service__text">Мы предлагаем доступные цены, кратчайшие сроки выполнения, высокую точность и надёжность готовых конструкций.</div>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="service">
-                        <div class="service__image">
-                            <svg class="icon icon-ruler ">
-                                <use xlink:href="static/images/sprite/symbol/sprite.svg#ruler"></use>
-                            </svg>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
+                        <div class="service">
+                            <div class="service__image w-20 h-20 mb-7">
+                                <svg class="icon icon-ruler h-full w-full fill-lightblue-500">
+                                    <use xlink:href="{{ asset('images/sprite.svg') }}#ruler"></use>
+                                </svg>
+                            </div>
+                            <div class="service__title text-lightblue-500 font-montserrat_sb uppercase text-lg">ШЛИФОВКА</div>
+                            <div class="service__text font-montserrat text-lg">Компания Maxima осуществляет шлифовальную обработку изделий из любых металлов и любой геометрической формы.</div>
                         </div>
-                        <div class="service__title">ШЛИФОВКА</div>
-                        <div class="service__text">Компания Maxima осуществляет шлифовальную обработку изделий из любых металлов и любой геометрической формы.</div>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="service">
-                        <div class="service__image">
-                            <svg class="icon icon-ruler ">
-                                <use xlink:href="static/images/sprite/symbol/sprite.svg#ruler"></use>
-                            </svg>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
+                        <div class="service">
+                            <div class="service__image w-20 h-20 mb-7">
+                                <svg class="icon icon-ruler h-full w-full fill-lightblue-500">
+                                    <use xlink:href="{{ asset('images/sprite.svg') }}#ruler"></use>
+                                </svg>
+                            </div>
+                            <div class="service__title text-lightblue-500 font-montserrat_sb uppercase text-lg">ЛАЗЕРНАЯ ПОРЕЗКА</div>
+                            <div class="service__text font-montserrat text-lg">Мы работаем на современном лазерном оборудовании, благодаря чему можем создавать детали любых форм, габаритов и сложности.</div>
                         </div>
-                        <div class="service__title">ЛАЗЕРНАЯ ПОРЕЗКА</div>
-                        <div class="service__text">Мы работаем на современном лазерном оборудовании, благодаря чему можем создавать детали любых форм, габаритов и сложности.</div>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="service">
-                        <div class="service__image">
-                            <svg class="icon icon-ruler ">
-                                <use xlink:href="static/images/sprite/symbol/sprite.svg#ruler"></use>
-                            </svg>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
+                        <div class="service">
+                            <div class="service__image w-20 h-20 mb-7">
+                                <svg class="icon icon-ruler h-full w-full fill-lightblue-500">
+                                    <use xlink:href="{{ asset('images/sprite.svg') }}#ruler"></use>
+                                </svg>
+                            </div>
+                            <div class="service__title text-lightblue-500 font-montserrat_sb uppercase text-lg">ЗУБОНАРЕЗКА</div>
+                            <div class="service__text font-montserrat text-lg">В работе мы используем только современные токарные станки с ЧПУ, что позволяет оптимизировать производство, сделав его максимально быстрым и точным.</div>
                         </div>
-                        <div class="service__title">ЗУБОНАРЕЗКА</div>
-                        <div class="service__text">В работе мы используем только современные токарные станки с ЧПУ, что позволяет оптимизировать производство, сделав его максимально быстрым и точным.</div>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="service">
-                        <div class="service__image">
-                            <svg class="icon icon-ruler ">
-                                <use xlink:href="static/images/sprite/symbol/sprite.svg#ruler"></use>
-                            </svg>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
+                        <div class="service">
+                            <div class="service__image w-20 h-20 mb-7">
+                                <svg class="icon icon-ruler h-full w-full fill-lightblue-500">
+                                    <use xlink:href="{{ asset('images/sprite.svg') }}#ruler"></use>
+                                </svg>
+                            </div>
+                            <div class="service__title text-lightblue-500 font-montserrat_sb uppercase text-lg">СТАЛЬНОЕ ЛИТЬЕ</div>
+                            <div class="service__text font-montserrat text-lg">Компания Maxima предлагает услуги по литью стальных деталей любой конфигурации.</div>
                         </div>
-                        <div class="service__title">СТАЛЬНОЕ ЛИТЬЕ</div>
-                        <div class="service__text">Компания Maxima предлагает услуги по литью стальных деталей любой конфигурации.</div>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
-                    <div class="service">
-                        <div class="service__image">
-                            <svg class="icon icon-ruler ">
-                                <use xlink:href="static/images/sprite/symbol/sprite.svg#ruler"></use>
-                            </svg>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4">
+                        <div class="service">
+                            <div class="service__image w-20 h-20 mb-7">
+                                <svg class="icon icon-ruler h-full w-full fill-lightblue-500">
+                                    <use xlink:href="{{ asset('images/sprite.svg') }}#ruler"></use>
+                                </svg>
+                            </div>
+                            <div class="service__title text-lightblue-500 font-montserrat_sb uppercase text-lg">АЛЮМИНИЕВОЕ ЛИТЬЕ</div>
+                            <div class="service__text font-montserrat text-lg">Фирма Maxima предлагает услуги по алюминиевому литью деталей и заготовок. Наши специалисты способны справиться с самой сложной задачей.</div>
                         </div>
-                        <div class="service__title">АЛЮМИНИЕВОЕ ЛИТЬЕ</div>
-                        <div class="service__text">Фирма Maxima предлагает услуги по алюминиевому литью деталей и заготовок. Наши специалисты способны справиться с самой сложной задачей.</div>
                     </div>
                 </div>
             </div>
@@ -229,26 +250,17 @@
     </div>
     <div class="section section__delivery">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-start">
-                    <div class="section__title">{{ __('Payment and delivery') }}</div>
-                </div>
+            <div class="section__title">{{ __('Payment and delivery') }}</div>
+            <div class="delivery__text">
+                <p>Lorem ipsum — классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Является искажённым отрывком из философского трактата Марка Туллия Цицерона «О пределах добра и зла», написанного в 45 году до н. э. на латинском языке, обнаружение сходства приписывается Ричарду МакКлинтоку[1].</p>
             </div>
-            <div class="row">
-                <div class="col-md-12 mt-5">
-                    <div class="delivery__text">
-                        <p>Lorem ipsum — классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Является искажённым отрывком из философского трактата Марка Туллия Цицерона «О пределах добра и зла», написанного в 45 году до н. э. на латинском языке, обнаружение сходства приписывается Ричарду МакКлинтоку[1].</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="delivery__action text-white"><a class="btn btn-outline-light btn-lg m-2 accent-button header__accent-button" href="#" role="button" rel="nofollow" target="_blank">Посмотреть Продукцию</a><a class="btn btn-outline-light btn-lg m-2 outline-accent-button header__outline-accent-button" href="#" role="button" rel="nofollow" target="_blank">Оставить заявку</a></div>
-                </div>
+            <div class="delivery__action text-white mt-10 text-center sm:text-left">
+                <a class="btn btn-primary mr-6 bg-accent-500 filter" style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);" href="#" role="button" rel="nofollow" target="_blank">{{ __('View products') }}</a>
+                <a class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500" href="#" role="button" rel="nofollow" target="_blank">{{ __('Submit application') }}</a>
             </div>
         </div>
     </div>
-    <div class="section section__about" style="background-image: url('/static/images/common/about_us_bg.png');">
+    <div class="section section__about bg-[url('../../public/images/about_us_bg.png')]">
         <div class="about__container">
             <div class="container">
                 <div class="row">
@@ -258,9 +270,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 mt-5">
-                        <div class="about__text">
-                            <p><strong>Maxima</strong> – это постоянно развивающаяся компания, основанная более 8 лет назад в Харькове. За это время мы наработали колоссальный опыт в области металлообработки, создавая детали любой конфигурации из различных типов сырья. В нашем штате работают квалифицированные специалисты, знающие толк в создании качественных и точных деталей, понимающие все тонкости производственного процесса.</p>
-                            <p>Изготовление деталей осуществляется на самом современном и качественном оборудовании (токарные станки, фрезеры, литейные аппараты и т.д.), благодаря чему нам удаётся создавать изделия, полностью соответствующие вашим требованиям. Контроль качества осуществляется на каждом этапе производства, что исключает огрехи и дефекты. Мы также гарантируем стабильные механические свойства продукции.</p>
+                        <div class="about__text font-montserrat sm:text-base md:text-xl lg:text-2xl indent-5">
+                            <p class="pb-5"><strong class="font-montserrat_b">{{ __('Maxima') }}</strong> – {{ __('About first') }}</p>
+                            <p>{{ __('About second') }}</p>
                         </div>
                     </div>
                 </div>

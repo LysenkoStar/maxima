@@ -12,10 +12,10 @@ export default {
         fontFamily: {
             open_sans: ['var(--font-open-sans)', "sans-serif"],
             open_sans_sb: ['var(--font-open-sans-sb)', "sans-serif"],
-            montserrat: ['"Montserrat"', "sans-serif"],
-            montserrat_m: ['"Montserrat Medium"', "sans-serif"],
-            montserrat_sb: ['"Montserrat Semi Bold"', "sans-serif"],
-            montserrat_b: ['"Montserrat Bold"', "sans-serif"],
+            montserrat: ['var(--font-montserrat)', "sans-serif"],
+            montserrat_m: ['var(--font-montserrat-med)', "sans-serif"],
+            montserrat_sb: ['var(--font-montserrat-sb)', "sans-serif"],
+            montserrat_b: ['var(--font-montserrat-b)', "sans-serif"],
         },
         screens: {
             sm: "576px",
@@ -37,6 +37,7 @@ export default {
                 500: "rgba(var(--color-silver-rgb), 0.4)", // main
                 600: "rgba(var(--color-silver-rgb), 0.6)",
                 700: "rgba(var(--color-silver-rgb), 0.8)",
+                800: "rgba(var(--color-silver-rgb), 1)",
             },
             lightblue: {
                 100: "rgba(var(--color-lightblue-rgb), 0.2)",

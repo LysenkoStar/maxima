@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Modules */
+@import "@selectize/selectize/dist/css/selectize.default.css";
+
 /* Custom Settings */
 @import "reset";
 @import "fonts";
@@ -13,5 +16,7 @@
 
 /* Custom Components */
 @import "components/preloader";
+@import "components/breadcrumbs";
 @import "components/header";
 @import "components/footer";
+@import "components/mobile_sidebar";

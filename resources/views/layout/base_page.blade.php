@@ -9,17 +9,18 @@
         'resources/js/app.js',
         'resources/js/main.js'
         ])
+
+    @section('extended_styles')
+    @show
 <body>
     @include('layout/base/preloader')
 
     @include('components/header')
 
-    <div class="content">
-
+    <main class="content">
         @section('content')
         @show
-
-    </div>
+    </main>
 
     @include('components/footer')
 

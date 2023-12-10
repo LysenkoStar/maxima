@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get(uri: '/', action: [HomeController::class, 'index'])->name('home');
+// Pages
+Route::controller(PageController::class)->name('page.')->group(function () {
+    Route::get(uri:'/', action:'home')->name('home');
+    Route::get(uri:'/products', action:'products')->name('products');
+    Route::get(uri:'/services', action:'services')->name('services');
+    Route::get(uri:'/about', action:'about')->name('about');
+    Route::get(uri:'/payment-and-delivery', action:'paymentAndDelivery')->name('payment-and-delivery');
+    Route::get(uri:'/contacts', action:'contacts')->name('contacts');
+});
 
 // Language switcher
-Route::get(uri: '/language/{lang}', action: [LocalizationController::class, 'switchLanguage'])->name('lang.switch');
+Route::get(
+        uri: '/language/{lang}',
+        action: [LocalizationController::class, 'switchLanguage']
+    )
+    ->name(name: 'lang.switch')
+    ->whereIn(parameters: 'lang', values: ['en', 'ru', 'uk']);

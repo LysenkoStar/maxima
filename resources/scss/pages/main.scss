@@ -1,0 +1,41 @@
+body {
+    .section {
+        .category {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.075) 0%, rgba(255, 255, 255, 0) 100%);
+            filter: drop-shadow(0px 10px 25px rgba(131, 153, 174, 0.1));
+            border-radius: 10px;
+            box-shadow: 0 10px 25px 0 rgba(131, 153, 174, 0.1);
+
+            &__image {
+                padding-bottom: 20px;
+            }
+
+            &__title {
+                transition: all .15s ease-in-out;
+            }
+
+            &__link {
+                &:hover {
+                    .category {
+                        &__title {
+                            @apply text-accent-500
+                        }
+                    }
+                }
+            }
+        }
+
+        &__about {
+            padding: 0;
+            background-position: right center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transform: matrix(1,0,0,1,0,0);
+            .about__container {
+                padding: 3em 0;
+                backdrop-filter: blur(7px);
+            }
+        }
+    }
+}
+

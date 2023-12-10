@@ -1,55 +1,19 @@
 .footer {
   background-color: rgb(var(--color-lightblue-rgb));
-  &__nav-content {
-    padding: 3.5em 0;
-  }
-  &__nav {
-    margin-bottom: 3em;
-  }
-  &__menu {
-    .footer__menu-item {
-      color: rgb(var(--color-darkblue-rgb));
-    }
-  }
+
   .menu__item_active {
     color: rgb(var(--color-accent-rgb));
-  }
-  &__info-title {
-    margin-bottom: 0.6em;
-    h6 {
-      font: rgb(var(--font-open-sans-sb));
-      font-size: 1em;
-      margin: 0;
-    }
-  }
-  &__info-link, &__info-string {
-    font: var(--font-open-sans);
-    display: block;
-    color: rgb(var(--color-darkblue-rgb));
-    margin-bottom: 0.2em;
   }
 }
 
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: var(--screen-sm)) {
-    .footer {
-        &__nav, &__info-block {
-            text-align: center;
-        }
-    }
+
 }
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: var(--screen-md)) {
-    .footer {
-        &__menu-link {
-            padding-left: 0;
-            padding-right: 0;
-        }
-        &__info-block {
-            margin-bottom: .8em;
-        }
-    }
+
 }
 
 // Medium devices (tablets, less than 992px)

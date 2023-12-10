@@ -1,0 +1,27 @@
+.sidebar {
+    display: none;
+    &.active {
+        display: block;
+    }
+    &__backdrop {
+        background: rgba(196, 196, 196, 0.5);
+        backdrop-filter: blur(2px);
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        z-index: 1;
+    }
+    &__panel {
+        overflow-y: auto;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 999;
+        padding: 20px;
+        width: 300px;
+    }
+}

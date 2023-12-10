@@ -22,6 +22,7 @@
     <meta property="twitter:image" content="">
     <meta property="twitter:site" content="">
     <meta property="twitter:creator" content="">
+
     <link rel="alternate" hreflang="x-default" href="">
     <link rel="alternate" hreflang="ru" href="">
     <link rel="alternate" hreflang="en" href="">
