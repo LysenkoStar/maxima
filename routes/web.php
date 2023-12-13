@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +24,11 @@ Route::controller(PageController::class)->name('page.')->group(function () {
     Route::get(uri:'/about', action:'about')->name('about');
     Route::get(uri:'/payment-and-delivery', action:'paymentAndDelivery')->name('payment-and-delivery');
     Route::get(uri:'/contacts', action:'contacts')->name('contacts');
+});
+
+// Products
+Route::controller(ProductController::class)->name('products.')->group(function () {
+    Route::get(uri:'/products/category/{category}', action: 'productsByCategory')->name('by.category');
 });
 
 // Language switcher

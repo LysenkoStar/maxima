@@ -109,6 +109,15 @@ header {
             }
         }
     }
+    .menu {
+        &__list {
+            &-item {
+                &.active {
+                    color: rgb(var(--color-accent-rgb));
+                }
+            }
+        }
+    }
 }
 
 // X-Small devices (portrait phones, less than 576px)
