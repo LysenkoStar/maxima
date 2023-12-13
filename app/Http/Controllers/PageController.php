@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -25,7 +26,13 @@ class PageController extends Controller
      */
     public function products(Request $request): View
     {
-        return view('pages/products');
+        $categories = ProductCategory::where('status', 1)->get();
+
+        return view(
+            view: 'pages/products',
+            data: [
+                'categories' => $categories
+            ]);
     }
 
     /**
@@ -35,7 +42,7 @@ class PageController extends Controller
      */
     public function services(Request $request): View
     {
-        return view('pages/home');
+        return view('pages/services');
     }
 
     /**
@@ -45,7 +52,7 @@ class PageController extends Controller
      */
     public function about(Request $request): View
     {
-        return view('pages/home');
+        return view('pages/about');
     }
 
     /**
@@ -55,7 +62,7 @@ class PageController extends Controller
      */
     public function paymentAndDelivery(Request $request): View
     {
-        return view('pages/contacts');
+        return view('pages/payment_and_delivery');
     }
 
     /**

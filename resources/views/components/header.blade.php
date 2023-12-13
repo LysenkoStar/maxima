@@ -14,24 +14,24 @@
                 <img src="{{ asset('images/logo.svg') }}" alt="{{ __('Maxima') }}" />
             </figure>
 
-            <div class="navigation hidden lg:block">
-                <ul class="mb-7 flex gap-x-4 font-montserrat_b text-sm">
-                    <li @class(['transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.home')])>
+            <div class="menu navigation hidden lg:block">
+                <ul class="menu__list mb-7 flex gap-x-4 font-montserrat_b text-sm">
+                    <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.home')])>
                         <a href="{{ route('page.home') }}">{{ __('Home') }}</a>
                     </li>
-                    <li @class(['transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.products')])>
+                    <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.products')])>
                         <a href="{{ route('page.products') }}">{{ __('Products') }}</a>
                     </li>
-                    <li @class(['transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.services')])>
+                    <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.services')])>
                         <a href="{{ route('page.services') }}">{{ __('Services') }}</a>
                     </li>
-                    <li @class(['transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.about')])>
+                    <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.about')])>
                         <a href="{{ route('page.about') }}">{{ __('About Us') }}</a>
                     </li>
-                    <li @class(['transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.payment-and-delivery')])>
+                    <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.payment-and-delivery')])>
                         <a href="{{ route('page.payment-and-delivery') }}">{{ __('Payment and delivery') }}</a>
                     </li>
-                    <li @class(['transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.contacts')])>
+                    <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.contacts')])>
                         <a href="{{ route('page.contacts') }}">{{ __('Contacts') }}</a>
                     </li>
                 </ul>
