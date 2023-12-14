@@ -6,9 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\Translatable\HasTranslations;
 
 class Product extends Model
 {
+    use HasTranslations;
+
+    /**
+     * Fields containing translation Spatie (field must be as json/text type)
+     *
+     * @var array
+     */
+    public array $translatable = ['name', 'description'];
+
     /**
      * The table associated with the model.
      *
@@ -16,7 +26,15 @@ class Product extends Model
      */
     protected $table = 'max_products';
 
-    protected $fillable = ['name', 'description', 'price', 'product_category_id'];
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'stock',
+        'product_category_id',
+        'status',
+        'slug',
+    ];
 
     public function category(): BelongsTo
     {

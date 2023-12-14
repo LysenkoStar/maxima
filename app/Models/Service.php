@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 
-class ProductCategory extends Model
+class Service extends Model
 {
     use HasTranslations;
 
@@ -23,7 +21,7 @@ class ProductCategory extends Model
      *
      * @var string
      */
-    protected $table = 'max_product_categories';
+    protected $table = 'max_services';
 
     protected $fillable = [
         'name',
@@ -32,9 +30,4 @@ class ProductCategory extends Model
         'status',
         'slug',
     ];
-
-    public function products(): HasMany
-    {
-        return $this->hasMany(Product::class);
-    }
 }

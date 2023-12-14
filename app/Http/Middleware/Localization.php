@@ -18,17 +18,12 @@ class Localization
      */
     public function handle(Request $request, Closure $next)
     {
-        try {
-            if (Session::has('locale') AND array_key_exists(Session::get('locale'), config('app.available_locales'))) {
-                App::setLocale(Session::get('locale'));
-            } else {
-                App::setLocale(config('app.fallback_locale'));
-            }
-
-            return $next($request);
-        } catch (\Exception $exception) {
-            dd($exception);
+        if (Session::has('locale') AND array_key_exists(Session::get('locale'), config('app.available_locales'))) {
+            App::setLocale(Session::get('locale'));
+        } else {
+            App::setLocale(config('app.fallback_locale'));
         }
 
+        return $next($request);
     }
 }

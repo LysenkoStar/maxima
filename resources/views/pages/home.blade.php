@@ -83,68 +83,22 @@
     <div class="section section__production">
         <div class="container">
             <div class="section__title">{{ __('Products') }}</div>
-            <div class="block md:grid md:grid-cols-3 lg:grid-cols-4 sm:gap-8 mt-7">
-                <div class="block md:flex justify-center mb-7 md:mb-0">
-                    <div class="category w-full">
-                        <a class="category__link p-5 text-center" href="#">
-                            <div class="category__image">
-                                <img class="max-h-48 m-auto" src="{{ asset('images/products/product_1.png') }}" alt="">
+            @if ($categories)
+                <div class="block md:grid md:grid-cols-3 lg:grid-cols-4 sm:gap-8 mt-7">
+                    @foreach ($categories as $category)
+                        <div class="block md:flex justify-center mb-7 md:mb-0">
+                            <div class="category w-full">
+                                <a class="category__link p-5 text-center" href="{{ route('products.by.category', ['category' => $category]) }}">
+                                    <div class="category__image">
+                                        <img class="max-h-48 m-auto" src="{{ asset('images/products/product_1.png') }}" alt="{{ $category->name }}">
+                                    </div>
+                                    <div class="category__title font-montserrat_b text-lg">{{ $category->name }}</div>
+                                </a>
                             </div>
-                            <div class="category__title font-montserrat_b text-lg">Опоры трубопроводов</div>
-                        </a>
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="block md:flex justify-center mb-7 md:mb-0">
-                    <div class="category w-full">
-                        <a class="category__link p-5 text-center" href="#">
-                            <div class="category__image">
-                                <img class="max-h-48 m-auto" src="{{ asset('images/products/product_2.png') }}" alt="">
-                            </div>
-                            <div class="category__title font-montserrat_b text-lg">Сальники</div>
-                        </a>
-                    </div>
-                </div>
-                <div class="block md:flex justify-center mb-7 md:mb-0">
-                    <div class="category w-full">
-                        <a class="category__link p-5 text-center" href="#">
-                            <div class="category__image">
-                                <img class="max-h-48 m-auto" src="{{ asset('images/products/product_3.png') }}" alt="">
-                            </div>
-                            <div class="category__title font-montserrat_b text-lg">Блоки пружинные</div>
-                        </a>
-                    </div>
-                </div>
-                <div class="block md:flex justify-center mb-7 md:mb-0">
-                    <div class="category w-full">
-                        <a class="category__link p-5 text-center" href="#">
-                            <div class="category__image">
-                                <img class="max-h-48 m-auto" src="{{ asset('images/products/product_1.png') }}" alt="">
-                            </div>
-                            <div class="category__title font-montserrat_b text-lg">Запчасти Ж/Д</div>
-                        </a>
-                    </div>
-                </div>
-                <div class="block md:flex justify-center mb-7 md:mb-0">
-                    <div class="category w-full">
-                        <a class="category__link p-5 text-center" href="#">
-                            <div class="category__image">
-                                <img class="max-h-48 m-auto" src="{{ asset('images/products/product_2.png') }}" alt="">
-                            </div>
-                            <div class="category__title font-montserrat_b text-lg">Колонки управления задвижками</div>
-                        </a>
-                    </div>
-                </div>
-                <div class="block md:flex justify-center mb-7 md:mb-0">
-                    <div class="category w-full">
-                        <a class="category__link p-5 text-center" href="#">
-                            <div class="category__image">
-                                <img class="max-h-48 m-auto" src="{{ asset('images/products/product_3.png') }}" alt="">
-                            </div>
-                            <div class="category__title font-montserrat_b text-lg">Нестандартные изделия</div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @endif
         </div>
     </div>
     <div class="section section__services">

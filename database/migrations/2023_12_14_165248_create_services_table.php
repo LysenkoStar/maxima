@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('max_products', function (Blueprint $table) {
+        Schema::create('max_services', function (Blueprint $table) {
             $table->id();
             $table->json(column: 'name')->nullable(false);
-            $table->json(column: 'description')->nullable();
-            $table->decimal(column: 'price', total: 8, places: 2);
-            $table->string(column: 'slug', length: 255)->unique()->nullable(false);
-            $table->unsignedBigInteger(column: 'stock');
-            $table->unsignedBigInteger(column: 'product_category_id');
+            $table->json(column: 'description')->nullable(false);
+            $table->string(column: 'image')->nullable();
             $table->boolean(column: 'status')->default(value: 1);
+            $table->string(column: 'slug', length: 255)->unique()->nullable(false);
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('max_products');
+        Schema::dropIfExists('max_services');
     }
 };

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('max_product_categories', function (Blueprint $table) {
             $table->id();
-            $table->string(column: 'name');
-            $table->text(column: 'description')->nullable();
+            $table->json(column: 'name')->nullable(false);
+            $table->json(column: 'description')->nullable();
             $table->string(column: 'image')->nullable();
             $table->boolean(column: 'status')->default(value: 1);
             $table->string(column: 'slug', length: 255)->unique()->nullable(false);
