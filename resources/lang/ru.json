@@ -46,5 +46,12 @@
     "Name": "Имя",
     "Message": "Сообщение",
     "Attach file": "Прикрепить файл",
-    "Required fields": "обязательные поля к заполнению"
+    "Required fields": "обязательные поля к заполнению",
+
+    "Password": "Пароль",
+    "Remember me": "Запомнить меня",
+    "Forgot your password": "Забыли пароль",
+    "Log in": "Войти",
+
+    "Applications": "Заявки"
 }

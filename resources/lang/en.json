@@ -46,5 +46,12 @@
     "Name": "Name",
     "Message": "Message",
     "Attach file": "Attach file",
-    "Required fields": "required fields"
+    "Required fields": "required fields",
+
+    "Password": "Password",
+    "Remember me": "Remember me",
+    "Forgot your password": "Forgot your password",
+    "Log in": "Log in",
+
+    "Applications": "Applications"
 }

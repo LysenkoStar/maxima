@@ -46,5 +46,12 @@
     "Name": "Ім'я",
     "Message": "Повідомлення",
     "Attach file": "Прикріпити файл",
-    "Required fields": "обов'язкові поля до заповнення"
+    "Required fields": "обов'язкові поля до заповнення",
+
+    "Password": "Пароль",
+    "Remember me": "Запам'ятати мене",
+    "Forgot your password": "Забули пароль",
+    "Log in": "Увійти",
+
+    "Applications": "Заявки"
 }

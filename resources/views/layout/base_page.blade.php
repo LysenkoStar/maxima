@@ -8,7 +8,7 @@
         'resources/scss/app.scss',
         'resources/js/app.js',
         'resources/js/main.js'
-        ])
+    ])
 
     @section('extended_styles')
     @show
