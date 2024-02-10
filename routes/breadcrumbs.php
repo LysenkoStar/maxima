@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Service;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
@@ -43,4 +45,22 @@ Breadcrumbs::for('payment-and-delivery', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('products.by.category', function (BreadcrumbTrail $trail, ProductCategory $productCategory) {
     $trail->parent('products');
     $trail->push($productCategory->name, route('products.by.category', $productCategory));
+});
+
+// Service current
+Breadcrumbs::for('services.by.name', function (BreadcrumbTrail $trail, Service $service) {
+    $trail->parent('services');
+    $trail->push($service->name, route('services.by.name', $service));
+});
+
+// Product
+Breadcrumbs::for('product.show', function (BreadcrumbTrail $trail, Product $product) {
+    $trail->parent('products.by.category', );
+    $trail->push(__('Products'), route('page.products'));
+});
+
+// 404
+Breadcrumbs::for('errors.404', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Page Not Found');
 });

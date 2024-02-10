@@ -1,13 +1,9 @@
 @extends('layout/base_page')
 
-@section('title', __('Products'))
+@section('title', __('Services'))
 
 @section('extended_styles')
     @parent
-
-    @vite([
-      'resources/scss/pages/products.scss',
-  ])
 @show
 
 @section('content')
@@ -25,7 +21,7 @@
                     <div class="category md:grid md:grid-cols-3 lg:grid-cols-4 sm:gap-8 mt-7">
                         @foreach ($products as $product)
                             <div class="category__item block md:flex justify-center mb-7 md:mb-0">
-                                <a class="category__item-link p-5 text-center" href="{{ route('products.item', ['product' => $product]) }}">
+                                <a class="category__item-link p-5 text-center" href="#">
                                     <div class="category__item-image pb-5">
                                         <img class="max-h-48 m-auto" src="{{ asset("images/categories/1.png") }}" alt="">
                                     </div>
@@ -38,10 +34,4 @@
             </div>
         </div>
     </div>
-@stop
-
-@section('extended_scripts')
-    @parent
-
-    <script src="static/js/main.js"></script>
 @stop

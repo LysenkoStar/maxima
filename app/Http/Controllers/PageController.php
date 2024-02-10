@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\ProductCategory;
 use App\Models\Service;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class PageController extends Controller
@@ -49,11 +49,25 @@ class PageController extends Controller
     /**
      * Services page
      * @param Request $request
-     * @return View
+     * @return View|RedirectResponse
      */
-    public function services(Request $request): View
+    public function services(Request $request): View|RedirectResponse
     {
-        return view(view: 'pages/services');
+        try {
+            $services = Service::get();
+
+            return view(
+                view: 'pages/services',
+                data: ['services' => $services]
+            );
+        } catch (\Exception $e) {
+            return redirect()
+                ->route('page.services')
+                ->with([
+                    'alert-message' => $e->getMessage(),
+                    'alert-type' => 'error',
+                ]);
+        }
     }
 
     /**

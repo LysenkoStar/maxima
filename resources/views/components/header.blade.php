@@ -55,7 +55,7 @@
                     </svg>
                     <div
                         class="absolute -right-0 -top-1 w-fit rounded-sm bg-accent-500 px-1 py-0 text-center font-montserrat_b text-xs">
-                        10
+                        0
                     </div>
                 </a>
 

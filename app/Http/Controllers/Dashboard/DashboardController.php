@@ -25,7 +25,7 @@ class DashboardController extends Controller
      */
     public function services(Request $request): View
     {
-        return view(view: 'admin.services');
+        return view(view: 'admin.services.list');
     }
 
     /**
@@ -35,7 +35,7 @@ class DashboardController extends Controller
      */
     public function products(Request $request): View
     {
-        return view(view: 'admin.products');
+        return view(view: 'admin.products.list');
     }
 
     /**
@@ -45,6 +45,6 @@ class DashboardController extends Controller
      */
     public function applications(Request $request): View
     {
-        return view(view: 'admin.applications');
+        return view(view: 'admin.applications.list');
     }
 }

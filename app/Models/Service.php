@@ -14,7 +14,7 @@ class Service extends Model
      *
      * @var array
      */
-    public array $translatable = ['name', 'description'];
+    public array $translatable = ['name', 'description', 'short_description'];
 
     /**
      * The table associated with the model.
@@ -26,6 +26,7 @@ class Service extends Model
     protected $fillable = [
         'name',
         'description',
+        'short_description',
         'image',
         'status',
         'slug',

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->json(column: 'name')->nullable(false);
             $table->json(column: 'description')->nullable(false);
+            $table->json(column: 'short_description')->nullable(false);
             $table->string(column: 'image')->nullable();
             $table->boolean(column: 'status')->default(value: 1);
             $table->string(column: 'slug', length: 255)->unique()->nullable(false);

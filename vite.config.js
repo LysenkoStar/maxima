@@ -5,13 +5,19 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                "./resources/**/*.scss",
                 "./resources/**/*.js",
                 "./resources/**/*.blade.php",
             ],
             refresh: true,
         }),
     ],
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@import "./resources/scss/app.scss";`,
+            },
+        },
+    },
     resolve: {
         alias: {
             '$': 'jQuery'

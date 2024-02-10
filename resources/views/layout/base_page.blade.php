@@ -18,8 +18,12 @@
     @include('components/header')
 
     <main class="content">
-        @section('content')
-        @show
+        <div @class(['container my-12' => !request()->routeIs('page.home')])>
+            @include('partials/alerts')
+
+            @section('content')
+            @show
+        </div>
     </main>
 
     @include('components/footer')

@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\DashboardProductController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
@@ -31,6 +33,12 @@ Route::controller(PageController::class)->name('page.')->group(function () {
 // Products
 Route::controller(ProductController::class)->name('products.')->group(function () {
     Route::get(uri:'/products/category/{category}', action: 'productsByCategory')->name('by.category');
+    Route::get(uri:'/products/{product}', action: 'productItem')->name('item');
+});
+
+// Services
+Route::controller(ServiceController::class)->name('services.')->group(function () {
+    Route::get(uri:'/services/{service}', action: 'serviceByName')->name('by.name');
 });
 
 // Language switcher
@@ -51,6 +59,14 @@ Route::controller(DashboardController::class)
         Route::get(uri:'/dashboard/products', action: 'products')->name('products');
         Route::get(uri:'/dashboard/applications', action: 'applications')->name('applications');
 });
+
+// Admin product page
+Route::controller(DashboardProductController::class)
+    ->name('dashboard.services.')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get(uri:'/dashboard/products/create', action: 'createPage')->name('create');
+    });
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
