@@ -17,12 +17,12 @@
                     style="background: radial-gradient(50% 45% at 51.88% 41.96%, rgba(0, 0, 0, 0.9) 25.52%, rgba(0, 0, 0, 0) 100%)">
                     <h1
                         class="mb-4 font-montserrat_b text-2xl font-extrabold leading-none tracking-tight text-white sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-4xl">
-                        {{ __('Specialized production') }}
+                        {{ __('pages/home.Specialized production') }}
                     </h1>
-                    <p class="mb-6 max-w-xl text-base font-light text-white md:text-lg">{{ __('High-quality products') }}</p>
+                    <p class="mb-6 max-w-xl text-base font-light text-white md:text-lg">{{ __('pages/home.High-quality products') }}</p>
 
-                    <a href="#" class="btn btn-primary mr-6 bg-accent-500 filter" style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);">{{ __('View products') }}</a>
-                    <a href="#" class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500">{{ __('Submit application') }}</a>
+                    <a href="#" class="btn btn-primary mr-6 bg-accent-500 filter" style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);">{{ __('general.buttons.View products') }}</a>
+                    <a href="#" class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500">{{ __('general.buttons.Submit application') }}</a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
 
     <div class="section section__offer">
         <div class="container">
-            <div class="section__title">{{ __('Why us') }}</div>
+            <div class="section__title">{{ __('pages/home.Why us') }}</div>
             <div class="block md:grid sm:grid-cols-4 sm:gap-12 mt-7">
                 <div class="block md:flex justify-center mb-7 md:mb-0">
                     <div class="offer">
@@ -39,8 +39,8 @@
                                 <use xlink:href="{{ asset('images/sprite.svg') }}#cup"></use>
                             </svg>
                         </div>
-                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('Quality assurance') }}</div>
-                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('Modern technologies') }}.</div>
+                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('pages/home.Quality assurance') }}</div>
+                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('pages/home.Modern technologies') }}.</div>
                     </div>
                 </div>
                 <div class="block md:flex justify-center mb-7 md:mb-0">
@@ -50,8 +50,8 @@
                                 <use xlink:href="{{ asset('images/sprite.svg') }}#watch"></use>
                             </svg>
                         </div>
-                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('Work on time') }}</div>
-                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('Work quickly') }}.</div>
+                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('pages/home.Work on time') }}</div>
+                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('pages/home.Work quickly') }}.</div>
                     </div>
                 </div>
                 <div class="block md:flex justify-center mb-7 md:mb-0">
@@ -61,8 +61,8 @@
                                 <use xlink:href="{{ asset('images/sprite.svg') }}#people"></use>
                             </svg>
                         </div>
-                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('Team of professionals') }}</div>
-                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('Specialists take details') }}.</div>
+                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('pages/home.Team of professionals') }}</div>
+                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('pages/home.Specialists take details') }}.</div>
                     </div>
                 </div>
                 <div class="block md:flex justify-center mb-7 md:mb-0">
@@ -72,8 +72,8 @@
                                 <use xlink:href="{{ asset('images/sprite.svg') }}#pig"></use>
                             </svg>
                         </div>
-                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('Nice prices') }}</div>
-                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('Surprise prices') }}.</div>
+                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('pages/home.Nice prices') }}</div>
+                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('pages/home.Surprise prices') }}.</div>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
 
     <div class="section section__production">
         <div class="container">
-            <div class="section__title">{{ __('Products') }}</div>
+            <div class="section__title">{{ __('pages/home.Products') }}</div>
             @if ($categories)
                 <div class="block md:grid md:grid-cols-3 lg:grid-cols-4 sm:gap-8 mt-7">
                     @foreach ($categories as $category)
@@ -105,7 +105,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-start">
-                    <div class="section__title">{{ __('Services') }}</div>
+                    <div class="section__title">{{ __('pages/home.Services') }}</div>
                 </div>
             </div>
             <div class="row mt-5">
@@ -204,13 +204,13 @@
     </div>
     <div class="section section__delivery">
         <div class="container">
-            <div class="section__title">{{ __('Payment and delivery') }}</div>
+            <div class="section__title">{{ __('pages/home.Payment and delivery') }}</div>
             <div class="delivery__text">
                 <p>Lorem ipsum — классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Является искажённым отрывком из философского трактата Марка Туллия Цицерона «О пределах добра и зла», написанного в 45 году до н. э. на латинском языке, обнаружение сходства приписывается Ричарду МакКлинтоку[1].</p>
             </div>
             <div class="delivery__action text-white mt-10 text-center sm:text-left">
-                <a class="btn btn-primary mr-6 bg-accent-500 filter" style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);" href="#" role="button" rel="nofollow" target="_blank">{{ __('View products') }}</a>
-                <a class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500" href="#" role="button" rel="nofollow" target="_blank">{{ __('Submit application') }}</a>
+                <a class="btn btn-primary mr-6 bg-accent-500 filter" style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);" href="#" role="button" rel="nofollow" target="_blank">{{ __('general.buttons.View products') }}</a>
+                <a class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500" href="#" role="button" rel="nofollow" target="_blank">{{ __('general.buttons.Submit application') }}</a>
             </div>
         </div>
     </div>
@@ -219,14 +219,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-start">
-                        <div class="section__title">{{ __('About Us') }}</div>
+                        <div class="section__title">{{ __('pages/home.About Us') }}</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 mt-5">
                         <div class="about__text font-montserrat sm:text-base md:text-xl lg:text-2xl indent-5">
-                            <p class="pb-5"><strong class="font-montserrat_b">{{ __('Maxima') }}</strong> – {{ __('About first') }}</p>
-                            <p>{{ __('About second') }}</p>
+                            <p class="pb-5"><strong class="font-montserrat_b">{{ __('Maxima') }}</strong> – {{ __('pages/home.about_text_first') }}</p>
+                            <p>{{ __('pages/home.about_text_second') }}</p>
                         </div>
                     </div>
                 </div>
@@ -237,6 +237,4 @@
 
 @section('extended_scripts')
     @parent
-
-    <script src="static/js/main.js"></script>
 @stop

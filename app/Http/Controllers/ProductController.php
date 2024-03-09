@@ -6,8 +6,8 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProductController extends Controller
 {
@@ -38,8 +38,38 @@ class ProductController extends Controller
                 ]
             );
         } catch (Exception $e) {
-            return redirect()->route('page.products')->with('alert', $e->getMessage());
+            return redirect()
+                ->route('page.products')
+                ->with([
+                    'alert-message' => $e->getMessage(),
+                    'alert-type' => 'error',
+                ]);
         }
+    }
 
+    public function productItem(Product $product): View|RedirectResponse
+    {
+        try {
+            if(!$product) {
+                throw new Exception(
+                    message: __('Product not found'),
+                    code: Response::HTTP_NOT_FOUND
+                );
+            }
+
+            return view(
+                view: 'pages/products/product',
+                data: [
+                    'product' => $product
+                ]
+            );
+        } catch (Exception $e) {
+            return redirect()
+                ->back()
+                ->with([
+                    'alert-message' => $e->getMessage(),
+                    'alert-type' => 'error',
+                ]);
+        }
     }
 }

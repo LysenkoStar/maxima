@@ -5,6 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
+/**
+ * @property string $title
+ * @property string $description
+ * @property string $short_description
+ * @property string $text
+ * @property string $image
+ * @property bool $status
+ * @property bool $slug
+ */
 class Service extends Model
 {
     use HasTranslations;
@@ -14,7 +23,7 @@ class Service extends Model
      *
      * @var array
      */
-    public array $translatable = ['name', 'description'];
+    public array $translatable = ['title', 'description', 'short_description', 'text'];
 
     /**
      * The table associated with the model.
@@ -24,10 +33,18 @@ class Service extends Model
     protected $table = 'max_services';
 
     protected $fillable = [
-        'name',
+        'title',
         'description',
+        'short_description',
+        'text',
         'image',
         'status',
         'slug',
     ];
+
+    /**
+     * The attributes that aren't mass assignable.
+     * @var array
+     */
+    protected $guarded = [];
 }

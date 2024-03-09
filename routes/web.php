@@ -1,9 +1,14 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CkeditorController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use \App\Http\Controllers\Dashboard\ServiceController as DashboardServiceController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +34,12 @@ Route::controller(PageController::class)->name('page.')->group(function () {
 // Products
 Route::controller(ProductController::class)->name('products.')->group(function () {
     Route::get(uri:'/products/category/{category}', action: 'productsByCategory')->name('by.category');
+    Route::get(uri:'/products/{product}', action: 'productItem')->name('item');
+});
+
+// Services
+Route::controller(ServiceController::class)->name('services.')->group(function () {
+    Route::get(uri:'/services/{service}', action: 'serviceByName')->name('by.name');
 });
 
 // Language switcher
@@ -38,3 +49,43 @@ Route::get(
     )
     ->name(name: 'lang.switch')
     ->whereIn(parameters: 'lang', values: ['en', 'ru', 'uk']);
+
+// Admin page
+Route::controller(DashboardController::class)
+    ->name('dashboard.')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get(uri:'/dashboard', action: 'home')->name('home');
+        Route::get(uri:'/dashboard/services', action: 'services')->name('services');
+        Route::get(uri:'/dashboard/products', action: 'products')->name('products');
+        Route::get(uri:'/dashboard/applications', action: 'applications')->name('applications');
+});
+
+// Admin product page
+Route::controller(DashboardServiceController::class)
+    ->name('dashboard.services.')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get(uri:'/dashboard/services/create', action: 'form')->name('form');
+        Route::post(uri:'/dashboard/services/store', action: 'store')->name('store');
+        Route::get(uri:'/dashboard/services/{service}/edit', action: 'edit')->name('edit');
+        Route::put('/dashboard/services/{service}', 'update')->name('update');
+        Route::delete('/dashboard/services/{service}/delete', 'delete')->name('delete');
+        Route::post(uri:'/dashboard/services/create-slug', action: 'createServiceSlug')->name('create.slug');
+    });
+
+// Admin ckeditor controller
+Route::controller(CkeditorController::class)
+    ->name('dashboard.ckeditor.')
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::post(uri:'/ckeditor/media/upload', action: 'mediaImageUpload')->name('media.image.upload');
+    });
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

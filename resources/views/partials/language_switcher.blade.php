@@ -6,7 +6,7 @@
                         data-image="{{ asset("images/icon_$locale.svg") }}"
                         data-url="{{ route(name: 'lang.switch', parameters: ['lang' => $locale]) }}"
                         @if($locale === $current_locale) selected @endif>
-                    {{ __($language) }}
+                    {{ __('general.languages.'.$language) }}
                 </option>
             @endforeach
         </select>

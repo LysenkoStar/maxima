@@ -36,6 +36,7 @@ class Product extends Model
         'slug',
     ];
 
+    // Relationships
     public function category(): BelongsTo
     {
         return $this->belongsTo(ProductCategory::class, 'product_category_id');

@@ -45,8 +45,6 @@ $( document ).ready(function() {
         let initialOption = langSelectize.options[initialValue];
         let initialImageUrl = initialOption['image'];
         let initialText = initialOption['text'];
-
-
     }
 
     // Functions

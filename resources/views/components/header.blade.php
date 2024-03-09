@@ -11,37 +11,37 @@
     <div class="container">
         <nav class="flex items-center justify-between lg:gap-x-3 xl:gap-x-0 2xl:gap-x-3">
             <figure class="logo">
-                <img src="{{ asset('images/logo.svg') }}" alt="{{ __('Maxima') }}" />
+                <img src="{{ asset('images/logo.svg') }}" alt="{{ __('general.Maxima') }}" />
             </figure>
 
             <div class="menu navigation hidden lg:block">
                 <ul class="menu__list mb-7 flex gap-x-4 font-montserrat_b text-sm">
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.home')])>
-                        <a href="{{ route('page.home') }}">{{ __('Home') }}</a>
+                        <a href="{{ route('page.home') }}">{{ __('general.menus.Home') }}</a>
                     </li>
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.products')])>
-                        <a href="{{ route('page.products') }}">{{ __('Products') }}</a>
+                        <a href="{{ route('page.products') }}">{{ __('general.menus.Products') }}</a>
                     </li>
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.services')])>
-                        <a href="{{ route('page.services') }}">{{ __('Services') }}</a>
+                        <a href="{{ route('page.services') }}">{{ __('general.menus.Services') }}</a>
                     </li>
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.about')])>
-                        <a href="{{ route('page.about') }}">{{ __('About Us') }}</a>
+                        <a href="{{ route('page.about') }}">{{ __('general.menus.About Us') }}</a>
                     </li>
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.payment-and-delivery')])>
-                        <a href="{{ route('page.payment-and-delivery') }}">{{ __('Payment and delivery') }}</a>
+                        <a href="{{ route('page.payment-and-delivery') }}">{{ __('general.menus.Payment and delivery') }}</a>
                     </li>
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.contacts')])>
-                        <a href="{{ route('page.contacts') }}">{{ __('Contacts') }}</a>
+                        <a href="{{ route('page.contacts') }}">{{ __('general.menus.Contacts') }}</a>
                     </li>
                 </ul>
 
                 <label class="relative">
                     <input
                         type="text"
-                        class="w-full border-b bg-transparent bg-[url('../../public/images/icon_search.svg')] bg-auto bg-left bg-no-repeat px-6 py-2 font-open_sans text-xs"
+                        class="w-full border-b bg-transparent bg-[url('../../public/images/icon_search.svg')] bg-auto border-none bg-left bg-no-repeat px-6 py-2 font-open_sans text-xs focus:outline-none focus:shadow-none focus:ring-offset-transparent"
                         style="background-size: 16px 16px"
-                        placeholder="{{ __('Search') }}" />
+                        placeholder="{{ __('general.Search') }}" />
                 </label>
             </div>
 
@@ -55,7 +55,7 @@
                     </svg>
                     <div
                         class="absolute -right-0 -top-1 w-fit rounded-sm bg-accent-500 px-1 py-0 text-center font-montserrat_b text-xs">
-                        10
+                        0
                     </div>
                 </a>
 
@@ -63,14 +63,14 @@
             </div>
 
             <div
-                class="relative hidden font-open_sans text-sm before:absolute before:-left-7 before:top-2 before:content-[url('../images/icon_phone.svg')] lg:block">
+                class="relative hidden font-open_sans text-sm before:absolute before:-left-7 before:top-2 before:content-[url('../../public/images/icon_phone.svg')] lg:block">
                 <div class="mb-2.5">
                     <a href="tel:380952252535" class="block">+38 (095) 225 25 35</a>
                     <a href="tel:380675760108" class="block">+38 (067) 576 01 08</a>
                 </div>
 
-                <p>{{ __('Mon-Sat: :time', ['time' => '08:00-17:00']) }}</p>
-                <p>{{ __('Sun') }}: {{ __('Day off') }}</p>
+                <p>{{ __('general.Mon-Sat: :time', ['time' => '08:00-17:00']) }}</p>
+                <p>{{ __('general.Sun') }}: {{ __('general.Day off') }}</p>
             </div>
 
             <!-- Mobile menu -->
@@ -97,22 +97,22 @@
 
             <ul class="sidebar__panel-nav fo font-montserrat_b">
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.home')])>
-                    <a href="{{ route('page.home') }}">{{ __('Home') }}</a>
+                    <a href="{{ route('page.home') }}">{{ __('general.menus.Home') }}</a>
                 </li>
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.products')])>
-                    <a href="{{ route('page.products') }}">{{ __('Products') }}</a>
+                    <a href="{{ route('page.products') }}">{{ __('general.menus.Products') }}</a>
                 </li>
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.services')])>
-                    <a href="{{ route('page.services') }}">{{ __('Services') }}</a>
+                    <a href="{{ route('page.services') }}">{{ __('general.menus.Services') }}</a>
                 </li>
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.about')])>
-                    <a href="{{ route('page.about') }}">{{ __('About Us') }}</a>
+                    <a href="{{ route('page.about') }}">{{ __('general.menus.About Us') }}</a>
                 </li>
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.payment-and-delivery')])>
-                    <a href="{{ route('page.payment-and-delivery') }}">{{ __('Payment and delivery') }}</a>
+                    <a href="{{ route('page.payment-and-delivery') }}">{{ __('general.menus.Payment and delivery') }}</a>
                 </li>
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.contacts')])>
-                    <a href="{{ route('page.contacts') }}">{{ __('Contacts') }}</a>
+                    <a href="{{ route('page.contacts') }}">{{ __('general.menus.Contacts') }}</a>
                 </li>
             </ul>
 
@@ -137,8 +137,8 @@
                     <a href="tel:380675760108" class="block">+38 (067) 576 01 08</a>
                 </div>
 
-                <p>{{ __('Mon-Sat: :time', ['time' => '08:00-17:00']) }}</p>
-                <p>{{ __('Sun') }}: {{ __('Day off') }}</p>
+                <p>{{ __('general.Mon-Sat: :time', ['time' => '08:00-17:00']) }}</p>
+                <p>{{ __('general.Sun') }}: {{ __('general.Day off') }}</p>
             </div>
         </nav>
     </div>
