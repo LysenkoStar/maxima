@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CkeditorController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Dashboard\DashboardProductController;
+use \App\Http\Controllers\Dashboard\ServiceController as DashboardServiceController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
@@ -61,11 +62,24 @@ Route::controller(DashboardController::class)
 });
 
 // Admin product page
-Route::controller(DashboardProductController::class)
+Route::controller(DashboardServiceController::class)
     ->name('dashboard.services.')
     ->middleware(['auth', 'verified'])
     ->group(function () {
-        Route::get(uri:'/dashboard/products/create', action: 'createPage')->name('create');
+        Route::get(uri:'/dashboard/services/create', action: 'form')->name('form');
+        Route::post(uri:'/dashboard/services/store', action: 'store')->name('store');
+        Route::get(uri:'/dashboard/services/{service}/edit', action: 'edit')->name('edit');
+        Route::put('/dashboard/services/{service}', 'update')->name('update');
+        Route::delete('/dashboard/services/{service}/delete', 'delete')->name('delete');
+        Route::post(uri:'/dashboard/services/create-slug', action: 'createServiceSlug')->name('create.slug');
+    });
+
+// Admin ckeditor controller
+Route::controller(CkeditorController::class)
+    ->name('dashboard.ckeditor.')
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::post(uri:'/ckeditor/media/upload', action: 'mediaImageUpload')->name('media.image.upload');
     });
 
 Route::middleware('auth')->group(function () {

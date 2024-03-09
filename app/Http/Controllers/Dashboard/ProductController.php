@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class DashboardProductController extends Controller
+class ProductController extends Controller
 {
     /**
      * Dashboard product create page

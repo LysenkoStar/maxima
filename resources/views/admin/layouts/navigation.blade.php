@@ -17,15 +17,15 @@
                     </x-nav-link>
 
                     <x-nav-link :href="route('dashboard.services')" :active="request()->routeIs('dashboard.services')">
-                        {{ __('Services') }}
+                        {{ __('dashboard/general.menus.Services') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('dashboard.products')" :active="request()->routeIs('dashboard.products')">
-                        {{ __('Products') }}
+                        {{ __('dashboard/general.menus.Products') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('dashboard.applications')" :active="request()->routeIs('dashboard.applications')">
-                        {{ __('Applications') }}
+                        {{ __('dashboard/general.menus.Applications') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                             <x-dropdown-link :href="route(name: 'lang.switch', parameters: ['lang' => $locale])">
                                 <div class="lang_item p-1">
                                     <img src="{{ asset("images/icon_$locale.svg") }}" alt="Language {{ $language }}" class="inline-block">
-                                    <span class="label pl-2">{{ __($language) }}</span>
+                                    <span class="label pl-2">{{ __('dashboard/general.languages.'.$language) }}</span>
                                 </div>
                             </x-dropdown-link>
                         @endforeach
@@ -77,7 +77,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('dashboard/general.buttons.Profile') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -87,7 +87,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('dashboard/general.buttons.Log Out') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -123,7 +123,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('dashboard/general.buttons.Profile') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -133,7 +133,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('dashboard/general.buttons.Log Out') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

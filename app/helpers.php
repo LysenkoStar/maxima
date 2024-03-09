@@ -8,7 +8,7 @@ if (! function_exists('get_current_language')) {
         $locale = app()->getLocale();
         $available_locales = config('app.available_locales');
         $language = Arr::get($available_locales, $locale);
-        return __($language);
+        return __('dashboard/general.languages.'.$language);
     }
 }
 

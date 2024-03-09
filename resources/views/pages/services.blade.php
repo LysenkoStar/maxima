@@ -1,6 +1,6 @@
 @extends('layout/base_page')
 
-@section('title', __('Services'))
+@section('title', __('general.menus.Services'))
 
 @section('extended_styles')
     @parent
@@ -14,7 +14,7 @@
 
         <div class="page__content mt-16 mb-24">
             <h1 class="page__content-title mb-12 font-montserrat_b text-4xl text-white sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-4xl">
-                {{__('Services') }}
+                {{__('general.menus.Services') }}
             </h1>
             <div class="page__content-main">
                 @if ($services)
@@ -41,6 +41,4 @@
 
 @section('extended_scripts')
     @parent
-
-    <script src="static/js/main.js"></script>
 @stop

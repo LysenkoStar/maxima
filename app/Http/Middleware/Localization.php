@@ -20,6 +20,8 @@ class Localization
     {
         if (Session::has('locale') AND array_key_exists(Session::get('locale'), config('app.available_locales'))) {
             App::setLocale(Session::get('locale'));
+        } elseif (config('app.locale')) {
+            App::setLocale(config('app.locale'));
         } else {
             App::setLocale(config('app.fallback_locale'));
         }

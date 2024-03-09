@@ -14,7 +14,7 @@
 
         <div class="page__content mt-16 mb-24">
             <h1 class="page__content-title mb-12 font-montserrat_b text-4xl text-white sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-4xl">
-                {{ __('Services') }}
+                {{ __($service->name) }}
             </h1>
             <div class="page__content-main">
                 <div class="service">
@@ -23,6 +23,9 @@
                             <use xlink:href="{{ asset('images/sprite.svg') }}#ruler"></use>
                         </svg>
                         <h2 class="inline-block text-lightblue-500 font-montserrat_sb text-2xl">{{ $service->name }}</h2>
+                    </div>
+                    <div class="service__content">
+                        {{ $service->short_description }}
                     </div>
                 </div>
             </div>

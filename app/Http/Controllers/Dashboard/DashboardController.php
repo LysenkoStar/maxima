@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -25,7 +26,12 @@ class DashboardController extends Controller
      */
     public function services(Request $request): View
     {
-        return view(view: 'admin.services.list');
+        $services = Service::paginate(3);
+
+        return view(
+            view: 'admin.services.list',
+            data: compact('services')
+        );
     }
 
     /**

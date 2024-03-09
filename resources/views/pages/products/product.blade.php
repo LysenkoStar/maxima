@@ -29,6 +29,4 @@
 
 @section('extended_scripts')
     @parent
-
-    <script src="static/js/main.js"></script>
 @stop
