@@ -1,5 +1,6 @@
 import jQuery from 'jquery';
 import Alpine from 'alpinejs';
+import ClassicEditor from "./plugins/ckeditor.js";
 
 window.Alpine = Alpine;
 window.$ = jQuery;
@@ -15,5 +16,14 @@ $(window).on('load', function () {
 
 // Window ready
 $( document ).ready(function() {
-    console.log(321321321);
+
+    // initialize ckeditor
+    document.querySelectorAll('.ckeditor').forEach(element => {
+        ClassicEditor
+            .create(element)
+            .catch( error => {
+                console.error( error.stack );
+            } );
+    });
+
 });

@@ -15,6 +15,8 @@ export default defineConfig({
                 // "./resources/**/*.blade.php",
                 ...globSync('./resources/**/*.scss'),
                 ...globSync('./resources/**/*.js'),
+                ...globSync('./resources/fonts/**'),
+                ...globSync('./public/images/**'),
             ],
             refresh: true,
         }),

@@ -2,9 +2,9 @@
 
 return [
     'success' => [
-        'create' => 'Service was successfully created.',
-        'update' => 'Service was successfully updated.',
-        'delete' => 'Service was successfully deleted.',
+        'create' => 'Послугу успішно створено.',
+        'update' => 'Послугу успішно оновлено.',
+        'delete' => 'Послугу успішно видалено.',
     ],
     'error' => [
         'create' => 'Під час створення послуги виникла проблема. Будь ласка спробуйте ще раз.',

@@ -31,8 +31,13 @@
         --font-montserrat-sb: "Montserrat Semi Bold";
         --font-montserrat-b: "Montserrat Bold";
     }
+
+    html {
+        @apply h-full
+    }
+
     body {
-        @apply font-montserrat text-lg bg-darkblue-500 text-white overflow-x-hidden
+        @apply font-montserrat text-lg bg-darkblue-500 text-white overflow-x-hidden h-full
     }
 
     .section {

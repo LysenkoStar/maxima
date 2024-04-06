@@ -18,15 +18,25 @@
             </h1>
             <div class="page__content-main">
                 <div class="service">
-                    <div class="service__name">
+                    <div class="service__name mb-3">
                         <svg class="icon icon-ruler h-12 w-12 fill-lightblue-500 inline-block align-middle mr-7">
                             <use xlink:href="{{ asset('images/sprite.svg') }}#ruler"></use>
                         </svg>
-                        <h2 class="inline-block text-lightblue-500 font-montserrat_sb text-2xl">{{ $service->name }}</h2>
+                        <h2 class="inline-block text-lightblue-500 font-montserrat_sb text-2xl">{{ $service->title }}</h2>
                     </div>
                     <div class="service__content">
-                        {{ $service->short_description }}
+                        {!! $service->text !!}
                     </div>
+                    <div class="service__options mt-8">
+                        @if($service->products_link)
+                            <a href="#" class="btn btn-primary mr-6 bg-accent-500 filter" style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);">{{ __('general.buttons.View products') }}</a>
+                        @endif
+
+                        @if($service->applications_link)
+                            <a href="#" class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500">{{ __('general.buttons.Submit application') }}</a>
+                        @endif
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

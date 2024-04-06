@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 
+/**
+ * @property string $name
+ * @property string $description
+ * @property string $slug
+ * @property int product_category_id
+ * @property bool $status
+ */
 class Product extends Model
 {
     use HasTranslations;
@@ -29,8 +36,6 @@ class Product extends Model
     protected $fillable = [
         'name',
         'description',
-        'price',
-        'stock',
         'product_category_id',
         'status',
         'slug',

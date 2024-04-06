@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Products') }}
-        </h2>
+        <div class="header__block flex justify-between items-center	">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('dashboard/general.menus.Products') }}
+            </h2>
+            <a class="border-accent-500 text-accent-500 inline-block rounded-lg px-4 py-2 font-montserrat text-sm border-[1px]" href="{{ route('dashboard.products.form') }}">
+                {{ __('dashboard/general.buttons.Create') }}
+            </a>
+        </div>
     </x-slot>
 
     <div class="py-12">

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -13,6 +14,8 @@ use Spatie\Translatable\HasTranslations;
  * @property string $image
  * @property bool $status
  * @property bool $slug
+ * @property bool $products_link
+ * @property bool $applications_link
  */
 class Service extends Model
 {
@@ -40,6 +43,8 @@ class Service extends Model
         'image',
         'status',
         'slug',
+        'products_link',
+        'applications_link',
     ];
 
     /**
@@ -47,4 +52,26 @@ class Service extends Model
      * @var array
      */
     protected $guarded = [];
+
+    public static function getDefaultImageUrl(): string
+    {
+        $defaultImg = public_path('images/no_image.png');
+
+        if (file_exists($defaultImg)) {
+            $imageUrl = asset('images/no_image.png');
+        } else {
+            $imageUrl = '';
+        }
+
+        return $imageUrl;
+    }
+
+    public function getImageUrl(): string
+    {
+        if ($this->image && Storage::disk('uploads')->exists("images/$this->image")) {
+            return Storage::disk('uploads')->url("images/$this->image");
+        } else {
+            return $this::getDefaultImageUrl();
+        }
+    }
 }

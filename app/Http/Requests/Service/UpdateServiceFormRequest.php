@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Service;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateServiceFormRequest extends FormRequest
+class UpdateServiceFormRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -15,7 +15,7 @@ class CreateServiceFormRequest extends FormRequest
     public function rules(): array
     {
         $rules = collect([
-            "slug" => "required|string|max:255|unique:max_services,slug",
+            "slug" => "required|string|max:255|unique:max_services,slug," . $this->service->id,
             "image" => "image|mimes:jpeg,png,jpg,gif,svg|max:2048",
         ]);
 
