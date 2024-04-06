@@ -24,6 +24,10 @@
                         {{ __('dashboard/general.menus.Products') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('dashboard.categories')" :active="request()->routeIs('dashboard.categories')">
+                        {{ __('dashboard/general.menus.Categories') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('dashboard.applications')" :active="request()->routeIs('dashboard.applications')">
                         {{ __('dashboard/general.menus.Applications') }}
                     </x-nav-link>
@@ -111,6 +115,18 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard.home')" :active="request()->routeIs('dashboard.home')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('dashboard.services')" :active="request()->routeIs('dashboard.services')">
+                {{ __('dashboard/general.menus.Services') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('dashboard.products')" :active="request()->routeIs('dashboard.products')">
+                {{ __('dashboard/general.menus.Products') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('dashboard.applications')" :active="request()->routeIs('dashboard.applications')">
+                {{ __('dashboard/general.menus.Applications') }}
             </x-responsive-nav-link>
         </div>
 

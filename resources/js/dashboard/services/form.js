@@ -1,5 +1,3 @@
-import ClassicEditor from '../../ckeditor.js';
-
 // Window ready
 $( document ).ready(function() {
 
@@ -19,14 +17,6 @@ $( document ).ready(function() {
                 $('#slug_hidden').val(response.slug);
             }
         });
-    });
-
-    document.querySelectorAll('.ckeditor').forEach(element => {
-        ClassicEditor
-            .create(element)
-            .catch( error => {
-                console.error( error.stack );
-            } );
     });
 
     document.getElementById('image').addEventListener('change', function(event) {

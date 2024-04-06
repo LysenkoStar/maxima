@@ -50,7 +50,7 @@ Breadcrumbs::for('products.by.category', function (BreadcrumbTrail $trail, Produ
 // Service current
 Breadcrumbs::for('services.by.name', function (BreadcrumbTrail $trail, Service $service) {
     $trail->parent('services');
-    $trail->push($service->name, route('services.by.name', $service));
+    $trail->push($service->title, route('services.by.name', $service));
 });
 
 // Product

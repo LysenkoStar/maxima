@@ -3,16 +3,15 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateServiceFormRequest;
+use App\Http\Requests\Service\CreateServiceFormRequest;
+use App\Http\Requests\Service\UpdateServiceFormRequest;
 use App\Models\Service;
+use App\Services\ServiceService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 class ServiceController extends Controller
@@ -28,25 +27,7 @@ class ServiceController extends Controller
     public function store(CreateServiceFormRequest $request): RedirectResponse
     {
         try {
-            $form = $request->only(
-                'title',
-                'description',
-                'short_description',
-                'text',
-                'slug',
-                'status'
-            );
-
-            if ($request->hasFile('image')) {
-                /** @var UploadedFile $image **/
-                $image = $request->file('image');
-                $imageName = 'service_' . time() . '.' . $image->getClientOriginalExtension();
-                $image->storePubliclyAs(path: 'uploads/images', name: $imageName, options: 'public');
-
-                $form['image'] = $imageName;
-            }
-
-            Service::create($form);
+            app(ServiceService::class)->createServiceFromRequest(request: $request);
 
             return redirect()
                 ->route('dashboard.services')
@@ -55,7 +36,11 @@ class ServiceController extends Controller
                     'alert-type' => 'success',
                 ]);
         } catch (\Exception $e) {
-
+            return redirect()->route('dashboard.services')
+                ->with([
+                    'alert-message' => $e->getMessage(),
+                    'alert-type' => 'error',
+                ]);
         }
     }
 
@@ -78,44 +63,28 @@ class ServiceController extends Controller
     }
 
     /**
-     * @param CreateServiceFormRequest $request
+     * @param UpdateServiceFormRequest $request
      * @param Service $service
      * @return RedirectResponse
      */
-    public function update(CreateServiceFormRequest $request, Service $service): RedirectResponse
+    public function update(UpdateServiceFormRequest $request, Service $service): RedirectResponse
     {
-        $form = $request->only(
-            'title',
-            'description',
-            'short_description',
-            'text',
-            'slug',
-            'status'
-        );
+        try {
+            app(ServiceService::class)->updateServiceFromRequest(request: $request, service: $service);
 
-        if ($request->hasFile('image')) {
-            // Delete the old image if exists
-            if ($service->image && Storage::disk('uploads')->exists("images/$service->image")) {
-                Storage::disk('uploads')->delete("images/$service->image");
-            }
-
-            /** @var UploadedFile $image **/
-            $image = $request->file('image');
-            $imageName = 'service_' . time() . '.' . $image->getClientOriginalExtension();
-            $image->storePubliclyAs(path: 'uploads/images', name: $imageName, options: 'public');
-
-            $imgUrl = Storage::url($imageName);
-            $form['image'] = $imageName;
+            return redirect()
+                ->route('dashboard.services')
+                ->with([
+                    'alert-message' => __('dashboard/services/messages.success.update'),
+                    'alert-type' => 'success',
+                ]);
+        } catch (\Exception $e) {
+            return redirect()->route('dashboard.services')
+                ->with([
+                    'alert-message' => $e->getMessage(),
+                    'alert-type' => 'error',
+                ]);
         }
-
-        $service->fill($form);
-
-        return redirect()
-            ->route('dashboard.services')
-            ->with([
-                'alert-message' => __('dashboard/services/messages.success.update'),
-                'alert-type' => 'success',
-            ]);
     }
 
     /**
@@ -125,7 +94,7 @@ class ServiceController extends Controller
     public function delete(Service $service): RedirectResponse|Redirector
     {
         try {
-            $service->delete();
+            app(ServiceService::class)->deleteService(service: $service);
 
             return redirect()
                 ->route('dashboard.services')
@@ -150,7 +119,7 @@ class ServiceController extends Controller
                throw new \Exception(__('Undefined title'), Response::HTTP_BAD_REQUEST);
             }
 
-            $slug = Str::slug($request->get('title'), '-');
+            $slug = app(ServiceService::class)->makeServiceSlug(string: $request->get('title'));
 
             return response()->json([
                 'error' => false,

@@ -12,9 +12,7 @@ return [
         'Home' => 'Главная',
         'Products' => 'Продукция',
         'Services' => 'Услуги',
-        'About Us' => 'О нас',
-        'Payment and delivery' => 'Оплата и доставка',
-        'Contacts' => 'Контакты',
+        'Categories' => 'Категории',
         'Applications' => 'Заявки',
     ],
     'buttons' => [
@@ -27,6 +25,7 @@ return [
         'Edit' => 'Редактировать',
         'Preview' => 'Предварительный просмотр',
         'Delete' => 'Удалить',
+        'Create' => 'Создать',
     ],
 
 ];

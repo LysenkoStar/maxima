@@ -12,12 +12,15 @@ return [
     'Inactive' => 'Неактивний',
     'Preview' => 'Попередній перегляд',
 
-    'validation' => [
-        'Field is required' => 'Поле обов\'язкове',
-        'The field must be unique' => 'Поле має бути унікальним',
-        'The file must be an image' => 'Файл має бути зображенням',
-        'The image must be a file of type: :values' => 'Зображення має бути файлом типу: :values',
-        'The image may not be greater than :max kilobytes' => 'Розмір зображення не повинен перевищувати :max кілобайт',
-    ],
+    'Create' => 'Створити',
+    'Create service' => 'Створити послугу',
+    'Update' => 'Оновити',
+    'Update service' => 'Оновити послугу',
+    'Delete' => 'Видалити',
+    'Delete service' => 'Видалити послугу',
 
+    'Show products button' => 'Показати кнопку продуктів',
+    'Show products button help' => 'Показати кнопку продукції на сторінці послуг, яка веде на продукцію даної категорії',
+    'Show order button' => 'Показати кнопку замовлення',
+    'Show order button help' => 'Показати кнопку замовлення на сторінці послуг при натисканні на яку з\'явиться форма, щоб залишити заявку',
 ];

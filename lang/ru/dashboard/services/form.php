@@ -12,11 +12,15 @@ return [
     'Inactive' => 'Неактивный',
     'Preview' => 'Предварительный просмотр',
 
-    'validation' => [
-        'Field is required' => 'Обязательное поле',
-        'The field must be unique' => 'Поле должно быть уникальным',
-        'The file must be an image' => 'Файл должен быть изображением',
-        'The image must be a file of type: :values' => 'Изображение должно быть файлом типа: :values',
-        'The image may not be greater than :max kilobytes' => 'Размер изображения не должен превышать :max килобайт.',
-    ],
+    'Create' => 'Создать',
+    'Create service' => 'Создать услугу',
+    'Update' => 'Обновить',
+    'Update service' => 'Обновить услугу',
+    'Delete' => 'Delete',
+    'Delete service' => 'Удалить услугу',
+
+    'Show products button' => 'Показать кнопку продуктов',
+    'Show products button help' => 'Показать кнопку продукции на странице услуг которая ведет на продукцию данной категории',
+    'Show order button' => 'Показать кнопку заказа',
+    'Show order button help' => 'Показать кнопку заказа на странице услуг при нажатии на которую отобразится форма чтобы оставить заявку',
 ];

@@ -42,6 +42,7 @@
         "@selectize/selectize": "^0.15.2",
         "dompurify": "^3.0.9",
         "glob": "^10.3.10",
-        "jquery": "^3.7.1"
+        "jquery": "^3.7.1",
+        "sortablejs": "^1.15.2"
     }
 }

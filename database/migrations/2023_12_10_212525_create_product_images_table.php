@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('max_product_images', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger(column: 'product_id');
-            $table->string(column: 'image_path');
+            $table->string(column: 'image');
             $table->string(column: 'description', length: 255);
             $table->unsignedInteger(column: 'sort');
             $table->boolean(column: 'status')->default(value: 1);

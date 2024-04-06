@@ -15,7 +15,7 @@ class ProductImage extends Model
      */
     protected $table = 'max_product_images';
 
-    protected $fillable = ['product_id', 'image_path', 'description', 'sort', 'status'];
+    protected $fillable = ['product_id', 'image', 'description', 'sort', 'status'];
 
     public function product(): BelongsTo
     {

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string(column: 'image')->nullable();
             $table->boolean(column: 'status')->default(value: 1);
             $table->string(column: 'slug', length: 255)->unique()->nullable(false);
+            $table->boolean(column: 'products_link')->nullable(false)->default(value: 0);
+            $table->boolean(column: 'applications_link')->nullable(false)->default(value: 0);
             $table->timestamps();
         });
     }

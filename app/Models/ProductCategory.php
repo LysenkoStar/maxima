@@ -5,8 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 
+/**
+ * @property string $name
+ * @property string $description
+ * @property string $image
+ * @property bool $status
+ * @property bool $slug
+ */
 class ProductCategory extends Model
 {
     use HasTranslations;
@@ -36,5 +44,27 @@ class ProductCategory extends Model
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function getImageUrl(): string
+    {
+        if ($this->image && Storage::disk('uploads')->exists("images/$this->image")) {
+            return Storage::disk('uploads')->url("images/$this->image");
+        } else {
+            return $this::getDefaultImageUrl();
+        }
+    }
+
+    public static function getDefaultImageUrl(): string
+    {
+        $defaultImg = public_path('images/no_image.png');
+
+        if (file_exists($defaultImg)) {
+            $imageUrl = asset('images/no_image.png');
+        } else {
+            $imageUrl = '';
+        }
+
+        return $imageUrl;
     }
 }

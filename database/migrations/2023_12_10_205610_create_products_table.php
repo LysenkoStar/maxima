@@ -15,12 +15,17 @@ return new class extends Migration
             $table->id();
             $table->json(column: 'name')->nullable(false);
             $table->json(column: 'description')->nullable();
-            $table->decimal(column: 'price', total: 8, places: 2);
             $table->string(column: 'slug', length: 255)->unique()->nullable(false);
-            $table->unsignedBigInteger(column: 'stock');
-            $table->unsignedBigInteger(column: 'product_category_id');
+            $table->unsignedBigInteger(column: 'product_category_id')->nullable();
             $table->boolean(column: 'status')->default(value: 1);
             $table->timestamps();
+
+            // Define a foreign key relationship with the product categories table
+            $table
+                ->foreign(columns: 'product_category_id')
+                ->references(columns: 'id')
+                ->on(table: 'max_product_categories')
+                ->onDelete('set null');
         });
     }
 

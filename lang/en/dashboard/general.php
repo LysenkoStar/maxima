@@ -12,9 +12,8 @@ return [
         'Home' => 'Home',
         'Products' => 'Products',
         'Services' => 'Services',
-        'About Us' => 'About Us',
-        'Payment and delivery' => 'Payment and delivery',
-        'Contacts' => 'Contacts',
+        'Categories' => 'Categories',
+        'Applications' => 'Applications',
     ],
     'buttons' => [
         'Log in' => 'Log in',
@@ -26,6 +25,7 @@ return [
         'Edit' => 'Edit',
         'Preview' => 'Preview',
         'Delete' => 'Delete',
+        'Create' => 'Create',
     ],
 
 ];

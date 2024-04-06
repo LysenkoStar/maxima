@@ -12,14 +12,6 @@ return [
     'Inactive' => 'Inactive',
     'Preview' => 'Preview',
 
-    'validation' => [
-        'Field is required' => 'Field is required',
-        'The field must be unique' => 'The field must be unique',
-        'The file must be an image' => 'The file must be an image',
-        'The image must be a file of type: :values' => 'The image must be a file of type: :values',
-        'The image may not be greater than :max kilobytes' => 'The image may not be greater than :max kilobytes',
-    ],
-
     'Create' => 'Create',
     'Create service' => 'Create service',
     'Update' => 'Update',
@@ -27,4 +19,8 @@ return [
     'Delete' => 'Delete',
     'Delete service' => 'Delete service',
 
+    'Show products button' => 'Show products button',
+    'Show products button help' => 'Show a product button on the services page that leads to products of this category',
+    'Show order button' => 'Show order button',
+    'Show order button help' => 'Show an order button on the services page, when clicked, a form will be displayed to leave a request',
 ];

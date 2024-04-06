@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\CkeditorController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use \App\Http\Controllers\Dashboard\ServiceController as DashboardServiceController;
+use \App\Http\Controllers\Dashboard\ProductController as DashboardProductController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
@@ -32,14 +34,18 @@ Route::controller(PageController::class)->name('page.')->group(function () {
 });
 
 // Products
-Route::controller(ProductController::class)->name('products.')->group(function () {
-    Route::get(uri:'/products/category/{category}', action: 'productsByCategory')->name('by.category');
-    Route::get(uri:'/products/{product}', action: 'productItem')->name('item');
+Route::controller(ProductController::class)
+    ->name('products.')
+    ->group(function () {
+        Route::get(uri:'/products/category/{category}', action: 'productsByCategory')->name('by.category');
+        Route::get(uri:'/products/{product}', action: 'productItem')->name('item');
 });
 
 // Services
-Route::controller(ServiceController::class)->name('services.')->group(function () {
-    Route::get(uri:'/services/{service}', action: 'serviceByName')->name('by.name');
+Route::controller(ServiceController::class)
+    ->name('services.')
+    ->group(function () {
+        Route::get(uri:'/services/{service:slug}', action: 'serviceByName')->name('by.name');
 });
 
 // Language switcher
@@ -59,9 +65,10 @@ Route::controller(DashboardController::class)
         Route::get(uri:'/dashboard/services', action: 'services')->name('services');
         Route::get(uri:'/dashboard/products', action: 'products')->name('products');
         Route::get(uri:'/dashboard/applications', action: 'applications')->name('applications');
+        Route::get(uri:'/dashboard/categories', action: 'categories')->name('categories');
 });
 
-// Admin product page
+// Admin service page
 Route::controller(DashboardServiceController::class)
     ->name('dashboard.services.')
     ->middleware(['auth', 'verified'])
@@ -72,6 +79,32 @@ Route::controller(DashboardServiceController::class)
         Route::put('/dashboard/services/{service}', 'update')->name('update');
         Route::delete('/dashboard/services/{service}/delete', 'delete')->name('delete');
         Route::post(uri:'/dashboard/services/create-slug', action: 'createServiceSlug')->name('create.slug');
+    });
+
+// Admin product page
+Route::controller(DashboardProductController::class)
+    ->name('dashboard.products.')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get(uri:'/dashboard/products/create', action: 'form')->name('form');
+        Route::post(uri:'/dashboard/products/store', action: 'store')->name('store');
+        Route::get(uri:'/dashboard/products/{product}/edit', action: 'edit')->name('edit');
+        Route::put('/dashboard/products/{product}', 'update')->name('update');
+        Route::delete('/dashboard/products/{product}/delete', 'delete')->name('delete');
+        Route::post(uri:'/dashboard/products/create-slug', action: 'createServiceSlug')->name('create.slug');
+    });
+
+// Admin category page
+Route::controller(CategoryController::class)
+    ->name('dashboard.category.')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get(uri:'/dashboard/categories/create', action: 'form')->name('form');
+        Route::post(uri:'/dashboard/categories/store', action: 'store')->name('store');
+        Route::get(uri:'/dashboard/categories/{category}/edit', action: 'edit')->name('edit');
+        Route::put('/dashboard/categories/{category}', 'update')->name('update');
+        Route::delete('/dashboard/categories/{category}/delete', 'delete')->name('delete');
+        Route::post(uri:'/dashboard/categories/create-slug', action: 'createServiceSlug')->name('create.slug');
     });
 
 // Admin ckeditor controller
