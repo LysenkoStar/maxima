@@ -38,6 +38,14 @@ $( document ).ready(function() {
     function deleteImage(element) {
         let toRemove = element.parentElement;
         toRemove.parentNode.removeChild(toRemove);
+
+        console.log(uploadFiles, element);
+
+
+        if (uploadFiles.length <= 0) {
+            console.log(111111111);
+            previewBlockState(false);
+        }
     }
 
     function previewBlockState(show) {
@@ -54,6 +62,7 @@ $( document ).ready(function() {
     }
 
     function updatePreviewFiles() {
+        console.log('updatePreviewFiles');
         if (!uploadFiles.length) {
             previewBlockState(false);
             return;
