@@ -21,8 +21,15 @@
                     </h1>
                     <p class="mb-6 max-w-xl text-base font-light text-white md:text-lg">{{ __('pages/home.High-quality products') }}</p>
 
-                    <a href="#" class="btn btn-primary mr-6 bg-accent-500 filter" style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);">{{ __('general.buttons.View products') }}</a>
-                    <a href="#" class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500">{{ __('general.buttons.Submit application') }}</a>
+                    <a href="{{ route('page.products') }}"
+                       class="btn btn-primary mr-6 bg-accent-500 filter"
+                       style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);">
+                        {{ __('general.buttons.View products') }}
+                    </a>
+                    <a href="{{ route('page.contacts') }}#contact-form"
+                       class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500">
+                        {{ __('general.buttons.Submit application') }}
+                    </a>
                 </div>
             </div>
         </div>
@@ -209,8 +216,21 @@
                 <p>Lorem ipsum — классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Является искажённым отрывком из философского трактата Марка Туллия Цицерона «О пределах добра и зла», написанного в 45 году до н. э. на латинском языке, обнаружение сходства приписывается Ричарду МакКлинтоку[1].</p>
             </div>
             <div class="delivery__action text-white mt-10 text-center sm:text-left">
-                <a class="btn btn-primary mr-6 bg-accent-500 filter" style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);" href="#" role="button" rel="nofollow" target="_blank">{{ __('general.buttons.View products') }}</a>
-                <a class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500" href="#" role="button" rel="nofollow" target="_blank">{{ __('general.buttons.Submit application') }}</a>
+                <a href="{{ route('page.products') }}"
+                   class="btn btn-primary mr-6 bg-accent-500 filter"
+                   style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);"
+                   role="button"
+                   rel="nofollow"
+                   target="_blank">
+                    {{ __('general.buttons.View products') }}
+                </a>
+                <a href="{{ route('page.contacts') }}#contact-form"
+                   class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500"
+                   role="button"
+                   rel="nofollow"
+                   target="_blank">
+                    {{ __('general.buttons.Submit application') }}
+                </a>
             </div>
         </div>
     </div>

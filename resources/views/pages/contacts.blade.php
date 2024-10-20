@@ -2,6 +2,11 @@
 
 @section('title', __('general.menus.Contacts'))
 
+@section('extended_scripts')
+    @parent
+    @vite([ 'resources/js/pages/contact.js' ])
+@stop
+
 @section('extended_styles')
     @parent
 @show
@@ -41,7 +46,7 @@
                             <h6>{{ __('general.Email') }}:</h6>
                         </div>
                         <div class="font-open_sans text-silver-800 md:text-base lg:text-lg">
-                            <a class="" href="mailto:npomaxima@mail.ru">npomaxima@mail.ru</a>
+                            <a class="" href="mailto:npomaxima@gmail.com">npomaxima@gmail.com</a>
                         </div>
                     </div>
                     <div class="basis-full sm:basis-1/2 md:basis-1/4">
@@ -54,70 +59,107 @@
                     </div>
                 </div>
 
-                <div class="page__contact-form">
+                <div class="page__contact-form" id="contact-form">
                     <h2 class="mb-12 font-montserrat_b text-3xl text-silver-800 sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-4xl">
                         {{ __('pages/contacts.Send us a request') }}
                     </h2>
-                    <form method="POST" action="/profile">
+                    <form action="{{ route('applications.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mt-10 grid gap-x-6 gap-y-8 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-4">
                             <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1">
-                                <label for="first-name" class="block text-base font-montserrat leading-6 text-silver-800">
+                                <label for="name" class="block text-base font-montserrat leading-6 text-silver-800">
                                     {{ __('pages/contacts.Name') }}
+                                    <sup>*</sup>
                                 </label>
                                 <div class="mt-2">
                                     <input type="text"
-                                           name="first-name"
-                                           id="first-name"
-                                           autocomplete="given-name"
-                                           class="block w-full rounded border-[1px] border-silver-800 bg-transparent p-2 text-sm outline-none focus:border-lightblue-500">
+                                           name="name"
+                                           id="name"
+                                           autocomplete="name"
+                                           class="block w-full rounded border-[1px] border-silver-800 bg-transparent p-2 text-sm outline-none focus:border-lightblue-500"
+                                           value="{{ old('name') }}"
+                                           required>
                                 </div>
+                                @error('name')
+                                    <div class="mt-1 text-xs text-accent-500">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1">
                                 <label for="phone" class="block text-base font-montserrat leading-6 text-silver-800">
                                     {{ __('pages/contacts.Phone') }}
+                                    <sup>*</sup>
                                 </label>
                                 <div class="mt-2">
                                     <input type="text"
                                            name="phone"
                                            id="phone"
-                                           autocomplete="given-name"
-                                           class="block w-full rounded border-[1px] border-silver-800 bg-transparent p-2 text-sm outline-none focus:border-lightblue-500">
+                                           autocomplete="phone"
+                                           class="block w-full rounded border-[1px] border-silver-800 bg-transparent p-2 text-sm outline-none focus:border-lightblue-500"
+                                           value="{{ old('phone') }}"
+                                           required>
                                 </div>
+                                @error('phone')
+                                    <div class="mt-1 text-xs text-accent-500">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1">
                                 <label for="email" class="block text-base font-montserrat leading-6 text-silver-800">
                                     {{ __('pages/contacts.Email') }}
+                                    <sup>*</sup>
                                 </label>
                                 <div class="mt-2">
                                     <input type="email"
                                            name="email"
                                            id="email"
-                                           autocomplete="given-name"
-                                           class="block w-full rounded border-[1px] border-silver-800 bg-transparent p-2 text-sm outline-none focus:border-lightblue-500">
+                                           autocomplete="email"
+                                           class="block w-full rounded border-[1px] border-silver-800 bg-transparent p-2 text-sm outline-none focus:border-lightblue-500"
+                                           value="{{ old('email') }}"
+                                           required>
                                 </div>
+                                @error('email')
+                                    <div class="mt-1 text-xs text-accent-500">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-2">
                                 <label for="message" class="block text-base font-montserrat leading-6 text-silver-800">
                                     {{ __('pages/contacts.Message') }}
+                                    <sup>*</sup>
                                 </label>
                                 <div class="mt-2">
-                                    <textarea id="message" name="message" rows="3" class="block w-full rounded border-[1px] border-silver-800 bg-transparent p-2 text-sm outline-none focus:border-lightblue-500"></textarea>
+                                    <textarea id="message" name="message" rows="3" class="block w-full rounded border-[1px] border-silver-800 bg-transparent p-2 text-sm outline-none focus:border-lightblue-500" required>{{ old('message') }}</textarea>
                                 </div>
                                 <p class="mt-3 text-xl font-montserrat italic text-silver-800">* - {{ __('pages/contacts.Required fields') }}</p>
                             </div>
-                            <div class="sm:col-span-1 md:col-span-2 lg:col-span-1 flex items-center">
-                                <label for="fileInput" class="block cursor-pointer text-base font-montserrat leading-6 text-silver-800 hover:text-lightblue-500">
+                            <div class="sm:col-span-1 md:col-span-2 lg:col-span-1 flex flex-col justify-center">
+                                <label for="filesInput" class="block cursor-pointer text-base font-montserrat leading-6 text-silver-800 hover:text-lightblue-500">
                                     <svg class="icon icon-clip h-9 w-9 fill-silver-800 inline-block">
                                         <use xlink:href="{{ asset('images/sprite.svg') }}#clip"></use>
                                     </svg>
                                     {{ __('pages/contacts.Attach file') }}
                                 </label>
-                                <input type="file" id="fileInput" name="fileInput" class="hidden">
+                                <input type="file" id="filesInput" name="files[]" class="hidden" multiple>
+
+                                <!-- Box for show selected files -->
+                                <div id="filesList" class="mt-4 text-xs font-montserrat text-silver-800 w-full"></div>
+
+                                @error('files.*')
+                                    <div class="mt-1 text-xs text-accent-500">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
+
                             <div class="col-span-2 text-center lg:text-left">
-                                <button type="submit" class="btn btn-outline font-montserrat_b text-base bg-accent-500 border-accent-500 text-accent-500" style="box-shadow: 0 8px 20px 0 rgba(255, 148, 0, 0.2);">
+                                <button type="submit"
+                                        class="btn btn-outline font-montserrat_b text-base bg-accent-500 border-accent-500 text-accent-500"
+                                        style="box-shadow: 0 8px 20px 0 rgba(255, 148, 0, 0.2);">
                                     {{ __('general.buttons.Submit application') }}
                                 </button>
                             </div>

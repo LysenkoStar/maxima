@@ -40,7 +40,6 @@ class ProductController extends Controller
     public function store(CreateProductFormRequest $request): RedirectResponse
     {
         try {
-            dd($request);
             app(ProductService::class)->createProductFromRequest(request: $request);
 
             return redirect()

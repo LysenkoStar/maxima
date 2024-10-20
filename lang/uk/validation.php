@@ -89,19 +89,19 @@ return [
     ],
     'mac_address' => 'The :attribute field must be a valid MAC address.',
     'max' => [
-        'array' => 'The :attribute field must not have more than :max items.',
-        'file' => 'The :attribute field must not be greater than :max kilobytes.',
-        'numeric' => 'The :attribute field must not be greater than :max.',
-        'string' => 'The :attribute field must not be greater than :max characters.',
+        'array' => 'Поле :attribute не повинно містити більше ніж :max елементів.',
+        'file' => 'Поле :attribute не має перевищувати :max кілобайт.',
+        'numeric' => 'Поле :attribute не має перевищувати :max.',
+        'string' => 'Поле :attribute не має перевищувати :max символів.',
     ],
-    'max_digits' => 'The :attribute field must not have more than :max digits.',
-    'mimes' => 'The :attribute field must be a file of type: :values.',
-    'mimetypes' => 'The :attribute field must be a file of type: :values.',
+    'max_digits' => 'Поле :attribute не повинно містити більше ніж :max цифр.',
+    'mimes' => 'Поле :attribute має бути файлом типу: :values.',
+    'mimetypes' => 'Поле :attribute має бути файлом типу: :values.',
     'min' => [
-        'array' => 'The :attribute field must have at least :min items.',
-        'file' => 'The :attribute field must be at least :min kilobytes.',
-        'numeric' => 'The :attribute field must be at least :min.',
-        'string' => 'The :attribute field must be at least :min characters.',
+        'array' => 'Поле :attribute має містити принаймні :min елементів.',
+        'file' => 'Поле :attribute має бути принаймні :min кілобайт.',
+        'numeric' => 'Поле :attribute має бути не менше :min.',
+        'string' => 'Поле :attribute має містити принаймні :min символів.',
     ],
     'min_digits' => 'The :attribute field must have at least :min digits.',
     'missing' => 'The :attribute field must be missing.',
@@ -190,7 +190,7 @@ return [
    */
 
     'phone' => [
-        'regex' => 'The field must be in the format :format'
+        'regex' => 'Поле має бути у форматі :format'
     ],
 
 ];

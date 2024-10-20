@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\CkeditorController;
 use App\Http\Controllers\Dashboard\DashboardController;
@@ -47,6 +48,13 @@ Route::controller(ServiceController::class)
     ->group(function () {
         Route::get(uri:'/services/{service:slug}', action: 'serviceByName')->name('by.name');
 });
+
+// Applications
+Route::controller(ApplicationController::class)
+    ->name('applications.')
+    ->group(function () {
+        Route::post(uri:'/applications/store', action: 'submitForm')->name('store');
+    });
 
 // Language switcher
 Route::get(

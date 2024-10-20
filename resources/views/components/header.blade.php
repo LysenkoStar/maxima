@@ -39,8 +39,8 @@
                 <label class="relative">
                     <input
                         type="text"
-                        class="w-full border-b bg-transparent bg-[url('../../public/images/icon_search.svg')] bg-auto border-none bg-left bg-no-repeat px-6 py-2 font-open_sans text-xs focus:outline-none focus:shadow-none focus:ring-offset-transparent"
-                        style="background-size: 16px 16px"
+                        class="w-full border-b bg-transparent bg-[url('../../public/images/icon_search.svg')] bg-auto border-none bg-left bg-no-repeat px-6 py-2 font-open_sans text-sm focus:outline-none focus:shadow-none focus:ring-offset-transparent"
+                        style="background-size: 16px 16px; box-shadow: none;"
                         placeholder="{{ __('general.Search') }}" />
                 </label>
             </div>
