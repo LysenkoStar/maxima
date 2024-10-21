@@ -9,6 +9,7 @@ use \App\Http\Controllers\Dashboard\ProductController as DashboardProductControl
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -63,6 +64,11 @@ Route::get(
     )
     ->name(name: 'lang.switch')
     ->whereIn(parameters: 'lang', values: ['en', 'ru', 'uk']);
+
+// Search
+Route::get(uri: '/search', action: [SearchController::class, 'search'])
+    ->name('search');
+
 
 // Admin page
 Route::controller(DashboardController::class)

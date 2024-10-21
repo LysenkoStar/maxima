@@ -126,6 +126,7 @@ return [
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
     'regex' => 'The :attribute field format is invalid.',
+    'regex_format' => 'The :attribute field must be in the format :format.',
     'required' => 'The :attribute field is required.',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
@@ -180,7 +181,16 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => collect(config('app.available_locales'))
+        ->mapWithKeys(function ($lang, $locale) {
+            return [
+                "name.{$locale}" => "title ({$lang})",
+                "description.{$locale}" => "description ({$lang})",
+                "slug" => "slug",
+            ];
+
+        })
+        ->toArray(),
 
     /*
    |--------------------------------------------------------------------------
@@ -189,8 +199,6 @@ return [
    |
    */
 
-    'phone' => [
-        'regex' => 'The field must be in the format :format'
-    ],
+    'correct_errors' => 'Please correct the following errors',
 
 ];

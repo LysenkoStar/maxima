@@ -66,7 +66,7 @@ return [
         'numeric' => 'The :attribute field must be greater than or equal to :value.',
         'string' => 'The :attribute field must be greater than or equal to :value characters.',
     ],
-    'image' => 'The :attribute field must be an image.',
+    'image' => 'Поле :attribute должно быть изображением.',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field must exist in :other.',
     'integer' => 'The :attribute field must be an integer.',
@@ -126,6 +126,7 @@ return [
     'prohibited_unless' => 'Поле :attribute запрещено, если только :other не находится в :values.',
     'prohibits' => 'Поле :attribute запрещает присутствие :other.',
     'regex' => 'Недопустимый формат поля :attribute.',
+    'regex_format' => 'Поле :attribute должно иметь формат :format.',
     'required' => 'Поле :attribute является обязательным.',
     'required_array_keys' => 'Поле :attribute должно содержать записи для: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
@@ -145,7 +146,7 @@ return [
     'starts_with' => 'The :attribute field must start with one of the following: :values.',
     'string' => 'The :attribute field must be a string.',
     'timezone' => 'The :attribute field must be a valid timezone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => 'Поле :attribute должно быть уникальным.',
     'uploaded' => 'The :attribute failed to upload.',
     'uppercase' => 'The :attribute field must be uppercase.',
     'url' => 'The :attribute field must be a valid URL.',
@@ -180,7 +181,16 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => collect(config('app.available_locales'))
+        ->mapWithKeys(function ($lang, $locale) {
+            return [
+                "name.{$locale}" => "название ({$lang})",
+                "description.{$locale}" => "описание ({$lang})",
+                "slug" => "ссылка",
+            ];
+
+        })
+        ->toArray(),
 
     /*
    |--------------------------------------------------------------------------
@@ -189,8 +199,6 @@ return [
    |
    */
 
-    'phone' => [
-        'regex' => 'Поле должно быть в формате :format'
-    ],
+    'correct_errors' => 'Пожалуйста, исправьте следующие ошибки',
 
 ];

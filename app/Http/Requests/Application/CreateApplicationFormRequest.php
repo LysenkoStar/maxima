@@ -34,7 +34,7 @@ use Illuminate\Foundation\Http\FormRequest;
     public function messages(): array
     {
         $messages = collect([
-            "phone.regex" => __(key: "validation.phone.regex", replace: ['format' => '+380 ** *** ** **']),
+            "phone.regex" => __(key: "validation.regex_format", replace: ['format' => '+380 ** *** ** **']),
             "files.*.mimes" => __(key: "validation.mimes", replace:  ['attribute' => __('file')]),
             "files.*.max" => __(key: "validation.max.file"),
         ]);

@@ -59,7 +59,7 @@
 
                                         @error("name.$key")
                                         <small class="text-accent-500 font-montserrat italic">
-                                            {{ __('dashboard/validation.'.$message) }}
+                                            {{ $message }}
                                         </small>
                                         @enderror
                                     </div>
@@ -77,7 +77,7 @@
 
                                         @error("description.$key")
                                         <small class="text-accent-500 font-montserrat italic">
-                                            {{ __('dashboard/validation.'.$message) }}
+                                            {{ $message }}
                                         </small>
                                         @enderror
                                     </div>
@@ -114,7 +114,7 @@
 
                                 @error("image")
                                 <small class="text-accent-500 font-montserrat italic">
-                                    {{ __('dashboard/validation.'.$message) }}
+                                    {{ $message }}
                                 </small>
                                 @enderror
                             </div>
@@ -139,7 +139,7 @@
 
                             @error("slug")
                             <small class="text-accent-500 font-montserrat italic">
-                                {{ __('dashboard/validation.'.$message) }}
+                                {{ $message }}
                             </small>
                             @enderror
                         </div>

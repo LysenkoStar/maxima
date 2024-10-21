@@ -35,17 +35,17 @@ class CreateCategoryFormRequest extends FormRequest
     public function messages(): array
     {
         $messages = collect([
-            "slug.unique" => "The field must be unique",
-            "slug.required" => "Field is required",
-            "image.image" => "The file must be an image",
-            "image.mimes" => "The image must be a file of type: :values",
-            "image.max" => "The image may not be greater than :max kilobytes",
+            "slug.unique" => __(key: 'validation.unique'),
+            "slug.required" => __(key: 'validation.required'),
+            "image.image" => __(key: 'validation.image'),
+            "image.mimes" => __(key: 'validation.mimes'),
+            "image.max" => __(key: 'validation.max.file'),
         ]);
 
         foreach (config('app.available_locales') as $key => $locale) {
             $messages = $messages->merge([
-                "name.{$key}.required" => 'Field is required',
-                "description.{$key}.required" => 'Field is required',
+                "name.{$key}.required" => __(key: 'validation.required'),
+                "description.{$key}.required" => __(key: 'validation.required'),
             ]);
         }
 
