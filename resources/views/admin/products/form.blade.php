@@ -58,9 +58,9 @@
                                                class="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
 
                                         @error("name.$key")
-                                        <small class="text-accent-500 font-montserrat italic">
-                                            {{ __('dashboard/validation.'.$message) }}
-                                        </small>
+                                            <small class="text-accent-500 font-montserrat italic">
+                                                {{ $message }}
+                                            </small>
                                         @enderror
                                     </div>
 
@@ -76,9 +76,9 @@
                                                   class="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ckeditor">{{ old('description.'.$key, isset($product) ? optional($product)->getTranslation('description', $key) : '') }}</textarea>
 
                                         @error("description.$key")
-                                        <small class="text-accent-500 font-montserrat italic">
-                                            {{ __('dashboard/validation.'.$message) }}
-                                        </small>
+                                            <small class="text-accent-500 font-montserrat italic">
+                                                {{ $message }}
+                                            </small>
                                         @enderror
                                     </div>
                                 </div>
@@ -99,6 +99,11 @@
                                     @endforeach
                                 @endif
                             </select>
+                            @error("product_category_id")
+                                <small class="text-accent-500 font-montserrat italic">
+                                    {{ $message }}
+                                </small>
+                            @enderror
                         </div>
 
                         <!-- Image Field -->
@@ -185,6 +190,11 @@
                                     </div>
                                 </div>
                             </div>
+                            @error("images.*")
+                                <small class="text-accent-500 font-montserrat italic">
+                                    {{ $message }}
+                                </small>
+                            @enderror
                         </section>
 
                         <!-- Slug Field (Disabled) -->
@@ -205,9 +215,9 @@
                                    value="{{ old('slug', isset($product) ? optional($product)->slug : null) }}">
 
                             @error("slug")
-                            <small class="text-accent-500 font-montserrat italic">
-                                {{ __('dashboard/validation.'.$message) }}
-                            </small>
+                                <small class="text-accent-500 font-montserrat italic">
+                                    {{ $message }}
+                                </small>
                             @enderror
                         </div>
 

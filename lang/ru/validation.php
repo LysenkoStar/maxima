@@ -45,15 +45,15 @@ return [
     'digits' => 'The :attribute field must be :digits digits.',
     'digits_between' => 'The :attribute field must be between :min and :max digits.',
     'dimensions' => 'The :attribute field has invalid image dimensions.',
-    'distinct' => 'The :attribute field has a duplicate value.',
-    'doesnt_end_with' => 'The :attribute field must not end with one of the following: :values.',
-    'doesnt_start_with' => 'The :attribute field must not start with one of the following: :values.',
-    'email' => 'The :attribute field must be a valid email address.',
-    'ends_with' => 'The :attribute field must end with one of the following: :values.',
-    'enum' => 'The selected :attribute is invalid.',
-    'exists' => 'The selected :attribute is invalid.',
-    'file' => 'The :attribute field must be a file.',
-    'filled' => 'The :attribute field must have a value.',
+    'distinct' => 'Поле :attribute имеет повторяющееся значение.',
+    'doesnt_end_with' => 'Поле :attribute не должно заканчиваться одним из следующих: :values.',
+    'doesnt_start_with' => 'Поле :attribute не должно начинаться с одного из следующих: :values.',
+    'email' => 'Поле :attribute должно содержать действительный адрес электронной почты.',
+    'ends_with' => 'Поле :attribute должно заканчиваться одним из следующих значений: :values.',
+    'enum' => 'Выбранный :attribute недействителен.',
+    'exists' => 'Выбранный :attribute недействителен.',
+    'file' => 'Поле :attribute должно быть файлом.',
+    'filled' => 'Поле :attribute должно иметь значение.',
     'gt' => [
         'array' => 'The :attribute field must have more than :value items.',
         'file' => 'The :attribute field must be greater than :value kilobytes.',
@@ -187,6 +187,7 @@ return [
                 "name.{$locale}" => "название ({$lang})",
                 "description.{$locale}" => "описание ({$lang})",
                 "slug" => "ссылка",
+                "product_category_id" => "категория продукта",
             ];
 
         })

@@ -50,15 +50,15 @@ return [
     'doesnt_start_with' => 'Поле :attribute не має починатися з одного з наступного: :values.',
     'email' => 'Поле :attribute має бути дійсною електронною адресою.',
     'ends_with' => 'Поле :attribute має закінчуватися одним із таких: :values.',
-    'enum' => 'The selected :attribute is invalid.',
-    'exists' => 'The selected :attribute is invalid.',
-    'file' => 'The :attribute field must be a file.',
-    'filled' => 'The :attribute field must have a value.',
+    'enum' => 'Вибраний :attribute недійсний.',
+    'exists' => 'Вибраний :attribute недійсний.',
+    'file' => 'Поле :attribute має бути файлом.',
+    'filled' => 'Поле :attribute має містити значення.',
     'gt' => [
-        'array' => 'The :attribute field must have more than :value items.',
-        'file' => 'The :attribute field must be greater than :value kilobytes.',
-        'numeric' => 'The :attribute field must be greater than :value.',
-        'string' => 'The :attribute field must be greater than :value characters.',
+        'array' => 'Поле :attribute має містити більше елементів :value.',
+        'file' => 'Поле :attribute має бути більшим за :value кілобайт.',
+        'numeric' => 'Поле :attribute має бути більшим за :value.',
+        'string' => 'Поле :attribute має містити більше символів, ніж :value.',
     ],
     'gte' => [
         'array' => 'The :attribute field must have :value items or more.',
@@ -187,6 +187,7 @@ return [
                 "name.{$locale}" => "назва ({$lang})",
                 "description.{$locale}" => "опис ({$lang})",
                 "slug" => "посилання",
+                "product_category_id" => "категорія товару",
             ];
 
         })

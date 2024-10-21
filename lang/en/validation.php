@@ -187,6 +187,7 @@ return [
                 "name.{$locale}" => "title ({$lang})",
                 "description.{$locale}" => "description ({$lang})",
                 "slug" => "slug",
+                "product_category_id" => "product category",
             ];
 
         })
