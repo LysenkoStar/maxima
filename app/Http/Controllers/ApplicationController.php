@@ -20,7 +20,7 @@ class ApplicationController extends Controller
                 ->back()
                 ->with(
                     key: 'success',
-                    value: __('dashboard/services/messages.success.create')
+                    value: __('messages.application.success.create')
                 );
         } catch (ValidationException $e) {
             return redirect()
@@ -29,7 +29,7 @@ class ApplicationController extends Controller
                 ->withInput();
         } catch (Exception $e) {
             Log::error(
-                message: 'Error creating contact',
+                message: 'Error creating application',
                 context: [
                     'message' => $e->getMessage(),
                     'trace' => $e->getTraceAsString(),
@@ -38,10 +38,10 @@ class ApplicationController extends Controller
 
             return redirect()
                 ->route('page.contacts')
-                ->with(key: [
-                    'alert-message' => $e->getMessage(),
-                    'alert-type' => 'error',
-                ]);
+                ->with(
+                    key: 'error',
+                    value: __('messages.application.error.create')
+                );
         }
     }
 }

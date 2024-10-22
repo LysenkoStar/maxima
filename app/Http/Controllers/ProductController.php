@@ -40,10 +40,10 @@ class ProductController extends Controller
         } catch (Exception $e) {
             return redirect()
                 ->route('page.products')
-                ->with([
-                    'alert-message' => $e->getMessage(),
-                    'alert-type' => 'error',
-                ]);
+                ->with(
+                    key: 'error',
+                    value: $e->getMessage(),
+                );
         }
     }
 
@@ -66,10 +66,10 @@ class ProductController extends Controller
         } catch (Exception $e) {
             return redirect()
                 ->back()
-                ->with([
-                    'alert-message' => $e->getMessage(),
-                    'alert-type' => 'error',
-                ]);
+                ->with(
+                    key: 'error',
+                    value: $e->getMessage(),
+                );
         }
     }
 }

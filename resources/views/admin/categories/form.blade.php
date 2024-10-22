@@ -6,7 +6,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ isset($category) ? __('dashboard/categories/form.Update category') : __('dashboard/categories/form.Create category') }}
+            {{ isset($category) ? __('dashboard/categories/form.action.update_category') : __('dashboard/categories/form.action.create_category') }}
         </h2>
     </x-slot>
 
@@ -48,7 +48,7 @@
                                     <div class="mb-2">
                                         <label for="name_{{$key}}"
                                                class="block text-sm font-medium text-gray-700">
-                                            {{ __('dashboard/services/form.Title') }}
+                                            {{ __('dashboard/services/form.field.title') }}
                                         </label>
 
                                         <input type="text"
@@ -68,7 +68,7 @@
                                     <div class="mb-2">
                                         <label for="description_{{$key}}"
                                                class="block text-sm font-medium text-gray-700">
-                                            {{ __('dashboard/services/form.Description') }}
+                                            {{ __('dashboard/services/form.field.descr') }}
                                         </label>
                                         <textarea id="description_{{$key}}"
                                                   name="description[{{$key}}]"
@@ -91,7 +91,7 @@
                             <!-- Image preview -->
                             <div class="col-span-1">
                                 <label for="imagePreview" class="block text-sm font-medium text-gray-700">
-                                    {{ __('dashboard/services/form.Preview') }}
+                                    {{ __('dashboard/services/form.field.preview') }}
                                 </label>
                                 <div class="image_container w-80 h-80 flex justify-center items-center">
                                     <img id="imagePreview"
@@ -104,7 +104,7 @@
 
                             <div class="col-span-2">
                                 <label for="image" class="block text-sm font-medium text-gray-700">
-                                    {{ __('dashboard/services/form.Image') }}
+                                    {{ __('dashboard/services/form.field.image') }}
                                 </label>
                                 <input type="file"
                                        id="image"
@@ -123,7 +123,7 @@
                         <!-- Slug Field (Disabled) -->
                         <div class="mb-2">
                             <label for="slug" class="block text-sm font-medium text-gray-700">
-                                {{ __('dashboard/services/form.Slug') }}
+                                {{ __('dashboard/services/form.field.slug') }}
                             </label>
                             <input type="text"
                                    id="slug"
@@ -147,18 +147,18 @@
                         <!-- Status Field -->
                         <div class="mb-4">
                             <label for="status" class="block text-sm font-medium text-gray-700">
-                                {{ __('dashboard/services/form.Status') }}
+                                {{ __('dashboard/services/form.field.status') }}
                             </label>
                             <select id="status"
                                     name="status"
                                     class="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                 <option value="1"
                                     @selected(old('status', isset($category) ? optional($category)->status : null) === 1)>
-                                    {{ __('dashboard/services/form.Active') }}
+                                    {{ __('dashboard/services/form.field.active') }}
                                 </option>
                                 <option value="0"
                                     @selected(old('status', isset($category) ? optional($category)->status : null) === 0)>
-                                    {{ __('dashboard/services/form.Inactive') }}
+                                    {{ __('dashboard/services/form.field.inactive') }}
                                 </option>
                             </select>
                         </div>
@@ -166,7 +166,7 @@
                         <!-- Submit Button -->
                         <button type="submit"
                                 class="border-accent-500 text-accent-500 inline-block rounded-lg px-4 py-2 font-montserrat text-sm border-[1px]">
-                            {{ __("dashboard/general.buttons.Save") }}
+                            {{ __("dashboard/general.button.save") }}
                         </button>
                     </div>
                 </form>

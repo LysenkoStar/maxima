@@ -1,13 +1,13 @@
 <div x-data="{ open: true }"
      x-show="open"
      @class([
-        'alert-success' => $type === 'success',
-        'alert-error' => $type === 'error',
+        'alert-success' => session('success'),
+        'alert-error' => session('error'),
         'alert',
         'font-open_sans',
      ])
 >
-    <p>{{ $message }}</p>
+    <p>{{ session('success') ?? session('error') }}</p>
     <button type="button"
             class="close"
             data-dismiss="alert"

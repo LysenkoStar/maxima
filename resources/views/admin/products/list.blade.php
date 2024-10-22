@@ -2,10 +2,10 @@
     <x-slot name="header">
         <div class="header__block flex justify-between items-center	">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('dashboard/general.menus.Products') }}
+                {{ __('dashboard/general.menu.products') }}
             </h2>
             <a class="border-accent-500 text-accent-500 inline-block rounded-lg px-4 py-2 font-montserrat text-sm border-[1px]" href="{{ route('dashboard.products.form') }}">
-                {{ __('dashboard/general.buttons.Create') }}
+                {{ __('dashboard/general.button.create') }}
             </a>
         </div>
     </x-slot>

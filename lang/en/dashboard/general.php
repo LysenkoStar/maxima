@@ -8,24 +8,36 @@ return [
         'Russian' => 'Russian',
         'Ukraine' => 'Ukraine',
     ],
-    'menus' => [
-        'Home' => 'Home',
-        'Products' => 'Products',
-        'Services' => 'Services',
-        'Categories' => 'Categories',
-        'Applications' => 'Applications',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Menus
+    |--------------------------------------------------------------------------
+    */
+    'menu' => [
+        'home'         => 'Home',
+        'products'     => 'Products',
+        'services'     => 'Services',
+        'categories'   => 'Categories',
+        'applications' => 'Applications',
     ],
-    'buttons' => [
-        'Log in' => 'Log in',
-        'Log Out' => 'Log Out',
-        'Profile' => 'Profile',
-        'View products' => 'View products',
-        'Submit application' => 'Submit your application',
-        'Save' => 'Save',
-        'Edit' => 'Edit',
-        'Preview' => 'Preview',
-        'Delete' => 'Delete',
-        'Create' => 'Create',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Buttons
+    |--------------------------------------------------------------------------
+    */
+    'button' => [
+        'log_in'             => 'Log in',
+        'log_out'            => 'Log Out',
+        'profile'            => 'Profile',
+        'view_products'      => 'View products',
+        'submit_application' => 'Submit your application',
+        'save'               => 'Save',
+        'edit'               => 'Edit',
+        'preview'            => 'Preview',
+        'delete'             => 'Delete',
+        'create'             => 'Create',
     ],
 
 ];

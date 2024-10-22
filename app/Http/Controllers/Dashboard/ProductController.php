@@ -44,16 +44,17 @@ class ProductController extends Controller
 
             return redirect()
                 ->route('dashboard.products')
-                ->with([
-                    'alert-message' => __('dashboard/services/messages.success.create'),
-                    'alert-type' => 'success',
-                ]);
+                ->with(
+                    key: 'success',
+                    value: __('dashboard/services/messages.success.create')
+                );
         } catch (\Exception $e) {
-            return redirect()->route('dashboard.products')
-                ->with([
-                    'alert-message' => $e->getMessage(),
-                    'alert-type' => 'error',
-                ]);
+            return redirect()
+                ->route('dashboard.products')
+                ->with(
+                    key: 'error',
+                    value: $e->getMessage()
+                );
         }
     }
 
@@ -87,16 +88,17 @@ class ProductController extends Controller
 
             return redirect()
                 ->route('dashboard.products')
-                ->with([
-                    'alert-message' => __('dashboard/services/messages.success.update'),
-                    'alert-type' => 'success',
-                ]);
+                ->with(
+                    key: 'success',
+                    value: __('dashboard/services/messages.success.update'),
+                );
         } catch (\Exception $e) {
-            return redirect()->route('dashboard.products')
-                ->with([
-                    'alert-message' => $e->getMessage(),
-                    'alert-type' => 'error',
-                ]);
+            return redirect()
+                ->route('dashboard.products')
+                ->with(
+                    key: 'error',
+                    value: $e->getMessage(),
+                );
         }
     }
 
@@ -111,17 +113,17 @@ class ProductController extends Controller
 
             return redirect()
                 ->route('dashboard.products')
-                ->with([
-                    'alert-message' => __('dashboard/services/messages.success.delete'),
-                    'alert-type' => 'success',
-                ]);
+                ->with(
+                    key: 'success',
+                    value: __('dashboard/services/messages.success.delete'),
+                );
         } catch (\Exception $e) {
             return redirect()
                 ->route('dashboard.products')
-                ->with([
-                    'alert-message' => $e->getMessage(),
-                    'alert-type' => 'error',
-                ]);
+                ->with(
+                    key: 'error',
+                    value: $e->getMessage(),
+                );
         }
     }
 

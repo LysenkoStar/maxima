@@ -1,26 +1,51 @@
 <?php
 
 return [
-    'Title' => 'Title',
-    'Description' => 'Description',
-    'Short Description' => 'Short Description',
-    'Text' => 'Text',
-    'Image' => 'Image',
-    'Slug' => 'Slug',
-    'Status' => 'Status',
-    'Active' => 'Active',
-    'Inactive' => 'Inactive',
-    'Preview' => 'Preview',
+    /*
+    |--------------------------------------------------------------------------
+    | Form fields
+    |--------------------------------------------------------------------------
+    */
+    'field' => [
+        'title'       => 'Title',
+        'descr'       => 'Description',
+        'short_descr' => 'Short Description',
+        'text'        => 'Text',
+        'image'       => 'Image',
+        'slug'        => 'Slug',
+        'status'      => 'Status',
+        'active'      => 'Active',
+        'inactive'    => 'Inactive',
+        'preview'     => 'Preview',
 
-    'Create' => 'Create',
-    'Create service' => 'Create service',
-    'Update' => 'Update',
-    'Update service' => 'Update service',
-    'Delete' => 'Delete',
-    'Delete service' => 'Delete service',
+        'show_products_button' => 'Show products button',
+        'show_order_button'    => 'Show order button',
+    ],
 
-    'Show products button' => 'Show products button',
-    'Show products button help' => 'Show a product button on the services page that leads to products of this category',
-    'Show order button' => 'Show order button',
-    'Show order button help' => 'Show an order button on the services page, when clicked, a form will be displayed to leave a request',
+    /*
+    |--------------------------------------------------------------------------
+    | Form actions
+    |--------------------------------------------------------------------------
+    */
+    'action' => [
+        'create_service' => 'Create service',
+        'update_service' => 'Update service',
+        'delete_service' => 'Delete service',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Form buttons
+    |--------------------------------------------------------------------------
+    */
+    'button' => [
+        'create'                => 'Create',
+        'update'                => 'Update',
+        'delete'                => 'Delete',
+
+        'help' => [
+            'show_products_button' => 'Show a product button on the services page that leads to products of this category',
+            'show_order_button' => 'Show an order button on the services page, when clicked, a form will be displayed to leave a request',
+        ]
+    ],
 ];

@@ -17,19 +17,19 @@
                     </x-nav-link>
 
                     <x-nav-link :href="route('dashboard.services')" :active="request()->routeIs('dashboard.services')">
-                        {{ __('dashboard/general.menus.Services') }}
+                        {{ __('dashboard/general.menu.services') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('dashboard.products')" :active="request()->routeIs('dashboard.products')">
-                        {{ __('dashboard/general.menus.Products') }}
+                        {{ __('dashboard/general.menu.products') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('dashboard.categories')" :active="request()->routeIs('dashboard.categories')">
-                        {{ __('dashboard/general.menus.Categories') }}
+                        {{ __('dashboard/general.menu.categories') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('dashboard.applications')" :active="request()->routeIs('dashboard.applications')">
-                        {{ __('dashboard/general.menus.Applications') }}
+                        {{ __('dashboard/general.menu.applications') }}
                     </x-nav-link>
                 </div>
             </div>

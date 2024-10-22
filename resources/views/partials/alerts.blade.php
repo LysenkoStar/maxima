@@ -1,3 +1,3 @@
-@if((session('alert-type') && session('alert-message')))
-    <x-alert type="{{ session('alert-type') }}" message="{{ session('alert-message') }}"></x-alert>
+@if(session('success') || session('error'))
+    <x-alert></x-alert>
 @endif

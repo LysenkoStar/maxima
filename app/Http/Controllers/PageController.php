@@ -63,10 +63,10 @@ class PageController extends Controller
         } catch (\Exception $e) {
             return redirect()
                 ->route('page.services')
-                ->with([
-                    'alert-message' => $e->getMessage(),
-                    'alert-type' => 'error',
-                ]);
+                ->with(
+                    key: 'error',
+                    value: $e->getMessage(),
+                );
         }
     }
 

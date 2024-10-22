@@ -6,7 +6,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ isset($service) ? __('dashboard/services/form.Update service') : __('dashboard/services/form.Create service') }}
+            {{ isset($service) ? __('dashboard/services/form.action.update_service') : __('dashboard/services/form.action.create_service') }}
         </h2>
     </x-slot>
 
@@ -48,7 +48,7 @@
                                     <div class="mb-2">
                                         <label for="title_{{$key}}"
                                                class="block text-sm font-medium text-gray-700">
-                                            {{ __('dashboard/services/form.Title') }}
+                                            {{ __('dashboard/services/form.field.title') }}
                                         </label>
 
                                         <input type="text"
@@ -59,7 +59,7 @@
 
                                         @error("title.$key")
                                             <small class="text-accent-500 font-montserrat italic">
-                                                {{ __('dashboard/validation.'.$message) }}
+                                                {{ $message }}
                                             </small>
                                         @enderror
                                     </div>
@@ -68,7 +68,7 @@
                                     <div class="mb-2">
                                         <label for="description_{{$key}}"
                                                class="block text-sm font-medium text-gray-700">
-                                            {{ __('dashboard/services/form.Description') }}
+                                            {{ __('dashboard/services/form.field.descr') }}
                                         </label>
                                         <textarea id="description_{{$key}}"
                                                   name="description[{{$key}}]"
@@ -77,7 +77,7 @@
 
                                         @error("description.$key")
                                             <small class="text-accent-500 font-montserrat italic">
-                                                {{ __('dashboard/validation.'.$message) }}
+                                                {{ $message }}
                                             </small>
                                         @enderror
                                     </div>
@@ -86,7 +86,7 @@
                                     <div class="mb-2">
                                         <label for="short_description_{{$key}}"
                                                class="block text-sm font-medium text-gray-700">
-                                            {{ __('dashboard/services/form.Short Description') }}
+                                            {{ __('dashboard/services/form.field.short_descr') }}
                                         </label>
                                         <textarea id="short_description_{{$key}}"
                                                   name="short_description[{{$key}}]"
@@ -95,7 +95,7 @@
 
                                         @error("short_description.$key")
                                             <small class="text-accent-500 font-montserrat italic">
-                                                {{ __('dashboard/validation.'.$message) }}
+                                                {{ $message }}
                                             </small>
                                         @enderror
                                     </div>
@@ -104,7 +104,7 @@
                                     <div class="mb-2">
                                         <label for="text_{{$key}}"
                                                class="block text-sm font-medium text-gray-700">
-                                            {{ __('dashboard/services/form.Text') }}
+                                            {{ __('dashboard/services/form.field.text') }}
                                         </label>
                                         <textarea id="text_{{$key}}"
                                                   name="text[{{$key}}]"
@@ -113,7 +113,7 @@
 
                                         @error("text.$key")
                                             <small class="text-accent-500 font-montserrat italic">
-                                                {{ __('dashboard/validation.'.$message) }}
+                                                {{ $message }}
                                             </small>
                                         @enderror
                                     </div>
@@ -127,7 +127,7 @@
                             <!-- Image preview -->
                             <div class="col-span-1">
                                 <label for="imagePreview" class="block text-sm font-medium text-gray-700">
-                                    {{ __('dashboard/services/form.Preview') }}
+                                    {{ __('dashboard/services/form.field.preview') }}
                                 </label>
                                 <div class="image_container w-80 h-80 flex justify-center items-center">
                                     <img id="imagePreview"
@@ -140,7 +140,7 @@
 
                             <div class="col-span-2">
                                 <label for="image" class="block text-sm font-medium text-gray-700">
-                                    {{ __('dashboard/services/form.Image') }}
+                                    {{ __('dashboard/services/form.field.image') }}
                                 </label>
                                 <input type="file"
                                        id="image"
@@ -150,7 +150,7 @@
 
                                 @error("image")
                                     <small class="text-accent-500 font-montserrat italic">
-                                        {{ __('dashboard/validation.'.$message) }}
+                                        {{ $message }}
                                     </small>
                                 @enderror
                             </div>
@@ -159,7 +159,7 @@
                         <!-- Slug Field (Disabled) -->
                         <div class="mb-2">
                             <label for="slug" class="block text-sm font-medium text-gray-700">
-                                {{ __('dashboard/services/form.Slug') }}
+                                {{ __('dashboard/services/form.field.slug') }}
                             </label>
                             <input type="text"
                                    id="slug"
@@ -175,7 +175,7 @@
 
                             @error("slug")
                                 <small class="text-accent-500 font-montserrat italic">
-                                    {{ __('dashboard/validation.'.$message) }}
+                                    {{ $message }}
                                 </small>
                             @enderror
                         </div>
@@ -183,18 +183,18 @@
                         <!-- Status Field -->
                         <div class="mb-4">
                             <label for="status" class="block text-sm font-medium text-gray-700">
-                                {{ __('dashboard/services/form.Status') }}
+                                {{ __('dashboard/services/form.field.status') }}
                             </label>
                             <select id="status"
                                     name="status"
                                     class="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                 <option value="1"
                                     @selected(old('status', isset($service) ? optional($service)->status : null) === 1)>
-                                        {{ __('dashboard/services/form.Active') }}
+                                        {{ __('dashboard/services/form.field.active') }}
                                 </option>
                                 <option value="0"
                                     @selected(old('status', isset($service) ? optional($service)->status : null) === 0)>
-                                        {{ __('dashboard/services/form.Inactive') }}
+                                        {{ __('dashboard/services/form.field.inactive') }}
                                 </option>
                             </select>
                         </div>
@@ -206,13 +206,13 @@
                                     <input id="switch" type="checkbox" name="products_link" class="peer sr-only" {{ old('products_link', isset($service) ? optional($service)->products_link : false) ? 'checked' : '' }} />
                                     <label for="switch" class="font-medium text-gray-900"></label>
                                     <div class="peer h-6 w-11 rounded-full border bg-slate-200 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-accent-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"></div>
-                                    <span class="ml-3 text-sm font-medium text-gray-700">{{ __('dashboard/services/form.Show products button') }}</span>
+                                    <span class="ml-3 text-sm font-medium text-gray-700">{{ __('dashboard/services/form.field.show_products_button') }}</span>
                                 </label>
                                 <span class="ml-2 inline-flex items-center cursor-pointer">
                                   <span class="group relative">
                                     <div class="absolute bottom-[calc(100%+0.5rem)] left-[50%] -translate-x-[50%] hidden group-hover:block w-auto z-10">
                                       <div class="bottom-full right-0 rounded bg-black px-4 py-1 text-xs text-white w-40">
-                                        {{ __('dashboard/services/form.Show products button help') }}
+                                        {{ __('dashboard/services/form.button.help.show_products_button') }}
                                         <svg class="absolute left-0 top-full h-2 w-full text-black" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve">
                                             <polygon class="fill-current" points="0,0 127.5,127.5 255,0" />
                                         </svg>
@@ -232,13 +232,13 @@
                                     <input id="switch" type="checkbox" name="applications_link" class="peer sr-only" {{ old('applications_link', isset($service) ? optional($service)->applications_link : false) ? 'checked' : '' }} />
                                     <label for="switch" class="font-medium text-gray-900"></label>
                                     <div class="peer h-6 w-11 rounded-full border bg-slate-200 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-accent-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"></div>
-                                    <span class="ml-3 text-sm font-medium text-gray-700">{{ __('dashboard/services/form.Show order button') }}</span>
+                                    <span class="ml-3 text-sm font-medium text-gray-700">{{ __('dashboard/services/form.field.show_order_button') }}</span>
                                 </label>
                                 <span class="ml-2 inline-flex items-center cursor-pointer">
                                   <span class="group relative">
                                     <div class="absolute bottom-[calc(100%+0.5rem)] left-[50%] -translate-x-[50%] hidden group-hover:block">
                                       <div class="bottom-full right-0 rounded bg-black px-4 py-1 text-xs text-white w-40">
-                                        {{ __('dashboard/services/form.Show order button help') }}
+                                        {{ __('dashboard/services/form.button.help.show_order_button') }}
                                         <svg class="absolute left-0 top-full h-2 w-full text-black" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve">
                                             <polygon class="fill-current" points="0,0 127.5,127.5 255,0" />
                                         </svg>
