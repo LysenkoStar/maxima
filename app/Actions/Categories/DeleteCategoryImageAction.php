@@ -20,6 +20,7 @@ class DeleteCategoryImageAction
             if (Storage::disk('uploads')->exists("images/$category->image")) {
                 return Storage::disk('uploads')->delete("images/$category->image");
             } else {
+                // todo: check logic
                 throw new \Exception(
                     message: __('The category image was not found'),
                     code: Response::HTTP_NOT_FOUND

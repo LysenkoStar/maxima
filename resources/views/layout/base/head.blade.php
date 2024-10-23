@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>{{ __('general.Maxima') }} | @yield('title', __('pages/home.Metalworking services in Kharkov'))</title>
+    <title>{{ __('general.Maxima') }} | @yield('title', __('pages/home.metalworking_services'))</title>
 
     <link rel="icon" type="image/x-icon" href=""><!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->

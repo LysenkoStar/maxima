@@ -29,11 +29,11 @@
                     </div>
                     <div class="service__options mt-8">
                         @if($service->products_link)
-                            <a href="#" class="btn btn-primary mr-6 bg-accent-500 filter" style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);">{{ __('general.buttons.View products') }}</a>
+                            <a href="#" class="btn btn-primary mr-6 bg-accent-500 filter" style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);">{{ __('general.button.view_products') }}</a>
                         @endif
 
                         @if($service->applications_link)
-                            <a href="#" class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500">{{ __('general.buttons.Submit application') }}</a>
+                            <a href="#" class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500">{{ __('general.button.submit_application') }}</a>
                         @endif
                     </div>
                 </div>

@@ -81,7 +81,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('dashboard/general.buttons.Profile') }}
+                            {{ __('dashboard/general.button.profile') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -91,7 +91,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('dashboard/general.buttons.Log Out') }}
+                                {{ __('dashboard/general.button.log_out') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -118,15 +118,15 @@
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('dashboard.services')" :active="request()->routeIs('dashboard.services')">
-                {{ __('dashboard/general.menus.Services') }}
+                {{ __('dashboard/general.menu.services') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('dashboard.products')" :active="request()->routeIs('dashboard.products')">
-                {{ __('dashboard/general.menus.Products') }}
+                {{ __('dashboard/general.menu.products') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('dashboard.applications')" :active="request()->routeIs('dashboard.applications')">
-                {{ __('dashboard/general.menus.Applications') }}
+                {{ __('dashboard/general.menu.applications') }}
             </x-responsive-nav-link>
         </div>
 
@@ -139,7 +139,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('dashboard/general.buttons.Profile') }}
+                    {{ __('dashboard/general.button.profile') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -149,7 +149,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('dashboard/general.buttons.Log Out') }}
+                        {{ __('dashboard/general.button.log_out') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

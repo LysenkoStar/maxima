@@ -22,7 +22,7 @@ use Illuminate\Foundation\Http\FormRequest;
             ],
             "email" => "required|email",
             'message' => 'required|string',
-            'files.*' => 'nullable|file|mimes:jpg|max:1096',
+            'files.*' => 'nullable|file|mimes:jpeg,png,jpg,pdf,doc,docx,csv,txt|max:1096',
         ]);
 
         return $rules->toArray();

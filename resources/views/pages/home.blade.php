@@ -17,18 +17,18 @@
                     style="background: radial-gradient(50% 45% at 51.88% 41.96%, rgba(0, 0, 0, 0.9) 25.52%, rgba(0, 0, 0, 0) 100%)">
                     <h1
                         class="mb-4 font-montserrat_b text-2xl font-extrabold leading-none tracking-tight text-white sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-4xl">
-                        {{ __('pages/home.Specialized production') }}
+                        {{ __('pages/home.specialized_production') }}
                     </h1>
-                    <p class="mb-6 max-w-xl text-base font-light text-white md:text-lg">{{ __('pages/home.High-quality products') }}</p>
+                    <p class="mb-6 max-w-xl text-base font-light text-white md:text-lg">{{ __('pages/home.high_quality_products') }}</p>
 
                     <a href="{{ route('page.products') }}"
                        class="btn btn-primary mr-6 bg-accent-500 filter"
                        style="box-shadow: 0 9px 30px 0 rgba(255, 148, 0, 0.3);">
-                        {{ __('general.buttons.View products') }}
+                        {{ __('general.button.view_products') }}
                     </a>
                     <a href="{{ route('page.contacts') }}#contact-form"
                        class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500">
-                        {{ __('general.buttons.Submit application') }}
+                        {{ __('general.button.submit_application') }}
                     </a>
                 </div>
             </div>
@@ -37,7 +37,7 @@
 
     <div class="section section__offer">
         <div class="container">
-            <div class="section__title">{{ __('pages/home.Why us') }}</div>
+            <div class="section__title">{{ __('pages/home.why_us') }}</div>
             <div class="block md:grid sm:grid-cols-4 sm:gap-12 mt-7">
                 <div class="block md:flex justify-center mb-7 md:mb-0">
                     <div class="offer">
@@ -46,8 +46,8 @@
                                 <use xlink:href="{{ asset('images/sprite.svg') }}#cup"></use>
                             </svg>
                         </div>
-                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('pages/home.Quality assurance') }}</div>
-                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('pages/home.Modern technologies') }}.</div>
+                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('pages/home.quality_assurance') }}</div>
+                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('pages/home.modern_technologies') }}.</div>
                     </div>
                 </div>
                 <div class="block md:flex justify-center mb-7 md:mb-0">
@@ -57,8 +57,8 @@
                                 <use xlink:href="{{ asset('images/sprite.svg') }}#watch"></use>
                             </svg>
                         </div>
-                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('pages/home.Work on time') }}</div>
-                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('pages/home.Work quickly') }}.</div>
+                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('pages/home.work_on_time') }}</div>
+                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('pages/home.work_quickly') }}.</div>
                     </div>
                 </div>
                 <div class="block md:flex justify-center mb-7 md:mb-0">
@@ -68,8 +68,8 @@
                                 <use xlink:href="{{ asset('images/sprite.svg') }}#people"></use>
                             </svg>
                         </div>
-                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('pages/home.Team of professionals') }}</div>
-                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('pages/home.Specialists take details') }}.</div>
+                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('pages/home.professional_team') }}</div>
+                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('pages/home.specialists_details') }}.</div>
                     </div>
                 </div>
                 <div class="block md:flex justify-center mb-7 md:mb-0">
@@ -79,8 +79,8 @@
                                 <use xlink:href="{{ asset('images/sprite.svg') }}#pig"></use>
                             </svg>
                         </div>
-                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('pages/home.Nice prices') }}</div>
-                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('pages/home.Surprise prices') }}.</div>
+                        <div class="offer__title uppercase font-montserrat_sb text-lg leading-5 mb-2.5">{{ __('pages/home.nice_prices') }}</div>
+                        <div class="offer__info font-montserrat text-lg leading-5">{{ __('pages/home.surprise_prices') }}.</div>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
 
     <div class="section section__production">
         <div class="container">
-            <div class="section__title">{{ __('pages/home.Products') }}</div>
+            <div class="section__title">{{ __('pages/home.products') }}</div>
             @if ($categories)
                 <div class="block md:grid md:grid-cols-3 lg:grid-cols-4 sm:gap-8 mt-7">
                     @foreach ($categories as $category)
@@ -112,7 +112,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-start">
-                    <div class="section__title">{{ __('pages/home.Services') }}</div>
+                    <div class="section__title">{{ __('pages/home.services') }}</div>
                 </div>
             </div>
             <div class="row mt-5">
@@ -211,7 +211,7 @@
     </div>
     <div class="section section__delivery">
         <div class="container">
-            <div class="section__title">{{ __('pages/home.Payment and delivery') }}</div>
+            <div class="section__title">{{ __('pages/home.payment_and_delivery') }}</div>
             <div class="delivery__text">
                 <p>Lorem ipsum — классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Является искажённым отрывком из философского трактата Марка Туллия Цицерона «О пределах добра и зла», написанного в 45 году до н. э. на латинском языке, обнаружение сходства приписывается Ричарду МакКлинтоку[1].</p>
             </div>
@@ -222,14 +222,14 @@
                    role="button"
                    rel="nofollow"
                    target="_blank">
-                    {{ __('general.buttons.View products') }}
+                    {{ __('general.button.view_products') }}
                 </a>
                 <a href="{{ route('page.contacts') }}#contact-form"
                    class="btn btn-outline bg-accent-500 border-accent-500 text-accent-500"
                    role="button"
                    rel="nofollow"
                    target="_blank">
-                    {{ __('general.buttons.Submit application') }}
+                    {{ __('general.button.submit_application') }}
                 </a>
             </div>
         </div>
@@ -239,7 +239,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-start">
-                        <div class="section__title">{{ __('pages/home.About Us') }}</div>
+                        <div class="section__title">{{ __('pages/home.about_us') }}</div>
                     </div>
                 </div>
                 <div class="row">

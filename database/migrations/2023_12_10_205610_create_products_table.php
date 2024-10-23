@@ -20,6 +20,8 @@ return new class extends Migration
             $table->boolean(column: 'status')->default(value: 1);
             $table->timestamps();
 
+            $table->softDeletes();
+
             // Define a foreign key relationship with the product categories table
             $table
                 ->foreign(columns: 'product_category_id')

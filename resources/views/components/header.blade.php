@@ -17,22 +17,22 @@
             <div class="menu navigation hidden lg:block">
                 <ul class="menu__list mb-7 flex gap-x-4 font-montserrat_b text-sm">
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.home')])>
-                        <a href="{{ route('page.home') }}">{{ __('general.menus.Home') }}</a>
+                        <a href="{{ route('page.home') }}">{{ __('general.menu.home') }}</a>
                     </li>
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.products')])>
-                        <a href="{{ route('page.products') }}">{{ __('general.menus.Products') }}</a>
+                        <a href="{{ route('page.products') }}">{{ __('general.menu.products') }}</a>
                     </li>
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.services')])>
-                        <a href="{{ route('page.services') }}">{{ __('general.menus.Services') }}</a>
+                        <a href="{{ route('page.services') }}">{{ __('general.menu.services') }}</a>
                     </li>
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.about')])>
-                        <a href="{{ route('page.about') }}">{{ __('general.menus.About Us') }}</a>
+                        <a href="{{ route('page.about') }}">{{ __('general.menu.about_us') }}</a>
                     </li>
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.payment-and-delivery')])>
-                        <a href="{{ route('page.payment-and-delivery') }}">{{ __('general.menus.Payment and delivery') }}</a>
+                        <a href="{{ route('page.payment-and-delivery') }}">{{ __('general.menu.payment_and_delivery') }}</a>
                     </li>
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.contacts')])>
-                        <a href="{{ route('page.contacts') }}">{{ __('general.menus.Contacts') }}</a>
+                        <a href="{{ route('page.contacts') }}">{{ __('general.menu.contacts') }}</a>
                     </li>
                 </ul>
 
@@ -44,7 +44,7 @@
                             style="background-size: 16px 16px; box-shadow: none;"
                             name="query"
                             autocomplete="off"
-                            placeholder="{{ __('general.Search') }}" />
+                            placeholder="{{ __('general.search') }}" />
                     </label>
                 </form>
             </div>
@@ -73,8 +73,8 @@
                     <a href="tel:380675760108" class="block">+38 (067) 576 01 08</a>
                 </div>
 
-                <p>{{ __('general.Mon-Sat: :time', ['time' => '08:00-17:00']) }}</p>
-                <p>{{ __('general.Sun') }}: {{ __('general.Day off') }}</p>
+                <p>{{ __('general.work_schedule', ['time' => '08:00-17:00']) }}</p>
+                <p>{{ __('general.sunday') }}: {{ __('general.day_off') }}</p>
             </div>
 
             <!-- Mobile menu -->
@@ -101,22 +101,22 @@
 
             <ul class="sidebar__panel-nav fo font-montserrat_b">
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.home')])>
-                    <a href="{{ route('page.home') }}">{{ __('general.menus.Home') }}</a>
+                    <a href="{{ route('page.home') }}">{{ __('general.menu.home') }}</a>
                 </li>
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.products')])>
-                    <a href="{{ route('page.products') }}">{{ __('general.menus.Products') }}</a>
+                    <a href="{{ route('page.products') }}">{{ __('general.menu.products') }}</a>
                 </li>
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.services')])>
-                    <a href="{{ route('page.services') }}">{{ __('general.menus.Services') }}</a>
+                    <a href="{{ route('page.services') }}">{{ __('general.menu.services') }}</a>
                 </li>
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.about')])>
-                    <a href="{{ route('page.about') }}">{{ __('general.menus.About Us') }}</a>
+                    <a href="{{ route('page.about') }}">{{ __('general.menu.about_us') }}</a>
                 </li>
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.payment-and-delivery')])>
-                    <a href="{{ route('page.payment-and-delivery') }}">{{ __('general.menus.Payment and delivery') }}</a>
+                    <a href="{{ route('page.payment-and-delivery') }}">{{ __('general.menu.payment_and_delivery') }}</a>
                 </li>
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.contacts')])>
-                    <a href="{{ route('page.contacts') }}">{{ __('general.menus.Contacts') }}</a>
+                    <a href="{{ route('page.contacts') }}">{{ __('general.menu.contacts') }}</a>
                 </li>
             </ul>
 
@@ -141,8 +141,8 @@
                     <a href="tel:380675760108" class="block">+38 (067) 576 01 08</a>
                 </div>
 
-                <p>{{ __('general.Mon-Sat: :time', ['time' => '08:00-17:00']) }}</p>
-                <p>{{ __('general.Sun') }}: {{ __('general.Day off') }}</p>
+                <p>{{ __('general.work_schedule', ['time' => '08:00-17:00']) }}</p>
+                <p>{{ __('general.sunday') }}: {{ __('general.day_off') }}</p>
             </div>
         </nav>
     </div>

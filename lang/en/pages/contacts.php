@@ -1,12 +1,12 @@
 <?php
 
 return [
-    'Send us a request' => 'Send us a request',
-    "Name" => "Name",
-    "Message" =>  "Message",
-    "Attach file" =>  "Attach file",
-    "file" => "file",
-    "Required fields" =>  "Required fields",
-    'Phone' => 'Phone',
-    'Email' => 'Email',
+    'send_request'      => "Send us a request",
+    "name"              => "Name",
+    "message"           => "Message",
+    "attach_file"       => "Attach file",
+    "file"              => "file",
+    "required_fields"   => "Required fields",
+    'phone'             => "Phone",
+    'email'             => "Email",
 ];

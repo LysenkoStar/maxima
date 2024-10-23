@@ -8,38 +8,62 @@ return [
         'Russian' => 'Russian',
         'Ukraine' => 'Ukraine',
     ],
-    'menus' => [
-        'Home' => 'Home',
-        'Products' => 'Products',
-        'Services' => 'Services',
-        'About Us' => 'About Us',
-        'Payment and delivery' => 'Payment and delivery',
-        'Contacts' => 'Contacts',
-    ],
-    'buttons' => [
-        'Log in' => 'Log in',
-        'View products' => 'View products',
-        'Submit application' => 'Submit your application',
-        'Save' => 'Save',
-    ],
-    'pagination' => [
-        'Pagination Navigation' => 'Pagination Navigation',
-        'Showing' => 'Showing',
-        'to' => 'to',
-        'of' => 'of',
-        'results' => 'results',
-        'previous' => '&laquo; Previous',
-        'next' => 'Next &raquo;',
-        'Go to page :page' => 'Go to page :page',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Menus
+    |--------------------------------------------------------------------------
+    */
+    'menu' => [
+        'home'                 => 'Home',
+        'products'             => 'Products',
+        'services'             => 'Services',
+        'about_us'             => 'About Us',
+        'payment_and_delivery' => 'Payment and delivery',
+        'contacts'             => 'Contacts',
     ],
 
-    'Search' => 'Search',
-    'Mon-Sat: :time' => 'Mon-Sat: :time',
-    'Sun' => 'Sun',
-    'Day off' => 'Day off',
-    'Address' => 'Address',
-    'Full address' => 'Kharkov, Vishnevaya st., 27',
-    'Schedule' => 'Work schedule',
-    'Phone' => 'Phone',
-    'Email' => 'Email',
+    /*
+    |--------------------------------------------------------------------------
+    | Buttons
+    |--------------------------------------------------------------------------
+    */
+    'button' => [
+        'log_in'             => 'Log in',
+        'view_products'      => 'View products',
+        'submit_application' => 'Submit your application',
+        'save'               => 'Save',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Pagination
+    |--------------------------------------------------------------------------
+    */
+    'pagination' => [
+        'navigation' => 'Pagination Navigation',
+        'showing'    => 'Showing',
+        'to'         => 'to',
+        'of'         => 'of',
+        'results'    => 'results',
+        'previous'   => '&laquo; Previous',
+        'next'       => 'Next &raquo;',
+        'go_to'      => 'Go to page :page',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Global words
+    |--------------------------------------------------------------------------
+    */
+    'search'            => 'Search',
+    'work_schedule'     => 'Mon-Sat: :time',
+    'sunday'            => 'Sun',
+    'day_off'           => 'Day off',
+    'address'           => 'Address',
+    'full_address'      => 'Kharkov, Vishnevaya st., 27',
+    'schedule'          => 'Work schedule',
+    'phone'             => 'Phone',
+    'email'             => 'Email',
+    'download'          => 'Download',
 ];

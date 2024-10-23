@@ -1,12 +1,12 @@
 <?php
 
 return [
-    'Send us a request' => 'Надішліть нам заявку',
-    "Name" => "Ім'я",
-    "Message" =>  "Повідомлення",
-    "Attach file" =>  "Прикріпити файл",
-    "file" => "файл",
-    "Required fields" =>  "Обов'язкові поля до заповнення",
-    'Phone' => 'Телефон',
-    'Email' => 'Email',
+    'send_request'      => "Надішліть нам заявку",
+    "name"              => "Ім'я",
+    "message"           => "Повідомлення",
+    "attach_file"       => "Прикріпити файл",
+    "file"              => "файл",
+    "required_fields"   => "Обов'язкові поля до заповнення",
+    'phone'             => "Телефон",
+    'email'             => "Email",
 ];

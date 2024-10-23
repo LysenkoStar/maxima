@@ -19,6 +19,8 @@ return new class extends Migration
             $table->boolean(column: 'status')->default(value: 1);
             $table->string(column: 'slug', length: 255)->unique()->nullable(false);
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

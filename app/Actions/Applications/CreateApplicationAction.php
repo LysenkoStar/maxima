@@ -15,7 +15,7 @@ class CreateApplicationAction
     /**
      * @throws \Exception
      */
-    public function handle(CreateApplicationFormRequest $request)
+    public function handle(CreateApplicationFormRequest $request): void
     {
         $application = Application::create([
             'name' => $request->input('name'),

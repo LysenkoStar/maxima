@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="header__block flex justify-between items-center	">
+        <div class="header__block flex justify-between items-center">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('dashboard/general.menu.categories') }}
             </h2>
@@ -15,7 +15,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    <!-- Example Product List -->
+                    <!-- Category List -->
                     <ul>
                         @foreach ($categories as $category)
                             <!-- Category Item -->
@@ -71,7 +71,7 @@
                         @endforeach
 
                     </ul>
-                    <!-- End Product List -->
+                    <!-- End Category List -->
 
                     <!-- Display pagination links -->
                     {{ $categories->links() }}

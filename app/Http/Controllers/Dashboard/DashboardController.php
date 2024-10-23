@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Application;
 use App\Models\ProductCategory;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -52,7 +53,12 @@ class DashboardController extends Controller
      */
     public function applications(Request $request): View
     {
-        return view(view: 'admin.applications.list');
+        $applications = Application::with(relations: 'media')->paginate(perPage: 6);
+
+        return view(
+            view: 'admin.applications.list',
+            data: compact('applications')
+        );
     }
 
     /**

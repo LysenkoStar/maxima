@@ -8,37 +8,37 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 // Home
 Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
-    $trail->push(__('general.menus.Home'), route('page.home'));
+    $trail->push(__('general.menu.home'), route('page.home'));
 });
 
 // Contacts
 Breadcrumbs::for('contacts', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('general.menus.Contacts'), route('page.contacts'));
+    $trail->push(__('general.menu.contacts'), route('page.contacts'));
 });
 
 // Products
 Breadcrumbs::for('products', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('general.menus.Products'), route('page.products'));
+    $trail->push(__('general.menu.products'), route('page.products'));
 });
 
 // Services
 Breadcrumbs::for('services', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('general.menus.Services'), route('page.services'));
+    $trail->push(__('general.menu.services'), route('page.services'));
 });
 
 // About
 Breadcrumbs::for('about', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('general.menus.About Us'), route('page.about'));
+    $trail->push(__('general.menu.about_us'), route('page.about'));
 });
 
 // Payment and delivery
 Breadcrumbs::for('payment-and-delivery', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('general.menus.Payment and delivery'), route('page.payment-and-delivery'));
+    $trail->push(__('general.menu.payment_and_delivery'), route('page.payment-and-delivery'));
 });
 
 // Products by category
@@ -56,7 +56,7 @@ Breadcrumbs::for('services.by.name', function (BreadcrumbTrail $trail, Service $
 // Product
 Breadcrumbs::for('product.show', function (BreadcrumbTrail $trail, Product $product) {
     $trail->parent('products.by.category', );
-    $trail->push(__('general.menus.Products'), route('page.products'));
+    $trail->push(__('general.menu.products'), route('page.products'));
 });
 
 // 404

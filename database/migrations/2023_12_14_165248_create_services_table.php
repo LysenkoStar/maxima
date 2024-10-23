@@ -23,6 +23,8 @@ return new class extends Migration
             $table->boolean(column: 'products_link')->nullable(false)->default(value: 0);
             $table->boolean(column: 'applications_link')->nullable(false)->default(value: 0);
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\CkeditorController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\ApplicationController;
+use \App\Http\Controllers\Dashboard\ApplicationController as DashboardApplicationController;
 use \App\Http\Controllers\Dashboard\ServiceController as DashboardServiceController;
 use \App\Http\Controllers\Dashboard\ProductController as DashboardProductController;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
@@ -39,7 +41,7 @@ Route::controller(PageController::class)->name('page.')->group(function () {
 Route::controller(ProductController::class)
     ->name('products.')
     ->group(function () {
-        Route::get(uri:'/products/category/{category}', action: 'productsByCategory')->name('by.category');
+        Route::get(uri:'/products/category/{category:slug}', action: 'productsByCategory')->name('by.category');
         Route::get(uri:'/products/{product}', action: 'productItem')->name('item');
 });
 
@@ -56,6 +58,9 @@ Route::controller(ApplicationController::class)
     ->group(function () {
         Route::post(uri:'/applications/store', action: 'submitForm')->name('store');
     });
+
+// Media
+Route::get('/media/{id}/download', [MediaController::class, 'downloadMedia'])->name('media.download');
 
 // Language switcher
 Route::get(
@@ -119,6 +124,15 @@ Route::controller(CategoryController::class)
         Route::put('/dashboard/categories/{category}', 'update')->name('update');
         Route::delete('/dashboard/categories/{category}/delete', 'delete')->name('delete');
         Route::post(uri:'/dashboard/categories/create-slug', action: 'createServiceSlug')->name('create.slug');
+    });
+
+// Admin category page
+Route::controller(DashboardApplicationController::class)
+    ->name('dashboard.application.')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get(uri:'/dashboard/application/{application}/show', action: 'show')->name('show');
+        Route::delete('/dashboard/application/{application}/delete', 'delete')->name('delete');
     });
 
 // Admin ckeditor controller
