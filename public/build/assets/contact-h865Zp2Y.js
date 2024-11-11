@@ -1,0 +1,1 @@
+$(document).ready(function(){const e=document.getElementById("filesInput"),n=document.getElementById("filesList");e.addEventListener("change",function(){if(n.innerHTML="",e.files.length>0){const l=document.createElement("ul");for(let t=0;t<e.files.length;t++){const c=e.files[t],i=document.createElement("li");i.textContent=c.name,l.appendChild(i)}n.appendChild(l)}})});

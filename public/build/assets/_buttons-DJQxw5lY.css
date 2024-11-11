@@ -1,0 +1,1 @@
+.btn{display:inline-block;border-radius:.5rem;border-width:2px;padding:1rem .5rem;font-family:var(--font-montserrat-b),sans-serif;font-size:.75rem;line-height:1rem}@media (min-width: 576px){.btn{padding:1.25rem 1.75rem;font-size:1rem;line-height:1.5rem}}.btn-primary{border-color:transparent}.btn-outline{background-color:transparent}

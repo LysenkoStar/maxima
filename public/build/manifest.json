@@ -1,0 +1,332 @@
+{
+  "_ckeditor-l0sNRNKZ.js": {
+    "file": "assets/ckeditor-l0sNRNKZ.js",
+    "name": "ckeditor"
+  },
+  "_module.esm-BVmYX9MG.js": {
+    "file": "assets/module.esm-BVmYX9MG.js",
+    "name": "module.esm"
+  },
+  "_vendor-Dp_TtJtU.js": {
+    "file": "assets/vendor-Dp_TtJtU.js",
+    "name": "vendor"
+  },
+  "public/images/about_us_bg.png": {
+    "file": "assets/about_us_bg-DrSw-QVB.png",
+    "src": "public/images/about_us_bg.png"
+  },
+  "public/images/categories/1.png": {
+    "file": "assets/1-BV2SVsgo.png",
+    "src": "public/images/categories/1.png"
+  },
+  "public/images/categories/2.png": {
+    "file": "assets/2-BIfwcZb-.png",
+    "src": "public/images/categories/2.png"
+  },
+  "public/images/categories/3.png": {
+    "file": "assets/3-DDjfuSoj.png",
+    "src": "public/images/categories/3.png"
+  },
+  "public/images/hero.jpg": {
+    "file": "assets/hero-oM9a3qox.jpg",
+    "src": "public/images/hero.jpg"
+  },
+  "public/images/icon_cart.svg": {
+    "file": "assets/icon_cart-D2sJvqiS.svg",
+    "src": "public/images/icon_cart.svg"
+  },
+  "public/images/icon_en.svg": {
+    "file": "assets/icon_en-BKwjC2Fq.svg",
+    "src": "public/images/icon_en.svg"
+  },
+  "public/images/icon_phone.svg": {
+    "file": "assets/icon_phone-jcA2K0MS.svg",
+    "src": "public/images/icon_phone.svg"
+  },
+  "public/images/icon_ru.svg": {
+    "file": "assets/icon_ru-COXJWxAb.svg",
+    "src": "public/images/icon_ru.svg"
+  },
+  "public/images/icon_search.svg": {
+    "file": "assets/icon_search-V_5MVFnh.svg",
+    "src": "public/images/icon_search.svg"
+  },
+  "public/images/icon_uk.svg": {
+    "file": "assets/icon_uk-CGmgOWcl.svg",
+    "src": "public/images/icon_uk.svg"
+  },
+  "public/images/logo.svg": {
+    "file": "assets/logo-YPnRLkV5.svg",
+    "src": "public/images/logo.svg"
+  },
+  "public/images/no_image.png": {
+    "file": "assets/no_image-k1R3VwBp.png",
+    "src": "public/images/no_image.png"
+  },
+  "public/images/product_default.jpg": {
+    "file": "assets/product_default-3Iq7HIoB.jpg",
+    "src": "public/images/product_default.jpg"
+  },
+  "public/images/products/product_1.png": {
+    "file": "assets/1-BV2SVsgo.png",
+    "src": "public/images/categories/1.png"
+  },
+  "public/images/products/product_2.png": {
+    "file": "assets/2-BIfwcZb-.png",
+    "src": "public/images/categories/2.png"
+  },
+  "public/images/products/product_3.png": {
+    "file": "assets/3-DDjfuSoj.png",
+    "src": "public/images/categories/3.png"
+  },
+  "public/images/sprite.svg": {
+    "file": "assets/sprite-Ck6MAi22.svg",
+    "src": "public/images/sprite.svg"
+  },
+  "resources/fonts/montserrat/montserrat.ttf": {
+    "file": "assets/montserrat-BWhdadVA.ttf",
+    "src": "resources/fonts/montserrat/montserrat.ttf"
+  },
+  "resources/fonts/montserrat/montserrat.woff": {
+    "file": "assets/montserrat-B1BeB5JF.woff",
+    "src": "resources/fonts/montserrat/montserrat.woff"
+  },
+  "resources/fonts/montserrat/montserrat.woff2": {
+    "file": "assets/montserrat-3ZeI_7k9.woff2",
+    "src": "resources/fonts/montserrat/montserrat.woff2"
+  },
+  "resources/fonts/montserratbold/montserratbold.ttf": {
+    "file": "assets/montserratbold-CZ5uqph-.ttf",
+    "src": "resources/fonts/montserratbold/montserratbold.ttf"
+  },
+  "resources/fonts/montserratbold/montserratbold.woff": {
+    "file": "assets/montserratbold-BPPngxKd.woff",
+    "src": "resources/fonts/montserratbold/montserratbold.woff"
+  },
+  "resources/fonts/montserratbold/montserratbold.woff2": {
+    "file": "assets/montserratbold-D9OW42R1.woff2",
+    "src": "resources/fonts/montserratbold/montserratbold.woff2"
+  },
+  "resources/fonts/montserratmedium/montserratmedium.ttf": {
+    "file": "assets/montserratmedium-DC68_gHS.ttf",
+    "src": "resources/fonts/montserratmedium/montserratmedium.ttf"
+  },
+  "resources/fonts/montserratmedium/montserratmedium.woff": {
+    "file": "assets/montserratmedium-Ca0GCcix.woff",
+    "src": "resources/fonts/montserratmedium/montserratmedium.woff"
+  },
+  "resources/fonts/montserratmedium/montserratmedium.woff2": {
+    "file": "assets/montserratmedium-DLbiJQ4r.woff2",
+    "src": "resources/fonts/montserratmedium/montserratmedium.woff2"
+  },
+  "resources/fonts/montserratsemibold/montserratsemibold.ttf": {
+    "file": "assets/montserratsemibold-CUOiDuUn.ttf",
+    "src": "resources/fonts/montserratsemibold/montserratsemibold.ttf"
+  },
+  "resources/fonts/montserratsemibold/montserratsemibold.woff": {
+    "file": "assets/montserratsemibold-Cm9fEunV.woff",
+    "src": "resources/fonts/montserratsemibold/montserratsemibold.woff"
+  },
+  "resources/fonts/montserratsemibold/montserratsemibold.woff2": {
+    "file": "assets/montserratsemibold-Dsvb8sk4.woff2",
+    "src": "resources/fonts/montserratsemibold/montserratsemibold.woff2"
+  },
+  "resources/fonts/opensans/opensans.ttf": {
+    "file": "assets/opensans-B5Wc2hYt.ttf",
+    "src": "resources/fonts/opensans/opensans.ttf"
+  },
+  "resources/fonts/opensans/opensans.woff": {
+    "file": "assets/opensans-usmKwYie.woff",
+    "src": "resources/fonts/opensans/opensans.woff"
+  },
+  "resources/fonts/opensans/opensans.woff2": {
+    "file": "assets/opensans-CZUOs3uj.woff2",
+    "src": "resources/fonts/opensans/opensans.woff2"
+  },
+  "resources/fonts/opensanssemibold/opensanssemibold.ttf": {
+    "file": "assets/opensanssemibold-CtcHU39g.ttf",
+    "src": "resources/fonts/opensanssemibold/opensanssemibold.ttf"
+  },
+  "resources/fonts/opensanssemibold/opensanssemibold.woff": {
+    "file": "assets/opensanssemibold-v_Lw9mzv.woff",
+    "src": "resources/fonts/opensanssemibold/opensanssemibold.woff"
+  },
+  "resources/fonts/opensanssemibold/opensanssemibold.woff2": {
+    "file": "assets/opensanssemibold-sh3xi7gf.woff2",
+    "src": "resources/fonts/opensanssemibold/opensanssemibold.woff2"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-BSjvTZxK.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-Dp_TtJtU.js",
+      "resources/js/bootstrap.js",
+      "_module.esm-BVmYX9MG.js"
+    ]
+  },
+  "resources/js/bootstrap.js": {
+    "file": "assets/bootstrap-BaMMGOwJ.js",
+    "name": "bootstrap",
+    "src": "resources/js/bootstrap.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-Dp_TtJtU.js"
+    ]
+  },
+  "resources/js/dashboard.js": {
+    "file": "assets/dashboard-cvDRes7Z.js",
+    "name": "dashboard",
+    "src": "resources/js/dashboard.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-Dp_TtJtU.js",
+      "_module.esm-BVmYX9MG.js",
+      "resources/js/plugins/ckeditor.js"
+    ]
+  },
+  "resources/js/dashboard/categories/form.js": {
+    "file": "assets/form-zBNLXyMG.js",
+    "name": "form",
+    "src": "resources/js/dashboard/categories/form.js",
+    "isEntry": true
+  },
+  "resources/js/dashboard/products/form.js": {
+    "file": "assets/form-B177dKVy.js",
+    "name": "form",
+    "src": "resources/js/dashboard/products/form.js",
+    "isEntry": true
+  },
+  "resources/js/dashboard/services/form.js": {
+    "file": "assets/form-Bw8Sys5L.js",
+    "name": "form",
+    "src": "resources/js/dashboard/services/form.js",
+    "isEntry": true
+  },
+  "resources/js/main.js": {
+    "file": "assets/main-WwFieF70.js",
+    "name": "main",
+    "src": "resources/js/main.js",
+    "isEntry": true
+  },
+  "resources/js/pages/contact.js": {
+    "file": "assets/contact-h865Zp2Y.js",
+    "name": "contact",
+    "src": "resources/js/pages/contact.js",
+    "isEntry": true
+  },
+  "resources/js/pages/product.js": {
+    "file": "assets/product-Km3pjusE.js",
+    "name": "product",
+    "src": "resources/js/pages/product.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-Dp_TtJtU.js"
+    ],
+    "css": [
+      "assets/product-D8hpCEjB.css"
+    ]
+  },
+  "resources/js/plugins/ckeditor.js": {
+    "file": "assets/ckeditor-DHyncRQU.js",
+    "name": "ckeditor",
+    "src": "resources/js/plugins/ckeditor.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-Dp_TtJtU.js"
+    ],
+    "css": [
+      "assets/ckeditor-CciMTTtV.css"
+    ]
+  },
+  "resources/scss/_base.scss": {
+    "file": "assets/_base-l0sNRNKZ.js",
+    "name": "_base",
+    "src": "resources/scss/_base.scss",
+    "isEntry": true
+  },
+  "resources/scss/_buttons.scss": {
+    "file": "assets/_buttons-DJQxw5lY.css",
+    "src": "resources/scss/_buttons.scss",
+    "isEntry": true
+  },
+  "resources/scss/_fonts.scss": {
+    "file": "assets/_fonts-DAtF2VRT.css",
+    "src": "resources/scss/_fonts.scss",
+    "isEntry": true
+  },
+  "resources/scss/_reset.scss": {
+    "file": "assets/_reset-l0sNRNKZ.js",
+    "name": "_reset",
+    "src": "resources/scss/_reset.scss",
+    "isEntry": true
+  },
+  "resources/scss/_scroll.scss": {
+    "file": "assets/_scroll-l0sNRNKZ.js",
+    "name": "_scroll",
+    "src": "resources/scss/_scroll.scss",
+    "isEntry": true
+  },
+  "resources/scss/_variables.scss": {
+    "file": "assets/_variables-l0sNRNKZ.js",
+    "name": "_variables",
+    "src": "resources/scss/_variables.scss",
+    "isEntry": true
+  },
+  "resources/scss/app.scss": {
+    "file": "assets/app-BFY8Dopo.css",
+    "src": "resources/scss/app.scss",
+    "isEntry": true
+  },
+  "resources/scss/components/alerts.scss": {
+    "file": "assets/alerts-DJBsY05L.css",
+    "src": "resources/scss/components/alerts.scss",
+    "isEntry": true
+  },
+  "resources/scss/components/breadcrumbs.scss": {
+    "file": "assets/breadcrumbs-lB5ElMXE.css",
+    "src": "resources/scss/components/breadcrumbs.scss",
+    "isEntry": true
+  },
+  "resources/scss/components/footer.scss": {
+    "file": "assets/footer-7i0qZBPM.css",
+    "src": "resources/scss/components/footer.scss",
+    "isEntry": true
+  },
+  "resources/scss/components/header.scss": {
+    "file": "assets/header-Na_KDyzd.css",
+    "src": "resources/scss/components/header.scss",
+    "isEntry": true
+  },
+  "resources/scss/components/mobile_sidebar.scss": {
+    "file": "assets/mobile_sidebar-DQXwaUWn.css",
+    "src": "resources/scss/components/mobile_sidebar.scss",
+    "isEntry": true
+  },
+  "resources/scss/components/preloader.scss": {
+    "file": "assets/preloader-CtG71mXn.css",
+    "src": "resources/scss/components/preloader.scss",
+    "isEntry": true
+  },
+  "resources/scss/dashboard.scss": {
+    "file": "assets/dashboard-Dr7YuE32.css",
+    "src": "resources/scss/dashboard.scss",
+    "isEntry": true
+  },
+  "resources/scss/pages/main.scss": {
+    "file": "assets/main-0ygl_zVn.css",
+    "src": "resources/scss/pages/main.scss",
+    "isEntry": true
+  },
+  "resources/scss/pages/product.scss": {
+    "file": "assets/product-08PQk1cB.css",
+    "src": "resources/scss/pages/product.scss",
+    "isEntry": true
+  },
+  "resources/scss/pages/products.scss": {
+    "file": "assets/products-CF7APOcS.css",
+    "src": "resources/scss/pages/products.scss",
+    "isEntry": true
+  }
+}

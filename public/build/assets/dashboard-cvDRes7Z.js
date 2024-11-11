@@ -1,0 +1,1 @@
+import{j as t}from"./vendor-Dp_TtJtU.js";import{m as o}from"./module.esm-BVmYX9MG.js";import{C as c}from"./ckeditor-DHyncRQU.js";window.Alpine=o;window.$=t;o.start();$(window).on("load",function(){$(".css-loader").hide()});$(document).ready(function(){document.querySelectorAll(".ckeditor").forEach(r=>{c.create(r).catch(e=>{console.error(e.stack)})})});
