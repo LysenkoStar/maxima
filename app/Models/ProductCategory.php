@@ -48,8 +48,8 @@ class ProductCategory extends Model
 
     public function getImageUrl(): string
     {
-        if ($this->image && Storage::disk('uploads')->exists("images/$this->image")) {
-            return Storage::disk('uploads')->url("images/$this->image");
+        if ($this->image && Storage::disk('uploads')->exists("categories/$this->image")) {
+            return Storage::disk('uploads')->url("categories/$this->image");
         } else {
             return $this::getDefaultImageUrl();
         }

@@ -1,11 +1,9 @@
 <?php
 
 return [
-    'empty_list' => 'The list of application is empty',
-
     'application_no' => 'Application #:number',
 
-    'form' => [
+    'field' => [
         "name"              => "Name",
         "message"           => "Message",
         "attach_files"      => "Attached files",

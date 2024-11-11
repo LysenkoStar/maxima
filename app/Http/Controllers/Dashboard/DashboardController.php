@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Application;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -28,7 +29,7 @@ class DashboardController extends Controller
      */
     public function services(Request $request): View
     {
-        $services = Service::paginate(3);
+        $services = Service::paginate(6);
 
         return view(
             view: 'admin.services.list',
@@ -43,7 +44,12 @@ class DashboardController extends Controller
      */
     public function products(Request $request): View
     {
-        return view(view: 'admin.products.list');
+        $products = Product::paginate(6);
+
+        return view(
+            view: 'admin.products.list',
+            data: compact('products')
+        );
     }
 
     /**
@@ -68,7 +74,7 @@ class DashboardController extends Controller
      */
     public function categories(Request $request): View
     {
-        $categories = ProductCategory::paginate(3);
+        $categories = ProductCategory::paginate(6);
 
         return view(
             view: 'admin.categories.list',

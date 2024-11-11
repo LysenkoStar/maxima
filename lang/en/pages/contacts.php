@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'title'             => 'Contacts',
+
     'send_request'      => "Send us a request",
     "name"              => "Name",
     "message"           => "Message",

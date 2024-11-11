@@ -74,7 +74,7 @@
                         </ul>
                         <!-- End Services List -->
                     @else
-                        <p class="text-center">{{ __('dashboard/services/common.empty_list') }}</p>
+                        <p class="text-center">{{ __('dashboard/services/messages.empty_list') }}</p>
                     @endif
 
 

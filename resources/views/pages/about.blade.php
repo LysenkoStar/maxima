@@ -1,6 +1,6 @@
 @extends('layout/base_page')
 
-@section('title', __('general.menus.about_us'))
+@section('title', __('general.menu.about_us'))
 
 @section('extended_styles')
     @parent
@@ -53,6 +53,8 @@
             </div>
         </div>
     </div>
+
+    {{ Breadcrumbs::view('breadcrumbs::json-ld', 'about') }}
 @stop
 
 @section('extended_scripts')

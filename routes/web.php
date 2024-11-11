@@ -110,7 +110,7 @@ Route::controller(DashboardProductController::class)
         Route::get(uri:'/dashboard/products/{product}/edit', action: 'edit')->name('edit');
         Route::put('/dashboard/products/{product}', 'update')->name('update');
         Route::delete('/dashboard/products/{product}/delete', 'delete')->name('delete');
-        Route::post(uri:'/dashboard/products/create-slug', action: 'createServiceSlug')->name('create.slug');
+        Route::post(uri:'/dashboard/products/create-slug', action: 'createProductSlug')->name('create.slug');
     });
 
 // Admin category page
@@ -123,7 +123,7 @@ Route::controller(CategoryController::class)
         Route::get(uri:'/dashboard/categories/{category}/edit', action: 'edit')->name('edit');
         Route::put('/dashboard/categories/{category}', 'update')->name('update');
         Route::delete('/dashboard/categories/{category}/delete', 'delete')->name('delete');
-        Route::post(uri:'/dashboard/categories/create-slug', action: 'createServiceSlug')->name('create.slug');
+        Route::post(uri:'/dashboard/categories/create-slug', action: 'createCategorySlug')->name('create.slug');
     });
 
 // Admin category page

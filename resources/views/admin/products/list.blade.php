@@ -15,149 +15,120 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    <!-- Example Product List -->
-{{--                    <ul>--}}
-{{--                        <!-- Product Item -->--}}
-{{--                        <li class="flex items-center justify-between border-b border-gray-300 py-3">--}}
-{{--                            <div class="flex items-center space-x-4">--}}
-{{--                                <img src="{{ asset("images/categories/1.png") }}" alt="Product Image" class="h-16 w-16 rounded">--}}
-{{--                                <div>--}}
-{{--                                    <h3 class="text-lg font-semibold">Product Name 1</h3>--}}
-{{--                                    <p class="text-gray-600">Short description of the product.</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="flex items-center space-x-4">--}}
-{{--                                <p class="text-gray-600">Price: $100</p>--}}
-{{--                                <p class="text-gray-600">In Stock: 50</p>--}}
-{{--                                <p class="text-gray-600">Category: Electronics</p>--}}
-{{--                                <p class="text-gray-600">Status: Active</p>--}}
-{{--                                <a href="edit-product/1" class="text-blue-500 hover:underline">Edit</a>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
-
-{{--                        <!-- Repeat the above structure for each product -->--}}
-{{--                        <!-- Product Item -->--}}
-{{--                        <li class="flex items-center justify-between border-b border-gray-300 py-3">--}}
-{{--                            <div class="flex items-center space-x-4">--}}
-{{--                                <img src="{{ asset("images/categories/2.png") }}" alt="Product Image" class="h-16 w-16 rounded">--}}
-{{--                                <div>--}}
-{{--                                    <h3 class="text-lg font-semibold">Product Name 2</h3>--}}
-{{--                                    <p class="text-gray-600">Short description of the product.</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="flex items-center space-x-4">--}}
-{{--                                <p class="text-gray-600">Price: $150</p>--}}
-{{--                                <p class="text-gray-600">In Stock: 30</p>--}}
-{{--                                <p class="text-gray-600">Category: Clothing</p>--}}
-{{--                                <p class="text-gray-600">Status: Inactive</p>--}}
-{{--                                <a href="edit-product/2" class="text-blue-500 hover:underline">Edit</a>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                    <!-- End Product List -->--}}
-
-{{--                    <!-- Example Product Table -->--}}
-{{--                    <div class="overflow-x-auto">--}}
-{{--                        <table class="min-w-full border border-gray-300">--}}
-{{--                            <thead>--}}
-{{--                            <tr>--}}
-{{--                                <th class="py-2 px-4 border-b">Image</th>--}}
-{{--                                <th class="py-2 px-4 border-b">Name</th>--}}
-{{--                                <th class="py-2 px-4 border-b">Description</th>--}}
-{{--                                <th class="py-2 px-4 border-b">Price</th>--}}
-{{--                                <th class="py-2 px-4 border-b">In Stock</th>--}}
-{{--                                <th class="py-2 px-4 border-b">Category</th>--}}
-{{--                                <th class="py-2 px-4 border-b">Status</th>--}}
-{{--                                <th class="py-2 px-4 border-b">Actions</th>--}}
-{{--                            </tr>--}}
-{{--                            </thead>--}}
-{{--                            <tbody>--}}
-{{--                            <!-- Product Row -->--}}
-{{--                            <tr>--}}
-{{--                                <td class="py-2 px-4 border-b"><img src="product-image.jpg" alt="Product Image" class="h-12 w-12 rounded"></td>--}}
-{{--                                <td class="py-2 px-4 border-b">Product Name 1</td>--}}
-{{--                                <td class="py-2 px-4 border-b">Short description of the product.</td>--}}
-{{--                                <td class="py-2 px-4 border-b">$100</td>--}}
-{{--                                <td class="py-2 px-4 border-b">50</td>--}}
-{{--                                <td class="py-2 px-4 border-b">Electronics</td>--}}
-{{--                                <td class="py-2 px-4 border-b">Active</td>--}}
-{{--                                <td class="py-2 px-4 border-b"><a href="edit-product/1" class="text-blue-500 hover:underline">Edit</a></td>--}}
-{{--                            </tr>--}}
-
-{{--                            <!-- Repeat the above structure for each product -->--}}
-{{--                            <!-- Product Row -->--}}
-{{--                            <tr>--}}
-{{--                                <td class="py-2 px-4 border-b"><img src="product-image.jpg" alt="Product Image" class="h-12 w-12 rounded"></td>--}}
-{{--                                <td class="py-2 px-4 border-b">Product Name 2</td>--}}
-{{--                                <td class="py-2 px-4 border-b">Short description of the product. Short description of the product. Short description of the product.</td>--}}
-{{--                                <td class="py-2 px-4 border-b">$150</td>--}}
-{{--                                <td class="py-2 px-4 border-b">30</td>--}}
-{{--                                <td class="py-2 px-4 border-b">Clothing</td>--}}
-{{--                                <td class="py-2 px-4 border-b">Inactive</td>--}}
-{{--                                <td class="py-2 px-4 border-b"><a href="edit-product/2" class="text-blue-500 hover:underline">Edit</a></td>--}}
-{{--                            </tr>--}}
-{{--                            </tbody>--}}
-{{--                        </table>--}}
-{{--                    </div>--}}
-{{--                    <!-- End Product Table -->--}}
-
-{{--                    <!-- Pagination -->--}}
-{{--                    <div class="mt-4">--}}
-{{--                        <ul class="flex space-x-2">--}}
-{{--                            <li><a href="#" class="text-blue-500 hover:underline">1</a></li>--}}
-{{--                            <li><a href="#" class="text-blue-500 hover:underline">2</a></li>--}}
-{{--                            <li><a href="#" class="text-blue-500 hover:underline">3</a></li>--}}
-{{--                            <!-- Add more pages as needed -->--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                    <!-- End Pagination -->--}}
-
+                    <!-- Product List -->
                     <ul class="space-y-4">
-{{--                        @foreach($products as $product)--}}
-                            <li class="flex items-center justify-between p-4 bg-white shadow-sm rounded-lg border border-gray-200">
-                                <div class="flex items-center space-x-4">
-                                    <!-- Главное изображение товара -->
-                                    <img src="{{ asset("images/categories/1.png") }}" alt="Test" class="w-16 h-16 object-cover rounded-lg">
+                        @forelse($products as $product)
+{{--                            <li class="flex items-center justify-between p-4 bg-white shadow-sm rounded-lg border border-gray-200">--}}
+{{--                                <div class="flex items-center space-x-4">--}}
+{{--                                    <!-- Главное изображение товара -->--}}
+{{--                                    <img src="{{ asset("images/categories/1.png") }}" alt="Test" class="w-16 h-16 object-cover rounded-lg">--}}
 
+{{--                                    <div>--}}
+{{--                                        <!-- Название товара -->--}}
+{{--                                        <h3 class="text-lg font-semibold text-gray-900">Test</h3>--}}
+
+{{--                                        <!-- Название категории -->--}}
+{{--                                        <p class="text-sm text-gray-500">Категория №1</p>--}}
+
+{{--                                        <!-- Короткое описание товара -->--}}
+{{--                                        <p class="text-sm text-gray-600">Test desct</p>--}}
+
+{{--                                        <!-- Статус товара -->--}}
+{{--                                        <p class="text-sm font-semibold {{ true ? 'text-green-500' : 'text-red-500' }}">--}}
+{{--                                            {{ true ? 'Активный' : 'Не активный' }}--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+{{--                                <!-- Дополнительные действия, если необходимы -->--}}
+{{--                                <div class="flex space-x-2">--}}
+{{--                                    <!-- Кнопка редактирования -->--}}
+{{--                                    <a href="#"--}}
+{{--                                       class="px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold rounded-lg shadow">--}}
+{{--                                        Редактировать--}}
+{{--                                    </a>--}}
+
+{{--                                    <!-- Кнопка удаления -->--}}
+{{--                                    <form action="#" method="POST">--}}
+{{--                                        @csrf--}}
+{{--                                        @method('DELETE')--}}
+{{--                                        <button type="submit"--}}
+{{--                                                class="px-4 py-2 bg-red-500 hover:bg-red-400 text-white text-sm font-semibold rounded-lg shadow">--}}
+{{--                                            Удалить--}}
+{{--                                        </button>--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
+
+                            <li @class([
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'py-3',
+                                    'border-b' => !$loop->last,
+                                    'border-gray-300',
+                                    'py-3'
+                                ])>
+                                <div class="flex items-center space-x-4">
+                                    <img src="{{ $product->getMainImageUrl() }}" alt="{{ $product->name }}" class="h-16 w-16 rounded">
                                     <div>
                                         <!-- Название товара -->
-                                        <h3 class="text-lg font-semibold text-gray-900">Test</h3>
+                                        <h3 class="text-lg font-semibold text-gray-900">{{ $product->name }}</h3>
 
                                         <!-- Название категории -->
-                                        <p class="text-sm text-gray-500">Категория №1</p>
+                                        <p class="text-sm text-gray-500">{{ $product->category->name }}</p>
 
                                         <!-- Короткое описание товара -->
-                                        <p class="text-sm text-gray-600">Test desct</p>
+                                        <p class="text-sm text-gray-600">{!! mb_substr($product->description, 0, 50) !!}</p>
 
                                         <!-- Статус товара -->
-                                        <p class="text-sm font-semibold {{ true ? 'text-green-500' : 'text-red-500' }}">
-                                            {{ true ? 'Активный' : 'Не активный' }}
+                                        <p class="text-sm font-semibold {{ $product->status ? 'text-green-500' : 'text-red-500' }}">
+                                            {{ $product->status ? 'Активный' : 'Не активный' }}
                                         </p>
                                     </div>
                                 </div>
-
-                                <!-- Дополнительные действия, если необходимы -->
-                                <div class="flex space-x-2">
-                                    <!-- Кнопка редактирования -->
-                                    <a href="#"
-                                       class="px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold rounded-lg shadow">
-                                        Редактировать
+                                <div class="flex items-center space-x-2">
+                                    <!-- Edit Button -->
+                                    <a href="{{ route('dashboard.products.edit', ['product' => $product]) }}"
+                                       title="{{ __('dashboard/general.button.edit') }}"
+                                       class="flex items-center px-2 py-2 bg-accent-500 hover:bg-accent-300 text-white font-bold rounded">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                            <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+                                            <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+                                        </svg>
                                     </a>
-
-                                    <!-- Кнопка удаления -->
-                                    <form action="#" method="POST">
+                                    <!-- Preview Button -->
+                                    <a href="{{ route('products.item', ['product' => $product]) }}"
+                                       target="_blank"
+                                       title="{{ __('dashboard/general.button.preview') }}"
+                                       class="flex items-center px-2 py-2 bg-accent-500 hover:bg-accent-300 text-white font-bold rounded">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                            <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" />
+                                        </svg>
+                                    </a>
+                                    <!-- Delete Button -->
+                                    <form action="{{ route('dashboard.category.delete', $product) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
-                                                class="px-4 py-2 bg-red-500 hover:bg-red-400 text-white text-sm font-semibold rounded-lg shadow">
-                                            Удалить
+                                                title="{{ __('dashboard/general.button.delete') }}"
+                                                class="flex items-center px-2 py-2 bg-accent-500 hover:bg-accent-300 text-white font-bold rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                                <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z" clip-rule="evenodd" />
+                                            </svg>
                                         </button>
                                     </form>
                                 </div>
                             </li>
-{{--                        @endforeach--}}
+                        @empty
+                            <li class="text-center">{{ __('dashboard/products/messages.empty_list') }}</li>
+                        @endforelse
                     </ul>
+                    <!-- End Product List -->
 
+                    <!-- Display pagination links -->
+                    {{ $products->links() }}
 
                 </div>
             </div>

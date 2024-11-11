@@ -27,7 +27,7 @@
             <div class="footer__info flex flex-wrap text-center gap-y-4 sm:gap-y-5 lg:gap-y-10 md:justify-between md:text-left lg:justify-normal xl:gap-y-32">
                 <div class="footer__info-block basis-full sm:basis-1/2 md:basis-1/4">
                     <div class="footer__info-title font-open_sans_sb text-darkblue-500 mb-2.5 md:text-base lg:text-lg">
-                        <h6>{{ __('general.schedule') }}:</h6>
+                        <div class="text-lg">{{ __('general.schedule') }}:</div>
                     </div>
                     <div class="footer__info-text font-open_sans text-darkblue-500 md:text-base lg:text-lg">
                         <p class="footer__info-string">{{ __('general.work_schedule', ['time' => '08:00-17:00']) }}</p>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="footer__info-block basis-full sm:basis-1/2 md:basis-1/4">
                     <div class="footer__info-title font-open_sans_sb text-darkblue-500 mb-2.5 md:text-base lg:text-lg">
-                        <h6>{{ __('general.phone') }}:</h6>
+                        <div class="text-lg">{{ __('general.phone') }}:</div>
                     </div>
                     <div class="footer__info-text font-open_sans text-darkblue-500 md:text-base lg:text-lg">
                         <a class="footer__info-link block" href="tel:0952252535">+38 (095) 225 25 35</a>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="footer__info-block basis-full sm:basis-1/2 md:basis-1/4">
                     <div class="footer__info-title font-open_sans_sb text-darkblue-500 mb-2.5 md:text-base lg:text-lg">
-                        <h6>{{ __('general.email') }}:</h6>
+                        <div class="text-lg">{{ __('general.email') }}:</div>
                     </div>
                     <div class="footer__info-text font-open_sans text-darkblue-500 md:text-base lg:text-lg">
                         <a class="footer__info-link" href="mailto:npomaxima@gmail.com">npomaxima@gmail.com</a>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="footer__info-block basis-full sm:basis-1/2 md:basis-1/4">
                     <div class="footer__info-title font-open_sans_sb text-darkblue-500 mb-2.5 md:text-base lg:text-lg">
-                        <h6>{{ __('general.address') }}:</h6>
+                        <div class="text-lg">{{ __('general.address') }}:</div>
                     </div>
                     <div class="footer__info-text font-open_sans text-darkblue-500 md:text-base lg:text-lg">
                         <p class="footer__info-string">{{ __('general.full_address') }}</p>

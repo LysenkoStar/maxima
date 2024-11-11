@@ -22,11 +22,24 @@ export default defineConfig({
         }),
         ckeditor5({
             theme: require.resolve( '@ckeditor/ckeditor5-theme-lark' )
-        })
+        }),
     ],
     resolve: {
         alias: {
             '$': 'jQuery'
         },
     },
+    build: {
+        minify: 'esbuild',
+        sourcemap: false,
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    'vendor': ['jquery', 'axios', 'swiper'],
+                    'ckeditor': ['@ckeditor/ckeditor5-build-classic'],
+                },
+            }
+        },
+        chunkSizeWarningLimit: 1000, // 1000 KB
+    }
 });

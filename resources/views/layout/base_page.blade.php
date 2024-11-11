@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru-RU">
+<html lang="{{ app()->getLocale() }}">
 
     @include('layout/base/head')
 
@@ -28,8 +28,12 @@
     @include('components/footer')
 
     @section('extended_scripts')
-
     @show
+
+    {{--  Micromarkup  --}}
+    @isset($micromarkup)
+        @include('partials.seo.micromarkup_jsonld')
+    @endisset
 
 </body>
 </html>

@@ -27,7 +27,7 @@
                         <div class="category__item block md:flex justify-center mb-7 md:mb-0">
                             <a class="category__item-link p-5 text-center" href="{{ route('products.by.category', ['category' => $category]) }}">
                                 <div class="category__item-image pb-5">
-                                    <img class="max-h-48 m-auto" src="{{ asset('storage/uploads/images/' . $category->image) }}" alt="">
+                                    <img class="max-h-48 m-auto" src="{{ $category->getImageUrl() }}" alt="">
                                 </div>
                                 <div class="category__item-title font-montserrat_b text-lg">{{ $category->name }}</div>
                             </a>

@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\CreateCategoryFormRequest;
 use App\Http\Requests\Category\UpdateCategoryFormRequest;
-use App\Http\Requests\Service\UpdateServiceFormRequest;
 use App\Models\ProductCategory;
-use App\Models\Service;
 use App\Services\CategoryService;
-use App\Services\ServiceService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -116,7 +113,7 @@ class CategoryController extends Controller
         }
     }
 
-    public function createServiceSlug(Request $request): JsonResponse
+    public function createCategorySlug(Request $request): JsonResponse
     {
         try {
             if (!$request->has('title')) {

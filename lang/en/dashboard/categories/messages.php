@@ -1,6 +1,11 @@
 <?php
 
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | Model
+    |--------------------------------------------------------------------------
+    */
     'success' => [
         'create' => 'Category was successfully created.',
         'update' => 'Category was successfully updated.',
@@ -11,4 +16,12 @@ return [
         'update' => 'There was an issue updating the category. Please try again.',
         'delete' => 'There was an issue deleting the category. Please try again.',
     ],
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | List
+    |--------------------------------------------------------------------------
+    */
+    'empty_list' => 'The list of categories is empty',
 ];

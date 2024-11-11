@@ -1,11 +1,9 @@
 <?php
 
 return [
-    'empty_list' => 'Список заявок пуст',
-
     'application_no' => 'Заявка #:number',
 
-    'form' => [
+    'field' => [
         "name"              => "Имя",
         "message"           => "Сообщение",
         "attach_files"      => "Прикрепленные файлы",

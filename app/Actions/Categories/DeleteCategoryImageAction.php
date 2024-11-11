@@ -4,8 +4,8 @@ namespace App\Actions\Categories;
 
 use App\Models\ProductCategory;
 use App\Traits\AsAction;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpFoundation\Response;
 
 class DeleteCategoryImageAction
 {
@@ -17,15 +17,14 @@ class DeleteCategoryImageAction
     public function handle(ProductCategory $category): bool
     {
         if ($category->image) {
-            if (Storage::disk('uploads')->exists("images/$category->image")) {
-                return Storage::disk('uploads')->delete("images/$category->image");
-            } else {
-                // todo: check logic
-                throw new \Exception(
-                    message: __('The category image was not found'),
-                    code: Response::HTTP_NOT_FOUND
-                );
+            if (Storage::disk('uploads')->exists("categories/$category->image")) {
+                return Storage::disk('uploads')->delete("categories/$category->image");
             }
+
+            Log::info(
+                message: 'Product category image deleted',
+                context: ['category' => $category, 'image' => $category->image]
+            );
         }
 
         return true;

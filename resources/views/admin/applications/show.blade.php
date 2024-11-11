@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="header__block flex justify-between items-center">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('dashboard/applications/common.application_no', ['number' => $application->id]) }}
+                {{ __('dashboard/applications/form.application_no', ['number' => $application->id]) }}
             </h2>
 
             <!-- Delete Button -->
@@ -26,31 +26,31 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6 text-sm font-medium text-gray-500">
 
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700">{{ __('dashboard/applications/common.form.name') }}:</label>
+                        <label class="block text-sm font-medium text-gray-700">{{ __('dashboard/applications/form.field.name') }}:</label>
                         <p class="mt-1 text-gray-900">{{ $application->name }}</p>
                     </div>
 
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700">{{ __('dashboard/applications/common.form.email') }}:</label>
+                        <label class="block text-sm font-medium text-gray-700">{{ __('dashboard/applications/form.field.email') }}:</label>
                         <p class="mt-1 text-gray-900">
                             <a href="mailto:{{ $application->email }}">{{ $application->email }}</a>
                         </p>
                     </div>
 
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700">{{ __('dashboard/applications/common.form.phone') }}:</label>
+                        <label class="block text-sm font-medium text-gray-700">{{ __('dashboard/applications/form.field.phone') }}:</label>
                         <p class="mt-1 text-gray-900">
                             <a href="tel:{{ $application->phone }}">{{ $application->phone }}</a>
                         </p>
                     </div>
 
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700">{{ __('dashboard/applications/common.form.message') }}:</label>
+                        <label class="block text-sm font-medium text-gray-700">{{ __('dashboard/applications/form.field.message') }}:</label>
                         <p class="mt-1 text-gray-900">{{ $application->message }}</p>
                     </div>
 
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700">{{ __('dashboard/applications/common.form.attach_files') }}:</label>
+                        <label class="block text-sm font-medium text-gray-700">{{ __('dashboard/applications/form.field.attach_files') }}:</label>
                         @if($application->media->count())
                             <ul class="mt-2 space-y-2">
                                 @foreach($application->media as $media)
@@ -69,7 +69,7 @@
                                 @endforeach
                             </ul>
                         @else
-                            <p class="text-left">{{ __('dashboard/applications/common.missing_files') }}</p>
+                            <p class="text-left">{{ __('dashboard/applications/form.missing_files') }}</p>
                         @endif
 
                     </div>

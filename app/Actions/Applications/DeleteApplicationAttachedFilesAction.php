@@ -20,7 +20,7 @@ class DeleteApplicationAttachedFilesAction
                 $media->delete();
 
                 Log::info(
-                    message: 'Media deleted',
+                    message: 'Application medias deleted',
                     context: ['media' => $media]
                 );
             });

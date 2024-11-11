@@ -17,7 +17,7 @@
 
                     <!-- Category List -->
                     <ul>
-                        @foreach ($categories as $category)
+                        @forelse($categories as $category)
                             <!-- Category Item -->
                             <li @class([
                                     'flex',
@@ -68,7 +68,9 @@
                                     </form>
                                 </div>
                             </li>
-                        @endforeach
+                        @empty
+                            <li class="text-center">{{ __('dashboard/categories/messages.empty_list') }}</li>
+                        @endforelse
 
                     </ul>
                     <!-- End Category List -->

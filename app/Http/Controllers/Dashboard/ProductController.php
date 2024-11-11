@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Category\UpdateCategoryFormRequest;
 use App\Http\Requests\Product\CreateProductFormRequest;
 use App\Http\Requests\Product\UpdateProductFormRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use App\Services\CategoryService;
 use App\Services\ProductService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -127,7 +125,7 @@ class ProductController extends Controller
         }
     }
 
-    public function createServiceSlug(Request $request): JsonResponse
+    public function createProductSlug(Request $request): JsonResponse
     {
         try {
             if (!$request->has('title')) {

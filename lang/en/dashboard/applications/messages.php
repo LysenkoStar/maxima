@@ -11,4 +11,6 @@ return [
         'update' => 'There was a problem updating your request. Please try again.',
         'delete' => 'There was a problem deleting your request. Please try again.',
     ],
+
+    'empty_list' => 'The list of application is empty',
 ];

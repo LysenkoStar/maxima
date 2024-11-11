@@ -1,6 +1,6 @@
 @extends('layout/base_page')
 
-@section('title', __('Products'))
+@section('title', $category->name)
 
 @section('extended_styles')
     @parent

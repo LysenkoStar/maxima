@@ -32,7 +32,7 @@ class UpdateCategoryAction
             /** @var UploadedFile $image **/
             $image = $request->file('image');
             $imageName = 'service_' . time() . '.' . $image->getClientOriginalExtension();
-            $image->storePubliclyAs(path: 'uploads/images', name: $imageName, options: 'public');
+            $image->storePubliclyAs(path: 'uploads/categories', name: $imageName, options: 'public');
 
             $form['image'] = $imageName;
         }

@@ -6,7 +6,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ isset($product) ? __('dashboard/products/form.Update product') : __('dashboard/products/form.Create product') }}
+            {{ isset($product) ? __('dashboard/products/form.action.update_product') : __('dashboard/products/form.action.create_product') }}
         </h2>
     </x-slot>
 
@@ -48,7 +48,7 @@
                                     <div class="mb-2">
                                         <label for="name_{{$key}}"
                                                class="block text-sm font-medium text-gray-700">
-                                            {{ __('dashboard/products/form.Title') }}
+                                            {{ __('dashboard/products/form.field.title') }}
                                         </label>
 
                                         <input type="text"
@@ -68,7 +68,7 @@
                                     <div class="mb-2">
                                         <label for="description_{{$key}}"
                                                class="block text-sm font-medium text-gray-700">
-                                            {{ __('dashboard/products/form.Description') }}
+                                            {{ __('dashboard/products/form.field.descr') }}
                                         </label>
                                         <textarea id="description_{{$key}}"
                                                   name="description[{{$key}}]"
@@ -88,7 +88,7 @@
                         <!-- Category Field -->
                         <div class="mb-4">
                             <label for="product_category_id" class="block text-sm font-medium text-gray-700 mb-2">
-                                {{ __('dashboard/products/form.Category') }}
+                                {{ __('dashboard/products/form.field.category') }}
                             </label>
                             <select id="product_category_id"
                                     name="product_category_id"
@@ -107,71 +107,6 @@
                         </div>
 
                         <!-- Image Field -->
-{{--                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-2">--}}
-{{--                            <!-- Image preview -->--}}
-{{--                            <div class="col-span-1">--}}
-{{--                                <label for="imagePreview" class="block text-sm font-medium text-gray-700">--}}
-{{--                                    {{ __('dashboard/products/form.Preview') }}--}}
-{{--                                </label>--}}
-{{--                                <div class="image_container w-80 h-80 flex justify-center items-center">--}}
-{{--                                    <img id="imagePreview"--}}
-{{--                                         class="aspect-square object-contain"--}}
-{{--                                         src="{{ isset($product) ? $product->getImageUrl() : \App\Models\Service::getDefaultImageUrl() }}"--}}
-{{--                                         alt="default product image"--}}
-{{--                                         draggable="false" />--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-
-{{--                            <div class="col-span-2">--}}
-{{--                                <label for="image" class="block text-sm font-medium text-gray-700">--}}
-{{--                                    {{ __('dashboard/services/form.Image') }}--}}
-{{--                                </label>--}}
-{{--                                <input type="file"--}}
-{{--                                       id="image"--}}
-{{--                                       name="image"--}}
-{{--                                       accept="image/*"--}}
-{{--                                       class="mt-1 p-2 block w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">--}}
-
-{{--                                @error("image")--}}
-{{--                                <small class="text-accent-500 font-montserrat italic">--}}
-{{--                                    {{ __('dashboard/validation.'.$message) }}--}}
-{{--                                </small>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-
-{{--                        <div x-data="{ images: [] }" class="p-4">--}}
-{{--                            <!-- Image Upload and Preview -->--}}
-{{--                            <input type="file"--}}
-{{--                                   multiple--}}
-{{--                                   @change="images = Array.from($event.target.files)"--}}
-{{--                                   id="upload_files"--}}
-{{--                                   class="mb-4">--}}
-{{--                            <div x-show="images.length > 0" id="sortable-list" class="grid grid-cols-6 gap-4 mb-4">--}}
-{{--                                <template x-for="(image, index) in images" :key="index">--}}
-{{--                                    <div class="w-32 h-32 bg-gray-200 p-2 border">--}}
-{{--                                        <img :src="URL.createObjectURL(image)" class="w-full h-full object-cover" draggable="true">--}}
-{{--                                    </div>--}}
-{{--                                </template>--}}
-{{--                            </div>--}}
-
-                            <!-- Sortable List -->
-{{--                            <div id="sortable-list" class="flex flex-col">--}}
-{{--                                <template x-for="(image, index) in images" :key="index">--}}
-{{--                                    <div class="border p-2" draggable="true" x-text="image.name"></div>--}}
-{{--                                </template>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-
-
-
-
-
-
-
-
                         <section class="image__upload">
                             <div class="image__upload-input">
                                 <!-- Image Upload -->
@@ -184,7 +119,7 @@
                             </div>
                             <div class="image__upload-preview hidden">
                                 <!-- Image Preview -->
-                                <span>{{ __('dashboard/products/form.Preview') }}</span>
+                                <span>{{ __('dashboard/products/form.field.preview') }}</span>
                                 <div class="w-full border-dashed border-2 rounded mb-2 p-2">
                                     <div id="imagePreview" class="grid grid-cols-5 gap-2 min-h-[210px]">
                                     </div>
@@ -200,7 +135,7 @@
                         <!-- Slug Field (Disabled) -->
                         <div class="mb-2">
                             <label for="slug" class="block text-sm font-medium text-gray-700">
-                                {{ __('dashboard/products/form.Slug') }}
+                                {{ __('dashboard/products/form.field.slug') }}
                             </label>
                             <input type="text"
                                    id="slug"
@@ -224,18 +159,18 @@
                         <!-- Status Field -->
                         <div class="mb-4">
                             <label for="status" class="block text-sm font-medium text-gray-700">
-                                {{ __('dashboard/products/form.Status') }}
+                                {{ __('dashboard/products/form.field.status') }}
                             </label>
                             <select id="status"
                                     name="status"
                                     class="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                 <option value="1"
                                     @selected(old('status', isset($product) ? optional($product)->status : null) === 1)>
-                                    {{ __('dashboard/products/form.Active') }}
+                                    {{ __('dashboard/products/form.field.active') }}
                                 </option>
                                 <option value="0"
                                     @selected(old('status', isset($product) ? optional($product)->status : null) === 0)>
-                                    {{ __('dashboard/products/form.Inactive') }}
+                                    {{ __('dashboard/products/form.field.inactive') }}
                                 </option>
                             </select>
                         </div>

@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -50,5 +50,35 @@ class Product extends Model
     public function images(): HasMany
     {
         return $this->hasMany(ProductImage::class);
+    }
+
+    // Methods
+    public function getMainImage(): Model|ProductImage|null
+    {
+        return $this->images()->where('sort', 0)->first();
+    }
+
+    public function getMainImageUrl(): string
+    {
+        $mainImage = $this->getMainImage();
+
+        if ($mainImage && Storage::disk('uploads')->exists("products/$mainImage->image")) {
+            return Storage::disk('uploads')->url("products/$mainImage->image");
+        }
+
+        return $this::getDefaultImageUrl();
+    }
+
+    public static function getDefaultImageUrl(): string
+    {
+        $defaultImg = public_path('images/no_image.png');
+
+        if (file_exists($defaultImg)) {
+            $imageUrl = asset('images/no_image.png');
+        } else {
+            $imageUrl = '';
+        }
+
+        return $imageUrl;
     }
 }

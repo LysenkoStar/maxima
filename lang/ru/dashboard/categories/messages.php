@@ -2,13 +2,15 @@
 
 return [
     'success' => [
-        'create' => 'Category was successfully created.',
-        'update' => 'Category was successfully updated.',
-        'delete' => 'Category was successfully deleted.',
+        'create' => 'Категория успешно создана.',
+        'update' => 'Категория успешно обновлена.',
+        'delete' => 'Категория успешно удалена.',
     ],
     'error' => [
-        'create' => 'There was an issue creating the category. Please try again.',
-        'update' => 'There was an issue updating the category. Please try again.',
-        'delete' => 'There was an issue deleting the category. Please try again.',
+        'create' => 'Возникла проблема с созданием категории. Попробуйте еще раз.',
+        'update' => 'Возникла проблема с обновлением категории. Попробуйте еще раз.',
+        'delete' => 'Возникла проблема при удалении категории. Попробуйте еще раз.',
     ],
+
+    'empty_list' => 'Список категорий пуст',
 ];
