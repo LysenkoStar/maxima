@@ -8,12 +8,14 @@ use App\Services\Micromarkup\Generators\WebSiteJsonLdGenerator;
 
 class JsonLdFactory
 {
-    public static function create(string $type): BaseJsonLdGenerator
+    public static function create(JsonLdType $type): BaseJsonLdGenerator
     {
-        return match ($type) {
+        return match ($type->value) {
             JsonLdType::ORGANIZATION->value => new OrganizationJsonLdGenerator(),
             JsonLdType::WEBSITE->value      => new WebSiteJsonLdGenerator(),
-            default => throw new \InvalidArgumentException("Unknown type: {$type}"),
+            JsonLdType::PRODUCT->value      => new ProductJsonLdGenerator(),
+            JsonLdType::PRODUCT->value      => new ProductJsonLdGenerator(),
+            default => throw new \InvalidArgumentException("Unknown type of Json Ld: {$type->value}"),
         };
     }
 }

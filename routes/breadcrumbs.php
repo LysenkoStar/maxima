@@ -47,6 +47,18 @@ Breadcrumbs::for('products.by.category', function (BreadcrumbTrail $trail, Produ
     $trail->push($productCategory->name, route('products.by.category', $productCategory));
 });
 
+// Product
+Breadcrumbs::for('product', function (BreadcrumbTrail $trail, Product $product) {
+    $trail->parent('products');
+//    dd($product->category->slug);
+
+    if ($product->category) {
+        $trail->push($product->category->name, route('products.by.category', $product->category));
+    }
+
+    $trail->push($product->name, route('products.item', $product->slug));
+});
+
 // Service current
 Breadcrumbs::for('services.by.name', function (BreadcrumbTrail $trail, Service $service) {
     $trail->parent('services');
@@ -62,5 +74,5 @@ Breadcrumbs::for('product.show', function (BreadcrumbTrail $trail, Product $prod
 // 404
 Breadcrumbs::for('errors.404', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Page Not Found');
+    $trail->push(__('pages/not_found.page_not_found'));
 });

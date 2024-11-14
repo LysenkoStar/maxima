@@ -17,6 +17,8 @@ return new class extends Migration
             $table->json(column: 'description')->nullable();
             $table->string(column: 'slug', length: 255)->unique()->nullable(false);
             $table->unsignedBigInteger(column: 'product_category_id')->nullable();
+            $table->integer('price')->nullable(); // cents
+            $table->boolean(column: 'availability')->default(value: 1);
             $table->boolean(column: 'status')->default(value: 1);
             $table->timestamps();
 

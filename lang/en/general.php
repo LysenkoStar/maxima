@@ -33,6 +33,9 @@ return [
         'view_products'      => 'View products',
         'submit_application' => 'Submit your application',
         'save'               => 'Save',
+        'order'              => 'Order',
+        'calculate'          => 'Calculate',
+        'more_details'       => 'More details',
     ],
 
     /*
@@ -66,4 +69,10 @@ return [
     'phone'             => 'Phone',
     'email'             => 'Email',
     'download'          => 'Download',
+    'in_stock'          => 'In stock',
+    'out_of_stock'      => 'Out of stock',
+    'related_products'  => 'Related products',
+    'main_characters'   => 'Main characteristics',
+    'about_product'     => 'About the product',
+    'characteristics'   => 'Characteristics',
 ];

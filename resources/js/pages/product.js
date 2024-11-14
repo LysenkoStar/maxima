@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mainSwiperBlock && thumbsSwiperBlock) {
         const thumbsSwiper = new Swiper('.product__image-secondary', {
-            slidesPerView: 3,
-            spaceBetween: 10,
+            slidesPerView: 4,
+            spaceBetween: 20,
             freeMode: true,
             watchSlidesProgress: true,
         });
@@ -22,6 +22,41 @@ document.addEventListener('DOMContentLoaded', () => {
             thumbs: {
                 swiper: thumbsSwiper,
             },
+        });
+    }
+
+    let relatedSwiper = document.querySelector('.product__image-main');
+
+    if (relatedSwiper) {
+        new Swiper('.page__product-related-slider', {
+            modules: [Navigation],
+            slidesPerView: 5,
+            spaceBetween: 20,
+            centeredSlides: true,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                    slidesPerView: 1,
+                },
+                // when window width is >= 640px
+                640: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+                1280: {
+                    slidesPerView: 5,
+                },
+            }
         });
     }
 

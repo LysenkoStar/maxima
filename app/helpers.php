@@ -33,3 +33,17 @@ if (! function_exists('get_current_language_flag')) {
         return asset("images/icon_$locale.svg");
     }
 }
+
+if (! function_exists('array_merge_recursive_replace')) {
+    function array_merge_recursive_replace(array $defaultData, array $data): array
+    {
+        foreach ($data as $key => $value) {
+            if (is_array($value) && isset($defaultData[$key]) && is_array($defaultData[$key])) {
+                $defaultData[$key] = array_merge_recursive_replace($defaultData[$key], $value);
+            } else {
+                $defaultData[$key] = $value;
+            }
+        }
+        return $defaultData;
+    }
+}

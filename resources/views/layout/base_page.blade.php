@@ -17,7 +17,7 @@
     @include('components/header')
 
     <main class="content">
-        <div @class(['container my-12' => !request()->routeIs('page.home')])>
+        <div @class(['container my-12 px-3 sm:px-0' => !request()->routeIs('page.home')])>
             @include('partials/alerts')
 
             @section('content')
@@ -32,7 +32,7 @@
 
     {{--  Micromarkup  --}}
     @isset($micromarkup)
-        @include('partials.seo.micromarkup_jsonld')
+        <x-json-ld :micromarkup="$micromarkup" />
     @endisset
 
 </body>

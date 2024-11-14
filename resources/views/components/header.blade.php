@@ -5,7 +5,8 @@
         'inset-x-0',
         'top-0',
         'pt-3',
-        'z-10'
+        'z-10',
+        'px-3 sm:px-0'
     ])
     style="background: linear-gradient(180deg, #000 46.41%, rgba(25, 24, 31, 0) 100%)">
     <div class="container">
@@ -19,18 +20,18 @@
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.home')])>
                         <a href="{{ route('page.home') }}">{{ __('general.menu.home') }}</a>
                     </li>
-                    <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.products')])>
+                    <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('*products*')])>
                         <a href="{{ route('page.products') }}">{{ __('general.menu.products') }}</a>
                     </li>
-                    <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.services')])>
+                    <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->is('*services*')])>
                         <a href="{{ route('page.services') }}">{{ __('general.menu.services') }}</a>
                     </li>
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.about')])>
                         <a href="{{ route('page.about') }}">{{ __('general.menu.about_us') }}</a>
                     </li>
-                    <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.payment-and-delivery')])>
-                        <a href="{{ route('page.payment-and-delivery') }}">{{ __('general.menu.payment_and_delivery') }}</a>
-                    </li>
+{{--                    <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.payment-and-delivery')])>--}}
+{{--                        <a href="{{ route('page.payment-and-delivery') }}">{{ __('general.menu.payment_and_delivery') }}</a>--}}
+{{--                    </li>--}}
                     <li @class(['menu__list-item', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.contacts')])>
                         <a href="{{ route('page.contacts') }}">{{ __('general.menu.contacts') }}</a>
                     </li>
@@ -111,9 +112,9 @@
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.about')])>
                     <a href="{{ route('page.about') }}">{{ __('general.menu.about_us') }}</a>
                 </li>
-                <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.payment-and-delivery')])>
-                    <a href="{{ route('page.payment-and-delivery') }}">{{ __('general.menu.payment_and_delivery') }}</a>
-                </li>
+{{--                <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.payment-and-delivery')])>--}}
+{{--                    <a href="{{ route('page.payment-and-delivery') }}">{{ __('general.menu.payment_and_delivery') }}</a>--}}
+{{--                </li>--}}
                 <li @class(['mb-7', 'text-base', 'transition-colors', 'hover:text-accent-500', 'active' => request()->routeIs('page.contacts')])>
                     <a href="{{ route('page.contacts') }}">{{ __('general.menu.contacts') }}</a>
                 </li>
