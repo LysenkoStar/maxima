@@ -7,6 +7,19 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CreateProductFormRequest extends FormRequest
 {
+
+    /**
+     * @return void
+     */
+    public function prepareForValidation(): void
+    {
+        if (empty($this->product_category_id)) {
+            $this->merge([
+                'product_category_id' => null,
+            ]);
+        }
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -18,7 +31,7 @@ class CreateProductFormRequest extends FormRequest
             "slug" => "required|string|max:255|unique:max_product_categories,slug",
             "images.*" => "image|mimes:jpeg,png,jpg,gif,svg|max:2048",
             "status" => "required|boolean",
-            "product_category_id" => "required|integer|exists:max_product_categories,id",
+            "product_category_id" => "nullable|integer|exists:max_product_categories,id",
         ]);
 
         foreach (config('app.available_locales') as $key => $locale) {
@@ -42,7 +55,6 @@ class CreateProductFormRequest extends FormRequest
             "images.*.mimes" => __(key: 'validation.mimes'),
             "images.*.max" => __(key: 'validation.max.file'),
             "status.boolean" => __(key: 'validation.boolean'),
-            "product_category_id.required" => __(key: 'validation.required'),
             "product_category_id.integer" => __(key: 'validation.integer'),
             "product_category_id.exists" => __(key: 'validation.exists'),
         ]);

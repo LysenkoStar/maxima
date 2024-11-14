@@ -13,7 +13,8 @@ class ProductController extends Controller
 {
     public function products(): View
     {
-        $products = Product::get();
+        // todo: add route for products without categories
+        $products = Product::active()->paginate(6);
 
         return view(
             view: 'products.index',
@@ -28,7 +29,9 @@ class ProductController extends Controller
     public function productsByCategory(ProductCategory $category): View|RedirectResponse
     {
         try {
-            $products = $category->products;
+            $products = $category->products()
+                ->active()
+                ->paginate(5);
 
             return view(
                 view: 'pages/products/list',

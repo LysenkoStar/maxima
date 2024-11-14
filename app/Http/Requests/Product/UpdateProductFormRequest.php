@@ -7,6 +7,20 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateProductFormRequest extends FormRequest
 {
+
+    /**
+     * @return void
+     */
+    public function prepareForValidation(): void
+    {
+        if (empty($this->product_category_id)) {
+            $this->merge([
+                'product_category_id' => null,
+            ]);
+        }
+    }
+
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -16,7 +30,9 @@ class UpdateProductFormRequest extends FormRequest
     {
         $rules = collect([
             "slug" => "required|string|max:255|unique:max_products,slug," . $this->product->id,
-            "image" => "image|mimes:jpeg,png,jpg,gif,svg|max:2048",
+            "images.*" => "image|mimes:jpeg,png,jpg,gif,svg|max:2048",
+            "status" => "required|boolean",
+            "product_category_id" => "nullable|integer|exists:max_product_categories,id",
         ]);
 
         foreach (config('app.available_locales') as $key => $locale) {
@@ -35,19 +51,19 @@ class UpdateProductFormRequest extends FormRequest
     public function messages(): array
     {
         $messages = collect([
-            "slug.unique" => "The field must be unique",
-            "slug.required" => "Field is required",
-            "image.image" => "The file must be an image",
-            "image.mimes" => "The image must be a file of type: :values",
-            "image.max" => "The image may not be greater than :max kilobytesЯ",
+            "slug.unique" => __(key: 'validation.unique'),
+            "slug.required" => __(key: 'validation.required'),
+            "images.*.mimes" => __(key: 'validation.mimes'),
+            "images.*.max" => __(key: 'validation.max.file'),
+            "status.boolean" => __(key: 'validation.boolean'),
+            "product_category_id.integer" => __(key: 'validation.integer'),
+            "product_category_id.exists" => __(key: 'validation.exists'),
         ]);
 
         foreach (config('app.available_locales') as $key => $locale) {
             $messages = $messages->merge([
-                "title.{$key}.required" => 'Field is required',
-                "description.{$key}.required" => 'Field is required',
-                "short_description.{$key}.required" => 'Field is required',
-                "text.{$key}.required" => 'Field is required',
+                "name.{$key}.required" => __(key: 'validation.required'),
+                "description.{$key}.required" => __(key: 'validation.required'),
             ]);
         }
 

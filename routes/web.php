@@ -42,7 +42,7 @@ Route::controller(ProductController::class)
     ->name('products.')
     ->group(function () {
         Route::get(uri:'/products/category/{category:slug}', action: 'productsByCategory')->name('by.category');
-        Route::get(uri:'/products/{product}', action: 'productItem')->name('item');
+        Route::get(uri:'/products/{product:slug}', action: 'productItem')->name('item');
 });
 
 // Services
@@ -105,12 +105,12 @@ Route::controller(DashboardProductController::class)
     ->name('dashboard.products.')
     ->middleware(['auth', 'verified'])
     ->group(function () {
-        Route::get(uri:'/dashboard/products/create', action: 'form')->name('form');
-        Route::post(uri:'/dashboard/products/store', action: 'store')->name('store');
-        Route::get(uri:'/dashboard/products/{product}/edit', action: 'edit')->name('edit');
-        Route::put('/dashboard/products/{product}', 'update')->name('update');
-        Route::delete('/dashboard/products/{product}/delete', 'delete')->name('delete');
-        Route::post(uri:'/dashboard/products/create-slug', action: 'createProductSlug')->name('create.slug');
+        Route::get(uri: '/dashboard/products/create', action: 'form')->name('form');
+        Route::post(uri: '/dashboard/products/store', action: 'store')->name('store');
+        Route::get(uri: '/dashboard/products/{product}/edit', action: 'edit')->name('edit');
+        Route::put(uri: '/dashboard/products/{product}', action: 'update')->name('update');
+        Route::delete(uri: '/dashboard/products/{product}/delete', action: 'delete')->name('delete');
+        Route::post(uri: '/dashboard/products/create-slug', action: 'createProductSlug')->name('create.slug');
     });
 
 // Admin category page

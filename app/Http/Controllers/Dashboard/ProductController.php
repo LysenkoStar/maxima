@@ -44,7 +44,7 @@ class ProductController extends Controller
                 ->route('dashboard.products')
                 ->with(
                     key: 'success',
-                    value: __('dashboard/services/messages.success.create')
+                    value: __('dashboard/products/messages.success.create')
                 );
         } catch (\Exception $e) {
             return redirect()
@@ -62,11 +62,14 @@ class ProductController extends Controller
      */
     public function edit(Product $product): View
     {
+        $categories = ProductCategory::take(100)->get(['id', 'name']);
+
         return view(
-            view: 'admin.categories.form',
+            view: 'admin.products.form',
             data: [
-                'product' => $product,
-                'action' => route(
+                'product'    => $product,
+                'categories' => $categories,
+                'action'     => route(
                     name: 'dashboard.products.update',
                     parameters: ['product' => $product]
                 )
@@ -82,13 +85,13 @@ class ProductController extends Controller
     public function update(UpdateProductFormRequest $request, Product $product): RedirectResponse
     {
         try {
-            app(ProductService::class)->updateCategoryFromRequest(request: $request, category: $category);
+            app(ProductService::class)->updateProductFromRequest(request: $request, product: $product);
 
             return redirect()
                 ->route('dashboard.products')
                 ->with(
                     key: 'success',
-                    value: __('dashboard/services/messages.success.update'),
+                    value: __('dashboard/products/messages.success.update'),
                 );
         } catch (\Exception $e) {
             return redirect()
@@ -113,7 +116,7 @@ class ProductController extends Controller
                 ->route('dashboard.products')
                 ->with(
                     key: 'success',
-                    value: __('dashboard/services/messages.success.delete'),
+                    value: __('dashboard/products/messages.success.delete'),
                 );
         } catch (\Exception $e) {
             return redirect()

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -14,6 +15,8 @@ use Spatie\Translatable\HasTranslations;
  * @property string $image
  * @property bool $status
  * @property bool $slug
+ *
+ * @method static active()
  */
 class ProductCategory extends Model
 {
@@ -41,6 +44,13 @@ class ProductCategory extends Model
         'slug',
     ];
 
+    // Scopes
+    public function scopeActive($query): Builder
+    {
+        return $query->where('status', 1);
+    }
+
+    // Methods
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);

@@ -22,17 +22,31 @@
             </h1>
             <div class="page__content-main">
                 @if ($products)
-                    <div class="category md:grid md:grid-cols-3 lg:grid-cols-4 sm:gap-8 mt-7">
+                    <div class="category grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-8 mt-7">
                         @foreach ($products as $product)
-                            <div class="category__item block md:flex justify-center mb-7 md:mb-0">
-                                <a class="category__item-link p-5 text-center" href="{{ route('products.item', ['product' => $product]) }}">
+                            <div class="category__item block md:flex justify-center mb-7 md:mb-0 relative font-montserrat_b">
+                                <div class="category__item-status absolute top-5 left-5 text-xs text-lightblue-500">
+                                    {{ __(key: 'general.in_stock') }}
+                                </div>
+                                <div class="category__item-info p-5 text-center">
                                     <div class="category__item-image pb-5">
                                         <img class="max-h-48 m-auto" src="{{ asset("images/categories/1.png") }}" alt="">
                                     </div>
-                                    <div class="category__item-title font-montserrat_b text-lg">{{ $product->name }}</div>
-                                </a>
+                                    <div class="category__item-title text-lg">{{ $product->name }}</div>
+                                    <div class="category__item-action flex justify-between items-center mt-5 w-full space-x-2 px-5 md:px-0">
+                                        <div class="page__product-related-item-price text-white text-lg w-1/2 text-left">
+                                            2 350
+                                            <span class="page__product-related-item-price-sign pl-1">&#8372;</span>
+                                        </div>
+                                        <a href="{{ route('products.item', ['product' => $product]) }}" class="bg-accent-500 text-white text-xs w-1/2 py-2 rounded">{{ __(key: 'general.button.more_details') }}</a>
+                                    </div>
+                                </div>
                             </div>
                         @endforeach
+                    </div>
+                    <div class="page__content-pagination mt-5">
+                        <!-- Display pagination links -->
+                        {{ $products->links() }}
                     </div>
                 @endif
             </div>

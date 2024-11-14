@@ -16,15 +16,15 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard.services')" :active="request()->routeIs('dashboard.services')">
+                    <x-nav-link :href="route('dashboard.services')" :active="request()->is('*services*')">
                         {{ __('dashboard/general.menu.services') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard.products')" :active="request()->routeIs('dashboard.products')">
+                    <x-nav-link :href="route('dashboard.products')" :active="request()->is('*products*')">
                         {{ __('dashboard/general.menu.products') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard.categories')" :active="request()->routeIs('dashboard.categories')">
+                    <x-nav-link :href="route('dashboard.categories')" :active="request()->is('*categories*')">
                         {{ __('dashboard/general.menu.categories') }}
                     </x-nav-link>
 
@@ -80,9 +80,9 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('dashboard/general.button.profile') }}
-                        </x-dropdown-link>
+{{--                        <x-dropdown-link :href="route('profile.edit')">--}}
+{{--                            {{ __('dashboard/general.button.profile') }}--}}
+{{--                        </x-dropdown-link>--}}
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -138,9 +138,9 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('dashboard/general.button.profile') }}
-                </x-responsive-nav-link>
+{{--                <x-responsive-nav-link :href="route('profile.edit')">--}}
+{{--                    {{ __('dashboard/general.button.profile') }}--}}
+{{--                </x-responsive-nav-link>--}}
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">

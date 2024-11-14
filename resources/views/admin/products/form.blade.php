@@ -93,9 +93,10 @@
                             <select id="product_category_id"
                                     name="product_category_id"
                                     class="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <option value="" {{ optional($product)->product_category_id === null ?: 'selected' }}>Без категории</option>
                                 @if($categories)
                                     @foreach($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}" @selected(optional($product)->product_category_id === $category->id)>{{ $category->name }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -117,7 +118,7 @@
                                        class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0
                                         file:text-sm file:font-semibold file:bg-violet-50 file:text-accent-500 hover:file:bg-accent-100 mb-2"/>
                             </div>
-                            <div class="image__upload-preview hidden">
+                            <div @class([ 'image__upload-preview', 'hidden' => empty(optional($product)->images) ])>
                                 <!-- Image Preview -->
                                 <span>{{ __('dashboard/products/form.field.preview') }}</span>
                                 <div class="w-full border-dashed border-2 rounded mb-2 p-2">
@@ -130,6 +131,15 @@
                                     {{ $message }}
                                 </small>
                             @enderror
+
+                            @if(optional($product)->images)
+                                <script>
+                                    let initialFiles = @json($product->images->map(fn($image) => [
+                                        'url' => $image->image_url,
+                                        'enabled' => $image->status,
+                                    ]));
+                                </script>
+                            @endif
                         </section>
 
                         <!-- Slug Field (Disabled) -->

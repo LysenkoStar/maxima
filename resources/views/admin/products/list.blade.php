@@ -18,48 +18,6 @@
                     <!-- Product List -->
                     <ul class="space-y-4">
                         @forelse($products as $product)
-{{--                            <li class="flex items-center justify-between p-4 bg-white shadow-sm rounded-lg border border-gray-200">--}}
-{{--                                <div class="flex items-center space-x-4">--}}
-{{--                                    <!-- Главное изображение товара -->--}}
-{{--                                    <img src="{{ asset("images/categories/1.png") }}" alt="Test" class="w-16 h-16 object-cover rounded-lg">--}}
-
-{{--                                    <div>--}}
-{{--                                        <!-- Название товара -->--}}
-{{--                                        <h3 class="text-lg font-semibold text-gray-900">Test</h3>--}}
-
-{{--                                        <!-- Название категории -->--}}
-{{--                                        <p class="text-sm text-gray-500">Категория №1</p>--}}
-
-{{--                                        <!-- Короткое описание товара -->--}}
-{{--                                        <p class="text-sm text-gray-600">Test desct</p>--}}
-
-{{--                                        <!-- Статус товара -->--}}
-{{--                                        <p class="text-sm font-semibold {{ true ? 'text-green-500' : 'text-red-500' }}">--}}
-{{--                                            {{ true ? 'Активный' : 'Не активный' }}--}}
-{{--                                        </p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-
-{{--                                <!-- Дополнительные действия, если необходимы -->--}}
-{{--                                <div class="flex space-x-2">--}}
-{{--                                    <!-- Кнопка редактирования -->--}}
-{{--                                    <a href="#"--}}
-{{--                                       class="px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold rounded-lg shadow">--}}
-{{--                                        Редактировать--}}
-{{--                                    </a>--}}
-
-{{--                                    <!-- Кнопка удаления -->--}}
-{{--                                    <form action="#" method="POST">--}}
-{{--                                        @csrf--}}
-{{--                                        @method('DELETE')--}}
-{{--                                        <button type="submit"--}}
-{{--                                                class="px-4 py-2 bg-red-500 hover:bg-red-400 text-white text-sm font-semibold rounded-lg shadow">--}}
-{{--                                            Удалить--}}
-{{--                                        </button>--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-
                             <li @class([
                                     'flex',
                                     'items-center',
@@ -75,8 +33,10 @@
                                         <!-- Название товара -->
                                         <h3 class="text-lg font-semibold text-gray-900">{{ $product->name }}</h3>
 
-                                        <!-- Название категории -->
-                                        <p class="text-sm text-gray-500">{{ $product->category->name }}</p>
+                                        @if($product->category)
+                                            <!-- Название категории -->
+                                            <p class="text-sm text-gray-500">{{ $product->category->name }}</p>
+                                        @endif
 
                                         <!-- Короткое описание товара -->
                                         <p class="text-sm text-gray-600">{!! mb_substr($product->description, 0, 50) !!}</p>
