@@ -18,15 +18,36 @@ class UpdateProductAction
      */
     public function handle(UpdateProductFormRequest $request, Product $product): Product
     {
-        $product->fill($request->validated());
+        $valid_data = collect($request->validated());
+
+        $product_data = $valid_data->only([
+            'name',
+            'description',
+            'product_category_id',
+            'status',
+            'slug'
+        ])->toArray();
+
+        $product->fill($product_data);
 
         Log::info(
             message: 'Product updated.',
             context: ['product' => $product]
         );
 
-        if ($request->hasFile('images')) {
-            // todo: update images (delete, change order, etc)
+        if ($request->has('images')) {
+            $images_files = $request->file('images');
+            $images_data = $request->get('images');
+
+            foreach ($images_data as $data) {
+                if (isset($image['id'])) {
+                    UpdateProductImageAction::run($data);
+                } else {
+                    $file = $images_files[$data['name']];
+
+                    UploadProductImageAction::run(product: $product, file: $file, img_data: $data);
+                }
+            }
         }
 
         return $product;

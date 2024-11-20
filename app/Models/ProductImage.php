@@ -37,6 +37,6 @@ class ProductImage extends Model
 
     public function getImageAltAttribute(): string
     {
-
+        return $this->description;
     }
 }

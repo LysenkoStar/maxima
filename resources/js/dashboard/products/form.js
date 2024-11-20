@@ -27,10 +27,12 @@ $( document ).ready(function() {
 
     if (typeof initialFiles !== 'undefined' && initialFiles.length > 0) {
         uploadFiles = initialFiles.map(file => ({
+            id: file.id,
             file: null,
             url: file.url,
-            enabled: file.enabled,
-            isExisting: true
+            status: file.status,
+            isExisting: true,
+            sort: file.sort,
         }));
 
         updatePreviewFiles();
@@ -38,9 +40,20 @@ $( document ).ready(function() {
 
     // Function to toggle status of an image
     function toggleImageStatus(index) {
-        uploadFiles[index].enabled = !uploadFiles[index].enabled;
+        uploadFiles[index].status = !uploadFiles[index].status;
 
-        updatePreviewFiles();
+        const preview = document.getElementById('imagePreview');
+        const item = preview.querySelector(`[data-sort="${uploadFiles[index].id || index}"]`);
+
+        if (item) {
+            const statusBtn = item.querySelector('.status-btn');
+            const status = uploadFiles[index].status;
+
+            statusBtn.style.backgroundColor = status ? 'green' : 'red';
+            statusBtn.innerHTML = status
+                ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 w-4 h-4"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /><path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" /></svg>'
+                : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 w-4 h-4"><path d="M3.53 2.47a.75.75 0 0 0-1.06 1.06l18 18a.75.75 0 1 0 1.06-1.06l-18-18ZM22.676 12.553a11.249 11.249 0 0 1-2.631 4.31l-3.099-3.099a5.25 5.25 0 0 0-6.71-6.71L7.759 4.577a11.217 11.217 0 0 1 4.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113Z" /><path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0 1 15.75 12ZM12.53 15.713l-4.243-4.244a3.75 3.75 0 0 0 4.244 4.243Z" /></svg>';
+        }
     }
 
     function updateFileList(inputFiles) {
@@ -48,7 +61,12 @@ $( document ).ready(function() {
             const file = inputFiles[i];
 
             if (!uploadFiles.find(f => f.file && f.file.name === file.name)) {
-                uploadFiles.push({ file: file, enabled: true, isExisting: false });
+                uploadFiles.push({
+                    file: file,
+                    status: true,
+                    isExisting: false,
+                    sort: uploadFiles.length
+                });
             }
         }
 
@@ -57,9 +75,13 @@ $( document ).ready(function() {
 
     function deleteImage(element) {
         const index = Array.from(element.parentElement.parentElement.children).indexOf(element.parentElement);
-        uploadFiles.splice(index, 1);
 
-        updatePreviewFiles();
+        // Set the delete flag for this image
+        if (uploadFiles[index]) {
+            uploadFiles[index].delete = true; // Помечаем изображение как удалённое
+        }
+
+        element.parentElement.classList.add('hidden');
     }
 
     function previewBlockState(show) {
@@ -83,11 +105,15 @@ $( document ).ready(function() {
         let preview = document.getElementById('imagePreview');
         preview.innerHTML = ''; // Clear existing previews
 
-        uploadFiles.forEach((fileObj, index) => {
-            const { file, url, enabled, isExisting } = fileObj;
+        uploadFiles.filter(fileObj => !fileObj.delete).forEach((fileObj, index) => {
+            if (fileObj.delete) return;
+
+            const { file, url, status, isExisting } = fileObj;
 
             let div = document.createElement('div');
-            div.setAttribute('class', 'relative h-48 cursor-grab');
+            div.setAttribute('class', 'preview_image relative h-48 cursor-grab');
+            div.setAttribute('data-sort', fileObj.sort || `${index}`);
+
             let imgSrc = isExisting ? url : URL.createObjectURL(file);
             div.innerHTML = `<img src="${imgSrc}" class="absolute inset-0 w-full h-full object-cover" alt=""/>`;
 
@@ -103,8 +129,8 @@ $( document ).ready(function() {
             // Status toggle button
             let statusBtn = document.createElement('button');
             statusBtn.className = 'status-btn absolute bottom-0 left-0 p-1 text-white rounded-full';
-            statusBtn.style.backgroundColor = enabled ? 'green' : 'red';
-            statusBtn.innerHTML = enabled
+            statusBtn.style.backgroundColor = status ? 'green' : 'red';
+            statusBtn.innerHTML = status
                 ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 w-4 h-4"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /><path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" /></svg>'
                 : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 w-4 h-4"><path d="M3.53 2.47a.75.75 0 0 0-1.06 1.06l18 18a.75.75 0 1 0 1.06-1.06l-18-18ZM22.676 12.553a11.249 11.249 0 0 1-2.631 4.31l-3.099-3.099a5.25 5.25 0 0 0-6.71-6.71L7.759 4.577a11.217 11.217 0 0 1 4.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113Z" /><path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0 1 15.75 12ZM12.53 15.713l-4.243-4.244a3.75 3.75 0 0 0 4.244 4.243Z" /></svg>';
 
@@ -128,24 +154,55 @@ $( document ).ready(function() {
     new Sortable(document.getElementById('imagePreview'), {
         animation: 150,
         ghostClass: 'bg-gray-200',
-        onEnd: function() {
+        onEnd: function () {
             updateFilePositions();
         }
     });
 
     function updateFilePositions() {
-        const previewItems = document.querySelectorAll('#imagePreview > div');
+        const previewItems = document.querySelectorAll('#imagePreview > .preview_image');
 
-        previewItems.forEach((item, index) => {
+        previewItems.forEach((item, newIndex) => {
+            const fileSort = parseInt(item.getAttribute('data-sort'), 10);
+            const fileObj = uploadFiles.find(f => f.sort === fileSort);
 
-            const indexInUploadFiles = Array.from(item.parentNode.children).indexOf(item);
-
-            if (uploadFiles[indexInUploadFiles]) {
-                uploadFiles[indexInUploadFiles].position = index;
+            if (fileObj) {
+                fileObj.sort = newIndex;
+                item.setAttribute('data-sort', newIndex);
             }
         });
     }
 
-    // todo: update product model with images
+    document.getElementById('product_form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+
+        uploadFiles.forEach((fileObj, index) => {
+            formData.append(`images[${index}][id]`, fileObj.id || '');
+            formData.append(`images[${index}][name]`, fileObj.file ? fileObj.file.name : '');
+            formData.append(`images[${index}][status]`, fileObj.status ? '1' : '0');
+            formData.append(`images[${index}][isExisting]`, fileObj.isExisting ? '1' : '0');
+            formData.append(`images[${index}][delete]`, fileObj.delete ? '1' : '0');
+            formData.append(`images[${index}][sort]`, fileObj.sort);
+
+            // Если это новый файл, добавляем сам файл
+            if (!fileObj.isExisting && fileObj.file) {
+                formData.append(`images[${index}][file]`, fileObj.file);
+            }
+        });
+
+        fetch(this.action, {
+            method: this.method,
+            body: formData,
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
 });
 

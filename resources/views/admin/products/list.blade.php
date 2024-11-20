@@ -88,7 +88,9 @@
                     <!-- End Product List -->
 
                     <!-- Display pagination links -->
-                    {{ $products->links() }}
+                    <div class="border-t border-gray-300 px-6 py-2">
+                        {{ $products->links() }}
+                    </div>
 
                 </div>
             </div>

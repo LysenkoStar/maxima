@@ -29,10 +29,17 @@ class UpdateProductFormRequest extends FormRequest
     public function rules(): array
     {
         $rules = collect([
-            "slug" => "required|string|max:255|unique:max_products,slug," . $this->product->id,
-            "images.*" => "image|mimes:jpeg,png,jpg,gif,svg|max:2048",
-            "status" => "required|boolean",
-            "product_category_id" => "nullable|integer|exists:max_product_categories,id",
+            "slug"                  => "required|string|max:255|unique:max_products,slug," . $this->product->id,
+            "images"                => "nullable|array",
+            'images.*.id'           => 'nullable|integer|exists:max_product_images,id',
+            'images.*.name'         => 'nullable|string|max:255',
+            'images.*.status'       => 'required|boolean',
+            'images.*.delete'       => 'nullable|boolean',
+            'images.*.isExisting'   => 'required|boolean',
+            'images.*.sort'         => 'required|integer',
+            "images.*.file"         => "nullable|file|mimes:jpeg,png,jpg,gif,svg|max:2048",
+            "status"                => "required|boolean",
+            "product_category_id"   => "nullable|integer|exists:max_product_categories,id",
         ]);
 
         foreach (config('app.available_locales') as $key => $locale) {

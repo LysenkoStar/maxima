@@ -14,7 +14,7 @@ class UploadProductImageAction
 {
     use AsAction;
 
-    public function handle(Product $product, UploadedFile $file): ProductImage|Model
+    public function handle(Product $product, UploadedFile $file, array $img_data = []): ProductImage|Model
     {
         $file_name = $this->storeFileToPublicFolder($file);
 
