@@ -193,7 +193,7 @@
     "isEntry": true
   },
   "resources/js/dashboard/products/form.js": {
-    "file": "assets/form-B177dKVy.js",
+    "file": "assets/form-DNpjwGsW.js",
     "name": "form",
     "src": "resources/js/dashboard/products/form.js",
     "isEntry": true
@@ -275,7 +275,7 @@
     "isEntry": true
   },
   "resources/scss/app.scss": {
-    "file": "assets/app-BGaGET8S.css",
+    "file": "assets/app-D1o29kRQ.css",
     "src": "resources/scss/app.scss",
     "isEntry": true
   },
@@ -310,7 +310,7 @@
     "isEntry": true
   },
   "resources/scss/dashboard.scss": {
-    "file": "assets/dashboard-DDDtpk3C.css",
+    "file": "assets/dashboard-XugDbmIT.css",
     "src": "resources/scss/dashboard.scss",
     "isEntry": true
   },
@@ -325,7 +325,7 @@
     "isEntry": true
   },
   "resources/scss/pages/products.scss": {
-    "file": "assets/products-CF7APOcS.css",
+    "file": "assets/products-GYS1SoiJ.css",
     "src": "resources/scss/pages/products.scss",
     "isEntry": true
   }

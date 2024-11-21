@@ -18,6 +18,28 @@ class UpdateProductFormRequest extends FormRequest
                 'product_category_id' => null,
             ]);
         }
+
+        if ($this->has('images')) {
+            $images = collect($this->get('images'));
+
+            $updatedImages = $images->map(function ($image, $index) {
+                $file = $this->file("images.$index");
+
+                if (!empty($image['isExisting']) && $image['isExisting']) {
+                    return $image;
+                }
+
+                if ($file) {
+                    $image['file'] = $file;
+                }
+
+                return $image;
+            });
+
+            $this->merge([
+                'images' => $updatedImages->toArray(),
+            ]);
+        }
     }
 
 

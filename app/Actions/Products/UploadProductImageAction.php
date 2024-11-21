@@ -19,10 +19,10 @@ class UploadProductImageAction
         $file_name = $this->storeFileToPublicFolder($file);
 
         $image = $product->images()->create(attributes: [
-            'image' => $file_name,
-            'description' => $file->getClientOriginalName(),
-            'sort' => 0,
-            'status' => 1,
+            'image'         => $file_name,
+            'description'   => $file->getClientOriginalName(),
+            'sort'          => $img_data['sort'] ?? 0,
+            'status'        => $data['status'] ?? 1,
         ]);
 
         Log::info(
