@@ -64,12 +64,20 @@ class ProductController extends Controller
     {
         $categories = ProductCategory::take(100)->get(['id', 'name']);
 
+        $productImages = $product->images()
+            ->get(['id', 'image', 'status', 'sort'])
+            ->map(function ($image) {
+                $image->url = $image->getImageUrlAttribute();
+                return $image;
+            })->toArray();
+
         return view(
             view: 'admin.products.form',
             data: [
-                'product'    => $product,
-                'categories' => $categories,
-                'action'     => route(
+                'product'       => $product,
+                'productImages' => $productImages,
+                'categories'    => $categories,
+                'action'        => route(
                     name: 'dashboard.products.update',
                     parameters: ['product' => $product]
                 )

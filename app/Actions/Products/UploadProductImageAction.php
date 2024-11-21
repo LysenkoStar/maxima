@@ -14,15 +14,15 @@ class UploadProductImageAction
 {
     use AsAction;
 
-    public function handle(Product $product, UploadedFile $file): ProductImage|Model
+    public function handle(Product $product, UploadedFile $file, array $img_data = []): ProductImage|Model
     {
         $file_name = $this->storeFileToPublicFolder($file);
 
         $image = $product->images()->create(attributes: [
-            'image' => $file_name,
-            'description' => $file->getClientOriginalName(),
-            'sort' => 0,
-            'status' => 1,
+            'image'         => $file_name,
+            'description'   => $file->getClientOriginalName(),
+            'sort'          => $img_data['sort'] ?? 0,
+            'status'        => $data['status'] ?? 1,
         ]);
 
         Log::info(
