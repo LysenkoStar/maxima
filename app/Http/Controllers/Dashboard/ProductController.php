@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\CreateProductFormRequest;
 use App\Http\Requests\Product\UpdateProductFormRequest;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Services\ProductService;
@@ -12,7 +13,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
 
 class ProductController extends Controller
@@ -35,24 +38,31 @@ class ProductController extends Controller
         );
     }
 
-    public function store(CreateProductFormRequest $request): RedirectResponse
+    /**
+     * @param CreateProductFormRequest $request
+     * @return RedirectResponse|JsonResponse
+     */
+    public function store(CreateProductFormRequest $request): RedirectResponse|JsonResponse
     {
         try {
-            app(ProductService::class)->createProductFromRequest(request: $request);
+            $product = app(ProductService::class)->createProductFromRequest(request: $request);
 
-            return redirect()
-                ->route('dashboard.products')
-                ->with(
-                    key: 'success',
-                    value: __('dashboard/products/messages.success.create')
-                );
+            session()->flash(
+                key: 'success',
+                value: __('dashboard/products/messages.success.create')
+            );
+
+            return response()->json([
+                'success'   => true,
+                'message'   => __('dashboard/products/messages.success.create'),
+                'redirect'  => route('dashboard.products'),
+                'product'   => new ProductResource($product),
+            ]);
         } catch (\Exception $e) {
-            return redirect()
-                ->route('dashboard.products')
-                ->with(
-                    key: 'error',
-                    value: $e->getMessage()
-                );
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -88,37 +98,40 @@ class ProductController extends Controller
     /**
      * @param UpdateProductFormRequest $request
      * @param Product $product
-     * @return RedirectResponse
+     * @return RedirectResponse|JsonResponse
      */
-    public function update(UpdateProductFormRequest $request, Product $product): RedirectResponse
+    public function update(UpdateProductFormRequest $request, Product $product): RedirectResponse|JsonResponse
     {
         try {
-            app(ProductService::class)->updateProductFromRequest(request: $request, product: $product);
+            $product = app(ProductService::class)->updateProductFromRequest(request: $request, product: $product);
 
-            return redirect()
-                ->route('dashboard.products')
-                ->with(
-                    key: 'success',
-                    value: __('dashboard/products/messages.success.update'),
-                );
+            session()->flash(
+                key: 'success',
+                value: __('dashboard/products/messages.success.update')
+            );
+
+            return response()->json([
+                'success'   => true,
+                'message'   => __('dashboard/products/messages.success.update'),
+                'redirect'  => route('dashboard.products'),
+                'product'   => new ProductResource($product),
+            ]);
         } catch (\Exception $e) {
-            return redirect()
-                ->route('dashboard.products')
-                ->with(
-                    key: 'error',
-                    value: $e->getMessage(),
-                );
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
     /**
-     * @param ProductCategory $category
+     * @param Product $product
      * @return RedirectResponse|Redirector
      */
-    public function delete(ProductCategory $category): RedirectResponse|Redirector
+    public function delete(Product $product): RedirectResponse|Redirector
     {
         try {
-            app(ProductService::class)->deleteProduct(category: $category);
+            app(ProductService::class)->deleteProduct(product: $product);
 
             return redirect()
                 ->route('dashboard.products')

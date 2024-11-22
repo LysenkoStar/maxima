@@ -14,6 +14,12 @@ class UpdateProductImageAction
         if (isset($data['id'])) {
             $image = ProductImage::find($data['id']);
 
+            if (isset($data['delete']) && $data['delete']) {
+                DeleteProductImageAction::run(productImage: $image);
+
+                return;
+            }
+
             $image->update([
                 'status' => $data['status'] ?? 1,
                 'sort'   => $data['sort'] ?? 0,

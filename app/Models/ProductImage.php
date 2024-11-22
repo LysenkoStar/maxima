@@ -39,4 +39,9 @@ class ProductImage extends Model
     {
         return $this->description;
     }
+
+    public function isExistInFolder(): bool
+    {
+        return Storage::disk('uploads')->exists("products/$this->image");
+    }
 }

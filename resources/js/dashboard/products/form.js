@@ -175,7 +175,7 @@ $( document ).ready(function() {
         });
     }
 
-    document.getElementById('product_form').addEventListener('submit', function (event) {
+    document.getElementById('product_form').addEventListener('submit', async function (event) {
         event.preventDefault();
 
         const formData = new FormData(this);
@@ -194,17 +194,54 @@ $( document ).ready(function() {
             }
         });
 
-        fetch(this.action, {
-            method: this.method,
-            body: formData,
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
+        try {
+            const response = await fetch(this.action, {
+                method: this.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json',
+                },
             });
+
+            if (response.ok) {
+                const data = await response.json();
+                if (data.redirect) {
+                    window.location.href = data.redirect;
+                } else {
+                    alert(data.message || 'Form submitted successfully!');
+                }
+            } else if (response.status === 422) {
+                const errors = await response.json();
+                handleValidationErrors(errors.errors);
+            } else {
+                console.error('Unexpected error:', response);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     });
+
+    function handleValidationErrors(errors) {
+        // Очистить предыдущие ошибки
+        document.querySelectorAll('.validation-error').forEach(el => el.remove());
+
+        for (const [field, messages] of Object.entries(errors)) {
+            const convertedField = convertFieldName(field);
+            const fieldElement = document.querySelector(`[name="${convertedField}"]`);
+
+            if (fieldElement) {
+                const errorContainer = document.createElement('small');
+                errorContainer.className = 'text-accent-500 font-montserrat italic';
+                errorContainer.textContent = messages[0];
+
+                fieldElement.parentElement.appendChild(errorContainer);
+            }
+        }
+    }
+
+    function convertFieldName(fieldName) {
+        return fieldName.replace(/\.(\d+)/g, '[$1]').replace(/\.(\w+)/g, '[$1]');
+    }
+
 });
 

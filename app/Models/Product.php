@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 
@@ -18,7 +19,7 @@ use Spatie\Translatable\HasTranslations;
  */
 class Product extends Model
 {
-    use HasTranslations;
+    use HasTranslations, SoftDeletes;
 
     /**
      * Fields containing translation Spatie (field must be as json/text type)
@@ -87,5 +88,10 @@ class Product extends Model
         }
 
         return $imageUrl;
+    }
+
+    public function getStockStatus(): string
+    {
+        return $this->status ? __('general.in_stock') : __('general.out_of_stock');
     }
 }

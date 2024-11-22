@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Product;
 
+use App\Rules\UniqueWithoutSoftDeletes;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,6 +19,28 @@ class CreateProductFormRequest extends FormRequest
                 'product_category_id' => null,
             ]);
         }
+
+        if ($this->has('images')) {
+            $images = collect($this->get('images'));
+
+            $updatedImages = $images->map(function ($image, $index) {
+                $file = $this->file("images.$index");
+
+                if (!empty($image['isExisting']) && $image['isExisting']) {
+                    return $image;
+                }
+
+                if ($file) {
+                    $image['file'] = $file;
+                }
+
+                return $image;
+            });
+
+            $this->merge([
+                'images' => $updatedImages->toArray(),
+            ]);
+        }
     }
 
     /**
@@ -28,15 +51,27 @@ class CreateProductFormRequest extends FormRequest
     public function rules(): array
     {
         $rules = collect([
-            "slug" => "required|string|max:255|unique:max_product_categories,slug",
-            "images.*" => "image|mimes:jpeg,png,jpg,gif,svg|max:2048",
-            "status" => "required|boolean",
-            "product_category_id" => "nullable|integer|exists:max_product_categories,id",
+            "slug" => [
+                'required',
+                'string',
+                'max:255',
+                new UniqueWithoutSoftDeletes('max_products', 'slug', $this->product->id ?? null),
+            ],
+            "images"                => "nullable|array",
+            'images.*.id'           => 'nullable|integer|exists:max_product_images,id',
+            'images.*.name'         => 'nullable|string|max:255',
+            'images.*.status'       => 'required|boolean',
+            'images.*.delete'       => 'nullable|boolean',
+            'images.*.isExisting'   => 'required|boolean',
+            'images.*.sort'         => 'required|integer',
+            "images.*.file"         => "nullable|file|mimes:jpeg,png,jpg,gif,svg|max:2048",
+            "status"                => "required|boolean",
+            "product_category_id"   => "nullable|integer|exists:max_product_categories,id",
         ]);
 
         foreach (config('app.available_locales') as $key => $locale) {
             $rules = $rules->merge([
-                "name.{$key}" => 'required|string|max:255',
+                "name.{$key}"        => 'required|string|max:255',
                 "description.{$key}" => 'required|string',
             ]);
         }
