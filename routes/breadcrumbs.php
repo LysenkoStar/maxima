@@ -50,7 +50,6 @@ Breadcrumbs::for('products.by.category', function (BreadcrumbTrail $trail, Produ
 // Product
 Breadcrumbs::for('product', function (BreadcrumbTrail $trail, Product $product) {
     $trail->parent('products');
-//    dd($product->category->slug);
 
     if ($product->category) {
         $trail->push($product->category->name, route('products.by.category', $product->category));

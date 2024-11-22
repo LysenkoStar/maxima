@@ -39,32 +39,27 @@
                             <div class="page__product-image lg:w-1/3 flex flex-col justify-between">
                                 <div class="product__image-main swiper relative overflow-hidden flex-1 w-full ">
                                     <div class="product__status absolute top-5 left-5 font-montserrat_b text-xs text-lightblue-500">
-                                        @if($product->status)
-                                            {{ __(key: 'general.in_stock') }}
-                                        @else
-                                            {{ __(key: 'general.out_of_stock') }}
-                                        @endif
+                                        {{ $product->getStockStatus() }}
                                     </div>
                                     <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <img src="{{ asset('images/products/product_1.png') }}" alt="Product" class="object-none flex-shrink-0 m-auto h-full">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="{{ asset('images/products/product_2.png') }}" alt="Product" class="object-none flex-shrink-0 m-auto h-full">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="{{ asset('images/products/product_3.png') }}" alt="Product" class="object-none flex-shrink-0 m-auto h-full">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="{{ asset('images/products/product_2.png') }}" alt="Product" class="object-none flex-shrink-0 m-auto h-full">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="{{ asset('images/products/product_1.png') }}" alt="Product" class="object-none flex-shrink-0 m-auto h-full">
-                                        </div>
+                                        @foreach($productImages as $img)
+                                            <div class="swiper-slide">
+                                                <img src="{{ $img->getImageUrlAttribute() }}"
+                                                     alt="{{ $img->getImageAltAttribute() }}"
+                                                     class="object-none flex-shrink-0 m-auto h-full">
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div thumbsSlider=""  class="product__image-secondary swiper h-16 mt-4 w-full">
                                     <div class="swiper-wrapper">
+                                        @foreach($productImages as $img)
+                                            <div class="product__image-secondary-item swiper-slide bg-darkslateblue-500 rounded-sm p-1">
+                                                <img src="{{ $img->getImageUrlAttribute() }}"
+                                                     alt="{{ $img->getImageAltAttribute() }}"
+                                                     class="object-contain w-full h-full">
+                                            </div>
+                                        @endforeach
                                         <div class="product__image-secondary-item swiper-slide bg-darkslateblue-500 rounded-sm p-1">
                                             <img src="{{ asset('images/products/product_1.png') }}"
                                                  alt="Thumbnail"
@@ -99,7 +94,7 @@
                                 <div class="page__product-info-top">
                                     <h1 class="font-montserrat_b text-2xl lg:text-4xl font-bold mb-7">{{ $product->name }}</h1>
                                     <div class="product__details font-montserrat text-white text-2xl">
-                                        {!! $product->description !!}
+                                        {!! Str::limit($product->description, 70, '...'); !!}
                                     </div>
                                 </div>
                                 <div class="page__product-info-bottom mt-auto">
@@ -118,7 +113,7 @@
 
                     <div x-show="activeTab === 'characteristics'" class="page__product-tab mt-6">
                         <!-- Content for "ХАРАКТЕРИСТИКИ" -->
-                        <h2 class="text-xl font-bold">{{ __(key: 'general.main_characters') }}</h2>
+                        <h2 class="text-xl font-bold mb-6">{{ __(key: 'general.main_characters') }}</h2>
 
                         {!! $product->description !!}
                     </div>
@@ -127,91 +122,30 @@
                 <!-- Related Products -->
                 <section class="page__product-related container mx-auto px-4 my-12 lg:py-12">
                     <h2 class="font-montserrat_sb text-3xl">{{ __(key: 'general.related_products') }}</h2>
-                    <div class="page__product-related-slider swiper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-                        <div class="swiper-wrapper max-h-[350px] px-7 py-4">
-                            <div class="page__product-related-item swiper-slide flex flex-col p-5 text-center relative font-montserrat_b h-full max-w-[250px] sm:max-w-full">
-                                <div class="page__product-related-item-status absolute top-5 left-5 text-xs text-lightblue-500">
-                                    {{ __(key: 'general.in_stock') }}
-                                </div>
-                                <img src="{{ asset('images/products/product_1.png') }}" alt="Related Product" class="max-h-48 m-auto">
-                                <p class="text-lg text-white flex-grow">Опоры ОПП1 ГОСТ 14911-82</p>
-                                <div class="flex justify-between items-center mt-auto w-full space-x-2">
-                                    <div class="page__product-related-item-price text-white text-lg w-1/2 text-left">
-                                        2 350<span class="page__product-related-item-price-sign pl-1">&#8372;</span>
+                    @if($relatedProducts)
+                        <div class="page__product-related-slider swiper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                            <div class="swiper-wrapper max-h-[350px] px-7 py-4">
+                                @foreach ($relatedProducts as $product)
+                                    <div class="page__product-related-item swiper-slide flex flex-col p-5 text-center relative font-montserrat_b h-full max-w-[250px] sm:max-w-full">
+                                        <div class="page__product-related-item-status absolute top-5 left-5 text-xs text-lightblue-500">
+                                            {{ $product->getStockStatus() }}
+                                        </div>
+                                        <img src="{{ $product->getMainImageUrl() }}" alt="{{ $product->name }}" class="max-h-48 m-auto">
+                                        <p class="text-lg text-white flex-grow">{{ $product->name }}</p>
+                                        <div class="flex justify-between items-center mt-auto w-full space-x-2">
+                                            <div class="page__product-related-item-price text-white text-lg w-1/2 text-left">
+                                                2 350<span class="page__product-related-item-price-sign pl-1">&#8372;</span>
+                                            </div>
+                                            <a href="{{ route('products.item', ['product' => $product]) }}" class="bg-accent-500 text-white text-xs w-1/2 py-2 rounded">{{ __(key: 'general.button.more_details') }}</a>
+                                        </div>
                                     </div>
-                                    <a href="{{ route('products.item', ['product' => $product]) }}" class="bg-accent-500 text-white text-xs w-1/2 py-2 rounded">{{ __(key: 'general.button.more_details') }}</a>
-                                </div>
+                                @endforeach
                             </div>
-                            <div class="page__product-related-item swiper-slide flex flex-col p-5 text-center relative font-montserrat_b h-full max-w-[250px] sm:max-w-full">
-                                <div class="page__product-related-item-status absolute top-5 left-5 text-xs text-lightblue-500">
-                                    {{ __(key: 'general.in_stock') }}
-                                </div>
-                                <img src="{{ asset('images/products/product_1.png') }}" alt="Related Product" class="max-h-48 m-auto">
-                                <p class="text-lg text-white flex-grow">Опоры ОПП2 ГОСТ 14911-82</p>
-                                <div class="flex justify-between items-center mt-auto w-full space-x-2">
-                                    <div class="page__product-related-item-price text-white text-lg w-1/2 text-left">
-                                        2 350<span class="page__product-related-item-price-sign pl-1">&#8372;</span>
-                                    </div>
-                                    <a href="{{ route('products.item', ['product' => $product]) }}" class="bg-accent-500 text-white text-xs w-1/2 py-2 rounded">{{ __(key: 'general.button.more_details') }}</a>
-                                </div>
-                            </div>
-                            <div class="page__product-related-item swiper-slide flex flex-col p-5 text-center relative font-montserrat_b h-full max-w-[250px] sm:max-w-full">
-                                <div class="page__product-related-item-status absolute top-5 left-5 text-xs text-lightblue-500">
-                                    {{ __(key: 'general.in_stock') }}
-                                </div>
-                                <img src="{{ asset('images/products/product_1.png') }}" alt="Related Product" class="max-h-48 m-auto">
-                                <p class="text-lg text-white flex-grow">Опоры ОПП3 ГОСТ 14911-82</p>
-                                <div class="flex justify-between items-center mt-auto w-full space-x-2">
-                                    <div class="page__product-related-item-price text-white text-lg w-1/2 text-left">
-                                        2 350<span class="page__product-related-item-price-sign pl-1">&#8372;</span>
-                                    </div>
-                                    <a href="{{ route('products.item', ['product' => $product]) }}" class="bg-accent-500 text-white text-xs w-1/2 py-2 rounded">{{ __(key: 'general.button.more_details') }}</a>
-                                </div>
-                            </div>
-                            <div class="page__product-related-item swiper-slide flex flex-col p-5 text-center relative font-montserrat_b h-full max-w-[250px] sm:max-w-full">
-                                <div class="page__product-related-item-status absolute top-5 left-5 text-xs text-lightblue-500">
-                                    {{ __(key: 'general.in_stock') }}
-                                </div>
-                                <img src="{{ asset('images/products/product_1.png') }}" alt="Related Product" class="max-h-48 m-auto">
-                                <p class="text-lg text-white flex-grow">Опоры ОПП4 ГОСТ 14911-82</p>
-                                <div class="flex justify-between items-center mt-auto w-full space-x-2">
-                                    <div class="page__product-related-item-price text-white text-lg w-1/2 text-left">
-                                        2 350<span class="page__product-related-item-price-sign pl-1">&#8372;</span>
-                                    </div>
-                                    <a href="{{ route('products.item', ['product' => $product]) }}" class="bg-accent-500 text-white text-xs w-1/2 py-2 rounded">{{ __(key: 'general.button.more_details') }}</a>
-                                </div>
-                            </div>
-                            <div class="page__product-related-item swiper-slide flex flex-col p-5 text-center relative font-montserrat_b h-full max-w-[250px] sm:max-w-full">
-                                <div class="page__product-related-item-status absolute top-5 left-5 text-xs text-lightblue-500">
-                                    {{ __(key: 'general.in_stock') }}
-                                </div>
-                                <img src="{{ asset('images/products/product_1.png') }}" alt="Related Product" class="max-h-48 m-auto">
-                                <p class="text-lg text-white flex-grow">Опоры ОПП5 ГОСТ 14911-82</p>
-                                <div class="flex justify-between items-center mt-auto w-full space-x-2">
-                                    <div class="page__product-related-item-price text-white text-lg w-1/2 text-left">
-                                        2 350<span class="page__product-related-item-price-sign pl-1">&#8372;</span>
-                                    </div>
-                                    <a href="{{ route('products.item', ['product' => $product]) }}" class="bg-accent-500 text-white text-xs w-1/2 py-2 rounded">{{ __(key: 'general.button.more_details') }}</a>
-                                </div>
-                            </div>
-                            <div class="page__product-related-item swiper-slide flex flex-col p-5 text-center relative font-montserrat_b h-full max-w-[250px] sm:max-w-full">
-                                <div class="page__product-related-item-status absolute top-5 left-5 text-xs text-lightblue-500">
-                                    {{ __(key: 'general.in_stock') }}
-                                </div>
-                                <img src="{{ asset('images/products/product_1.png') }}" alt="Related Product" class="max-h-48 m-auto">
-                                <p class="text-lg text-white flex-grow">Опоры ОПП6 ГОСТ 14911-82</p>
-                                <div class="flex justify-between items-center mt-auto w-full space-x-2">
-                                    <div class="page__product-related-item-price text-white text-lg w-1/2 text-left">
-                                        2 350<span class="page__product-related-item-price-sign pl-1">&#8372;</span>
-                                    </div>
-                                    <a href="{{ route('products.item', ['product' => $product]) }}" class="bg-accent-500 text-white text-xs w-1/2 py-2 rounded">{{ __(key: 'general.button.more_details') }}</a>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    @endif
                 </section>
             </div>
         </div>

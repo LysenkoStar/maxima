@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Product;
 
+use App\Rules\UniqueWithoutSoftDeletes;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,7 +24,7 @@ class UpdateProductFormRequest extends FormRequest
             $images = collect($this->get('images'));
 
             $updatedImages = $images->map(function ($image, $index) {
-                $file = $this->file("images.$index");
+                $file = $this->file("images.$index.file");
 
                 if (!empty($image['isExisting']) && $image['isExisting']) {
                     return $image;
@@ -51,7 +52,12 @@ class UpdateProductFormRequest extends FormRequest
     public function rules(): array
     {
         $rules = collect([
-            "slug"                  => "required|string|max:255|unique:max_products,slug," . $this->product->id,
+            "slug" => [
+                'required',
+                'string',
+                'max:255',
+                new UniqueWithoutSoftDeletes('max_products', 'slug', $this->product->id ?? null),
+            ],
             "images"                => "nullable|array",
             'images.*.id'           => 'nullable|integer|exists:max_product_images,id',
             'images.*.name'         => 'nullable|string|max:255',
@@ -66,7 +72,7 @@ class UpdateProductFormRequest extends FormRequest
 
         foreach (config('app.available_locales') as $key => $locale) {
             $rules = $rules->merge([
-                "name.{$key}" => 'required|string|max:255',
+                "name.{$key}"        => 'required|string|max:255',
                 "description.{$key}" => 'required|string',
             ]);
         }
@@ -80,13 +86,13 @@ class UpdateProductFormRequest extends FormRequest
     public function messages(): array
     {
         $messages = collect([
-            "slug.unique" => __(key: 'validation.unique'),
-            "slug.required" => __(key: 'validation.required'),
-            "images.*.mimes" => __(key: 'validation.mimes'),
-            "images.*.max" => __(key: 'validation.max.file'),
-            "status.boolean" => __(key: 'validation.boolean'),
-            "product_category_id.integer" => __(key: 'validation.integer'),
-            "product_category_id.exists" => __(key: 'validation.exists'),
+            "slug.unique"                   => __(key: 'validation.unique'),
+            "slug.required"                 => __(key: 'validation.required'),
+            "images.*.mimes"                => __(key: 'validation.mimes'),
+            "images.*.max"                  => __(key: 'validation.max.file'),
+            "status.boolean"                => __(key: 'validation.boolean'),
+            "product_category_id.integer"   => __(key: 'validation.integer'),
+            "product_category_id.exists"    => __(key: 'validation.exists'),
         ]);
 
         foreach (config('app.available_locales') as $key => $locale) {

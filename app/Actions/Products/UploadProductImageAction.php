@@ -14,8 +14,16 @@ class UploadProductImageAction
 {
     use AsAction;
 
-    public function handle(Product $product, UploadedFile $file, array $img_data = []): ProductImage|Model
-    {
+    /**
+     * @param Product $product
+     * @param UploadedFile $file
+     * @return ProductImage|Model
+     */
+    public function handle(
+        Product $product,
+        UploadedFile $file,
+        array $img_data = []
+    ): ProductImage|Model  {
         $file_name = $this->storeFileToPublicFolder($file);
 
         $image = $product->images()->create(attributes: [

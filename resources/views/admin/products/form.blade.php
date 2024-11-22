@@ -118,7 +118,7 @@
                                        class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0
                                         file:text-sm file:font-semibold file:bg-violet-50 file:text-accent-500 hover:file:bg-accent-100 mb-2"/>
                             </div>
-                            <div @class([ 'image__upload-preview', 'hidden' => !isset($product) || empty(optional($product)->images) ])>
+                            <div @class([ 'image__upload-preview', 'hidden' => !isset($product) || $product->images->isEmpty() ])>
                                 <!-- Image Preview -->
                                 <span>{{ __('dashboard/products/form.field.preview') }}</span>
                                 <div class="w-full border-dashed border-2 rounded mb-2 p-2">

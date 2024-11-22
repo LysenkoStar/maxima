@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Services\ProductService;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -53,17 +54,16 @@ class ProductController extends Controller
     public function productItem(Product $product): View|RedirectResponse
     {
         try {
-            if(!$product) {
-                throw new Exception(
-                    message: __('Product not found'),
-                    code: Response::HTTP_NOT_FOUND
-                );
-            }
+            $relatedProducts = app(ProductService::class)->relatedProducts(product: $product);
+
+            $productImages = $product->images()->orderBy('sort')->get();
 
             return view(
                 view: 'pages/products/product',
                 data: [
-                    'product' => $product
+                    'product' => $product,
+                    'relatedProducts' => $relatedProducts,
+                    'productImages' => $productImages,
                 ]
             );
         } catch (Exception $e) {

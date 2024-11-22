@@ -29,7 +29,7 @@ class UpdateProductAction
                 'slug'
             ])->toArray();
 
-            $product->fill($product_data);
+            $product->fill($product_data)->save();
 
             Log::info(
                 message: 'Product updated.',
@@ -37,25 +37,22 @@ class UpdateProductAction
             );
 
             if ($request->has('images')) {
-                $images_files = $request->file('images');
                 $images_data = $request->get('images');
 
                 foreach ($images_data as $data) {
                     if (isset($data['id'])) {
                         UpdateProductImageAction::run($data);
-                    } else {
-//                        dd($images_files,$data['name']);
-//                        if (isset($data['name']) && )
-                        $file = $images_files['file'];
-
-                        UploadProductImageAction::run(product: $product, file: $file, img_data: $data);
+                    } elseif (isset($data['file'])) {
+                        UploadProductImageAction::run(product: $product, file: $data['file'], img_data: $data);
                     }
                 }
             }
 
             return $product;
         } catch (\Exception $e) {
-            dd($e->getMessage());
+            Log::error($e->getMessage());
+
+            throw new \Exception('There was an error while updating the product.');
         }
     }
 }

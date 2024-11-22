@@ -68,7 +68,7 @@
                                         </svg>
                                     </a>
                                     <!-- Delete Button -->
-                                    <form action="{{ route('dashboard.category.delete', $product) }}" method="POST">
+                                    <form action="{{ route('dashboard.products.delete', $product) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
