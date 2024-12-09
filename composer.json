@@ -8,12 +8,10 @@
         "php": "^8.2",
         "diglactic/laravel-breadcrumbs": "^8.1",
         "guzzlehttp/guzzle": "^7.8",
-        "intervention/image": "^3.9",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "spatie/image": "^3.7",
-        "spatie/image-optimizer": "^1.8",
         "spatie/laravel-translatable": "^6.5"
     },
     "require-dev": {
