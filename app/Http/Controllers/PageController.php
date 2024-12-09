@@ -51,7 +51,9 @@ class PageController extends Controller
      */
     public function products(Request $request): View
     {
-        $categories = ProductCategory::active()->get();
+        $categories = ProductCategory::active()
+            ->notEmpty()
+            ->get();
 
         return view(
             view: 'pages/products',

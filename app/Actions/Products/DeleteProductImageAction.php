@@ -19,7 +19,8 @@ class DeleteProductImageAction
 
         try {
             if ($productImage->isExistInFolder()) {
-                Storage::disk('uploads')->delete("products/$productImage->image");
+                // delete folder image by id
+                Storage::disk('uploads')->deleteDirectory($productImage->getDirectoryPath());
             }
 
             $productImage->delete();
@@ -41,6 +42,5 @@ class DeleteProductImageAction
                 ]
             );
         }
-
     }
 }

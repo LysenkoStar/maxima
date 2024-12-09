@@ -56,6 +56,11 @@ class ProductCategory extends Model
         return $this->hasMany(Product::class);
     }
 
+    public function scopeNotEmpty($query): Builder
+    {
+        return $query->has('products');
+    }
+
     public function getImageUrl(): string
     {
         if ($this->image && Storage::disk('uploads')->exists("categories/$this->image")) {

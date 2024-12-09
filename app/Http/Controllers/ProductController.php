@@ -32,7 +32,7 @@ class ProductController extends Controller
         try {
             $products = $category->products()
                 ->active()
-                ->paginate(5);
+                ->paginate(24);
 
             return view(
                 view: 'pages/products/list',

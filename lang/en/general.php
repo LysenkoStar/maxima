@@ -75,4 +75,5 @@ return [
     'main_characters'   => 'Main characteristics',
     'about_product'     => 'About the product',
     'characteristics'   => 'Characteristics',
+    'on_request'        => 'On Request',
 ];

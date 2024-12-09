@@ -38,10 +38,10 @@
                             <!-- Product Images -->
                             <div class="page__product-image lg:w-1/3 flex flex-col justify-between">
                                 <div class="product__image-main swiper relative overflow-hidden flex-1 w-full ">
-                                    <div class="product__status absolute top-5 left-5 font-montserrat_b text-xs text-lightblue-500">
+                                    <div class="product__status absolute top-5 left-5 font-montserrat_b text-xs text-lightblue-500 z-10">
                                         {{ $product->getStockStatus() }}
                                     </div>
-                                    <div class="swiper-wrapper">
+                                    <div class="swiper-wrapper min-h-min lg:min-h-72">
                                         @foreach($productImages as $img)
                                             <div class="swiper-slide">
                                                 <img src="{{ $img->getImageUrlAttribute() }}"
@@ -60,31 +60,6 @@
                                                      class="object-contain w-full h-full">
                                             </div>
                                         @endforeach
-                                        <div class="product__image-secondary-item swiper-slide bg-darkslateblue-500 rounded-sm p-1">
-                                            <img src="{{ asset('images/products/product_1.png') }}"
-                                                 alt="Thumbnail"
-                                                 class="object-contain w-full h-full">
-                                        </div>
-                                        <div class="product__image-secondary-item swiper-slide bg-darkslateblue-500 rounded-sm p-1">
-                                            <img src="{{ asset('images/products/product_2.png') }}"
-                                                 alt="Thumbnail"
-                                                 class="object-contain w-full h-full">
-                                        </div>
-                                        <div class="product__image-secondary-item swiper-slide bg-darkslateblue-500 rounded-sm p-1">
-                                            <img src="{{ asset('images/products/product_3.png') }}"
-                                                 alt="Thumbnail"
-                                                 class="object-contain w-full h-full">
-                                        </div>
-                                        <div class="product__image-secondary-item swiper-slide bg-darkslateblue-500 rounded-sm p-1">
-                                            <img src="{{ asset('images/products/product_2.png') }}"
-                                                 alt="Thumbnail"
-                                                 class="object-contain w-full h-full">
-                                        </div>
-                                        <div class="product__image-secondary-item swiper-slide bg-darkslateblue-500 rounded-sm p-1">
-                                            <img src="{{ asset('images/products/product_1.png') }}"
-                                                 alt="Thumbnail"
-                                                 class="object-contain w-full h-full">
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +90,7 @@
                         <!-- Content for "ХАРАКТЕРИСТИКИ" -->
                         <h2 class="text-xl font-bold mb-6">{{ __(key: 'general.main_characters') }}</h2>
 
-                        {!! $product->description !!}
+                        {!! $product->full_info !!}
                     </div>
                 </section>
 

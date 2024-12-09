@@ -13,7 +13,7 @@ class DeleteProductAction
     public function handle(Product $product): void
     {
         if (!$product->trashed()) {
-            if ($product->images->exists()) {
+            if ($product->images->isNotEmpty()) {
                 $product->images->each(function ($image) {
                    DeleteProductImageAction::run(productImage: $image);
                 });

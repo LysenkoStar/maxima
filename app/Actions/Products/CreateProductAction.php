@@ -23,7 +23,10 @@ class CreateProductAction
             $product = Product::create([
                 'name'                  => $request->input('name'),
                 'description'           => $request->input('description'),
+                'full_info'             => $request->input('full_info'),
                 'slug'                  => $request->input('slug'),
+                'price'                 => $request->input('price'),
+                'show_price'            => $request->input('show_price'),
                 'product_category_id'   => $request->input('product_category_id'),
                 'status'                => $request->input('status'),
             ]);
@@ -33,10 +36,16 @@ class CreateProductAction
                 context: ['product' => $product]
             );
 
-            if ($request->hasFile('images')) {
-                /** @var UploadedFile $file **/
-                foreach ($request->file('images') as $file) {
-                    UploadProductImageAction::run(product: $product, file: $file);
+
+            if ($request->has('images')) {
+                $images_data = $request->get('images');
+
+                foreach ($images_data as $data) {
+                    UploadProductImageAction::run(
+                        product: $product,
+                        file: $data['file'],
+                        img_data: $data
+                    );
                 }
             }
 

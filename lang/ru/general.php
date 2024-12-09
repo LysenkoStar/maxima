@@ -75,4 +75,5 @@ return [
     'main_characters'   => 'Основные характеристики',
     'about_product'     => 'Все о товаре',
     'characteristics'   => 'Характеристики',
+    'on_request'        => 'Под заказ',
 ];
