@@ -3,6 +3,13 @@ import Sortable from 'sortablejs';
 // Window ready
 $( document ).ready(function() {
 
+    // initialize
+    let price_field = document.getElementById('price'),
+        toggle_show_price = document.getElementById('show_price');
+
+    price_field.disabled = !(toggle_show_price && toggle_show_price.checked);
+
+
     $('input[id^="name_en"]').on('keyup', function() {
         let title = $(this).val();
         let url = $('#slug').data('route');
@@ -80,7 +87,11 @@ $( document ).ready(function() {
 
         // Set the delete flag for this image
         if (uploadFiles[index]) {
-            uploadFiles[index].delete = true; // Помечаем изображение как удалённое
+            uploadFiles[index].delete = true;
+        }
+
+        if (!uploadFiles[index].isExisting) {
+            uploadFiles.splice(index, 1);
         }
 
         element.parentElement.classList.add('hidden');
@@ -227,11 +238,16 @@ $( document ).ready(function() {
 
         for (const [field, messages] of Object.entries(errors)) {
             const convertedField = convertFieldName(field);
-            const fieldElement = document.querySelector(`[name="${convertedField}"]`);
+            let fieldElement = document.querySelector(`[name="${convertedField}"]`);
+
+            // Если это файл из массива, ищем input[type="file"] с именем images[]
+            if (!fieldElement && convertedField.startsWith('images[')) {
+                fieldElement = document.querySelector(`input[name="images[]"]`);
+            }
 
             if (fieldElement) {
                 const errorContainer = document.createElement('small');
-                errorContainer.className = 'text-accent-500 font-montserrat italic';
+                errorContainer.className = 'validation-error text-accent-500 font-montserrat italic';
                 errorContainer.textContent = messages[0];
 
                 fieldElement.parentElement.appendChild(errorContainer);
@@ -240,8 +256,22 @@ $( document ).ready(function() {
     }
 
     function convertFieldName(fieldName) {
-        return fieldName.replace(/\.(\d+)/g, '[$1]').replace(/\.(\w+)/g, '[$1]');
+        return fieldName
+            .replace(/\.(\d+)\.file$/, '[$1]') // Преобразует `images.0.file` в `images[0]`
+            .replace(/\.(\d+)/g, '[$1]')      // Обрабатывает индексы в формате массива
+            .replace(/\.(\w+)/g, '[$1]');     // Преобразует оставшиеся ключи
     }
+
+    document.getElementById('show_price').addEventListener('change', function () {
+        const priceField = document.getElementById('price');
+
+        if (this.checked) {
+            priceField.disabled = false;
+        } else {
+            priceField.value = '';
+            priceField.disabled = true;
+        }
+    });
 
 });
 

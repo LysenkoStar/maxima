@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->text('message');
-            $table->string('ip_address')->nullable();
+            $table->ipAddress()->nullable();
             $table->timestamps();
 
             $table->softDeletes();

@@ -17,6 +17,7 @@ class UploadProductImageAction
     /**
      * @param Product $product
      * @param UploadedFile $file
+     * @param array $img_data
      * @return ProductImage|Model
      */
     public function handle(
@@ -24,15 +25,26 @@ class UploadProductImageAction
         UploadedFile $file,
         array $img_data = []
     ): ProductImage|Model  {
-        $file_name = $this->storeFileToPublicFolder($file);
+        // Generate new file name
+        $file_name = $this->generateFileName($file);
 
+        // Save image metadata in the database
         $image = $product->images()->create(attributes: [
             'image'         => $file_name,
+            'original_name' => $file->getClientOriginalName(),
             'description'   => $file->getClientOriginalName(),
+            'mime_type'     => $file->getClientMimeType(),
             'sort'          => $img_data['sort'] ?? 0,
-            'status'        => $data['status'] ?? 1,
+            'status'        => $img_data['status'] ?? 1,
         ]);
 
+        // Store file
+        SaveImageToDiskAction::run($file, $image);
+
+        // Optimize the image
+        OptimizeProductImageAction::run($image);
+
+        // Log the upload
         Log::info(
             message: 'Product image uploaded',
             context: ['product' => $product, 'image' => $file_name]
@@ -41,21 +53,8 @@ class UploadProductImageAction
         return $image;
     }
 
-
-    /**
-     * @param UploadedFile $file
-     * @return string (file name)
-     */
-    private function storeFileToPublicFolder(UploadedFile $file): string
+    private function generateFileName(UploadedFile $file): string
     {
-        $fileName = Str::uuid() . '.' . $file->getClientOriginalExtension();
-
-        $file->storePubliclyAs(
-            path: 'uploads/products',
-            name: $fileName,
-            options: 'public'
-        );
-
-        return $fileName;
+        return Str::uuid() . '.' . $file->getClientOriginalExtension();
     }
 }

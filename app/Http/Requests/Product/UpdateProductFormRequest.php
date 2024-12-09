@@ -26,7 +26,7 @@ class UpdateProductFormRequest extends FormRequest
             $updatedImages = $images->map(function ($image, $index) {
                 $file = $this->file("images.$index.file");
 
-                if (!empty($image['isExisting']) && $image['isExisting']) {
+                if (!empty($image['isExisting'])) {
                     return $image;
                 }
 
@@ -68,12 +68,15 @@ class UpdateProductFormRequest extends FormRequest
             "images.*.file"         => "nullable|file|mimes:jpeg,png,jpg,gif,svg|max:2048",
             "status"                => "required|boolean",
             "product_category_id"   => "nullable|integer|exists:max_product_categories,id",
+            "show_price"            => "nullable|boolean",
+            'price'                 => 'nullable|numeric|required_if:show_price,1',
         ]);
 
         foreach (config('app.available_locales') as $key => $locale) {
             $rules = $rules->merge([
                 "name.{$key}"        => 'required|string|max:255',
                 "description.{$key}" => 'required|string',
+                "full_info.{$key}"   => 'required|string',
             ]);
         }
 
@@ -97,8 +100,9 @@ class UpdateProductFormRequest extends FormRequest
 
         foreach (config('app.available_locales') as $key => $locale) {
             $messages = $messages->merge([
-                "name.{$key}.required" => __(key: 'validation.required'),
+                "name.{$key}.required"        => __(key: 'validation.required'),
                 "description.{$key}.required" => __(key: 'validation.required'),
+                "full_info.{$key}.required"   => __(key: 'validation.required'),
             ]);
         }
 

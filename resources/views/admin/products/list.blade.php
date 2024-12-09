@@ -28,7 +28,7 @@
                                     'py-3'
                                 ])>
                                 <div class="flex items-center space-x-4">
-                                    <img src="{{ $product->getMainImageUrl() }}" alt="{{ $product->name }}" class="h-16 w-16 rounded">
+                                    <img src="{{ $product->getImageUrlBySize() }}" alt="{{ $product->name }}" class="h-16 w-16 rounded object-contain pointer-events-none">
                                     <div>
                                         <!-- Название товара -->
                                         <h3 class="text-lg font-semibold text-gray-900">{{ $product->name }}</h3>
@@ -43,7 +43,7 @@
 
                                         <!-- Статус товара -->
                                         <p class="text-sm font-semibold {{ $product->status ? 'text-green-500' : 'text-red-500' }}">
-                                            {{ $product->status ? 'Активный' : 'Не активный' }}
+                                            {{ $product->getStockStatus() }}
                                         </p>
                                     </div>
                                 </div>

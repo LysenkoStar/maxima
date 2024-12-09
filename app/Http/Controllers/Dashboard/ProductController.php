@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Enums\Images\ProductImageSizes;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\CreateProductFormRequest;
 use App\Http\Requests\Product\UpdateProductFormRequest;
@@ -75,11 +76,14 @@ class ProductController extends Controller
         $categories = ProductCategory::take(100)->get(['id', 'name']);
 
         $productImages = $product->images()
-            ->get(['id', 'image', 'status', 'sort'])
+            ->get()
             ->map(function ($image) {
-                $image->url = $image->getImageUrlAttribute();
+                $image->url = $image->getThumbnailUrl(ProductImageSizes::small);
                 return $image;
-            })->toArray();
+            })
+            ->sortBy('sort')
+            ->values()
+            ->toArray();
 
         return view(
             view: 'admin.products.form',

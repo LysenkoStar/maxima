@@ -81,6 +81,26 @@
                                             </small>
                                         @enderror
                                     </div>
+
+                                    <!-- Full Info Field -->
+                                    <div class="mb-2">
+                                        <label for="description_{{$key}}"
+                                               class="block text-sm font-medium text-gray-700">
+                                            {{ __('dashboard/products/form.field.full_info') }}
+                                        </label>
+                                        <textarea id="full_info_{{$key}}"
+                                                  name="full_info[{{$key}}]"
+                                                  data-language="{{$key}}"
+                                                  class="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ckeditor">
+                                            {{ old('full_info.'.$key, isset($product) ? optional($product)->getTranslation('full_info', $key) : '') }}
+                                        </textarea>
+
+                                        @error("full_info.$key")
+                                        <small class="text-accent-500 font-montserrat italic">
+                                            {{ $message }}
+                                        </small>
+                                        @enderror
+                                    </div>
                                 </div>
                             @endforeach
                         </div>
@@ -163,23 +183,52 @@
                             @enderror
                         </div>
 
-                        <!-- Status Field -->
-                        <div class="mb-4">
-                            <label for="status" class="block text-sm font-medium text-gray-700">
-                                {{ __('dashboard/products/form.field.status') }}
-                            </label>
-                            <select id="status"
-                                    name="status"
-                                    class="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                                <option value="1"
-                                    @selected(old('status', isset($product) ? optional($product)->status : null) === 1)>
-                                    {{ __('dashboard/products/form.field.active') }}
-                                </option>
-                                <option value="0"
-                                    @selected(old('status', isset($product) ? optional($product)->status : null) === 0)>
-                                    {{ __('dashboard/products/form.field.inactive') }}
-                                </option>
-                            </select>
+                        <div class="mb-4 flex items-center gap-4">
+                            <!-- Status Field -->
+                            <div class="w-1/3">
+                                <label for="status" class="block text-sm font-medium text-gray-700 mb-1">
+                                    {{ __('dashboard/products/form.field.status') }}
+                                </label>
+                                <select id="status"
+                                        name="status"
+                                        class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                    <option value="1"
+                                        @selected(old('status', isset($product) ? optional($product)->status : null) === 1)>
+                                        {{ __('dashboard/products/form.field.active') }}
+                                    </option>
+                                    <option value="0"
+                                        @selected(old('status', isset($product) ? optional($product)->status : null) === 0)>
+                                        {{ __('dashboard/products/form.field.inactive') }}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <!-- Checkbox Field -->
+                            <div class="w-1/3 flex items-center gap-2">
+                                <input type="checkbox"
+                                       id="show_price"
+                                       name="show_price"
+                                       value="1"
+                                       class="h-5 w-5 text-accent-500 focus:ring-accent-500 border-gray-300 rounded"
+                                    @checked(old('show_price', isset($product) ? optional($product)->show_price : false))>
+                                <label for="show_price" class="text-sm font-medium text-gray-700">
+                                    {{ __('dashboard/products/form.field.show_price') }}
+                                </label>
+                            </div>
+
+                            <!-- Price Field -->
+                            <div class="w-1/3">
+                                <label for="price" class="block text-sm font-medium text-gray-700 mb-1">
+                                    {{ __('dashboard/products/form.field.price') }}
+                                </label>
+                                <input type="number"
+                                       id="price"
+                                       name="price"
+                                       value="{{ old('price', isset($product) ? optional($product)->price : null) }}"
+                                       step="0.01"
+                                       class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                       placeholder="{{ __('dashboard/products/form.field.price') }}">
+                            </div>
                         </div>
 
                         <!-- Submit Button -->

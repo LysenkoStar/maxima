@@ -2,31 +2,29 @@
 
 namespace App\Actions\Image;
 
+use App\Enums\Images\ProductImageFormats;
+use App\Enums\Images\ProductImageSizes;
 use App\Traits\AsAction;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image as InterventionImage;
+use Spatie\Image\Exceptions\CouldNotLoadImage;
+use Spatie\Image\Image;
+use Spatie\Image\Enums\Fit;
 
 class GenerateThumbnailsAction
 {
     use AsAction;
 
+    /**
+     * @throws CouldNotLoadImage
+     */
     public function handle(string $imagePath, string $outputPath): void
     {
-        $sizes = [
-            'small'     => 200,
-            'medium'    => 500,
-            'large'     => 1000,
-        ];
+        foreach (ProductImageSizes::asArray() as $size => $width) {
+            $thumbnailPath = $outputPath . "{$size}_" . pathinfo($imagePath, PATHINFO_FILENAME) . '.webp';
 
-        foreach ($sizes as $size => $width) {
-            $thumbnailPath = $outputPath . "{$size}_" . basename($imagePath);
-
-            $image = InterventionImage::make($imagePath)
-                ->resize($width, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
-
-            $image->save(Storage::path($thumbnailPath));
+            Image::load($imagePath)
+                ->fit(Fit::Contain, $width, $width)
+                ->format(ProductImageFormats::Webp->value)
+                ->save($thumbnailPath);
         }
     }
 }

@@ -9,6 +9,7 @@ return [
     'field' => [
         'title'       => 'Title',
         'descr'       => 'Description',
+        'full_info'   => 'Full Info',
         'category'    => 'Category',
         'image'       => 'Image',
         'slug'        => 'Slug',
@@ -16,6 +17,8 @@ return [
         'active'      => 'Active',
         'inactive'    => 'Inactive',
         'preview'     => 'Preview',
+        'show_price'  => 'Show Price',
+        'price'       => 'Price',
     ],
 
     /*

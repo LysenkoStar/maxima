@@ -24,9 +24,12 @@ class UpdateProductAction
             $product_data = $valid_data->only([
                 'name',
                 'description',
+                'full_info',
                 'product_category_id',
                 'status',
-                'slug'
+                'slug',
+                'price',
+                'show_price'
             ])->toArray();
 
             $product->fill($product_data)->save();
