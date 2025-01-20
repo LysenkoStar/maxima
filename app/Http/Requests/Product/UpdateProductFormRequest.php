@@ -74,8 +74,8 @@ class UpdateProductFormRequest extends FormRequest
 
         foreach (config('app.available_locales') as $key => $locale) {
             $rules = $rules->merge([
-                "name.{$key}"        => 'required|string|max:255',
-                "description.{$key}" => 'required|string',
+                "name.{$key}"        => 'required|string|max:80',
+                "description.{$key}" => 'required|string|max:235',
                 "full_info.{$key}"   => 'required|string',
             ]);
         }
@@ -101,7 +101,9 @@ class UpdateProductFormRequest extends FormRequest
         foreach (config('app.available_locales') as $key => $locale) {
             $messages = $messages->merge([
                 "name.{$key}.required"        => __(key: 'validation.required'),
+                "name.{$key}.max"             => __(key: 'validation.max.string'),
                 "description.{$key}.required" => __(key: 'validation.required'),
+                "description.{$key}.max"      => __(key: 'validation.max.string'),
                 "full_info.{$key}.required"   => __(key: 'validation.required'),
             ]);
         }

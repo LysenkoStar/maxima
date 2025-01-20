@@ -22,8 +22,9 @@ class GenerateThumbnailsAction
             $thumbnailPath = $outputPath . "{$size}_" . pathinfo($imagePath, PATHINFO_FILENAME) . '.webp';
 
             Image::load($imagePath)
-                ->fit(Fit::Contain, $width, $width)
+                ->fit(Fit::Crop, $width, $width)
                 ->format(ProductImageFormats::Webp->value)
+                ->optimize()
                 ->save($thumbnailPath);
         }
     }

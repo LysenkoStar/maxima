@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 
@@ -117,22 +118,47 @@ class Product extends Model
 
         if ($image) {
             return $image->getThumbnailUrl($size);
-//            $img_path = "{$this->getImageDirectoryPath()}/{$size->name}_" . pathinfo($image->image, PATHINFO_FILENAME) . '.webp';
-//
-//            if (Storage::disk('uploads')->exists($img_path)) {
-//                return Storage::disk('uploads')->url($img_path);
-//            }
         }
 
         return $this->getDefaultImageUrl();
     }
 
+    public function getImagesBySize(ProductImageSizes $size = ProductImageSizes::small): Collection
+    {
+        $images = $this->images()
+            ->active()
+            ->orderBy('sort')
+            ->get(['id', 'image', 'description', 'product_id', 'sort']);
+
+        if ($images->isEmpty()) {
+            $defaultImageUrl = $this->getDefaultImageUrl();
+
+            return collect([
+                (new ProductImage([
+                    'image' => $defaultImageUrl,
+                    'description' => sprintf("%s %s", $this->name, __('general.image')),
+                    'product_id' => $this->id,
+                    'sort' => 0,
+                ]))->setAttribute('url', $defaultImageUrl)
+            ]);
+        }
+
+        return $images->map(function (ProductImage $image, int $index) use ($size) {
+            $image->url = $image->getThumbnailUrl($size);
+
+            $customDescription = sprintf("%s %s №%d", $this->name, __('general.image'), ($index + 1));
+            $image->description = $image->description ?? $customDescription;
+
+            return $image;
+        })->values();
+    }
+
     public function getDefaultImageUrl(): string
     {
-        $defaultImg = public_path('images/no_image.png');
+        $defaultImg = public_path('images/no_image.webp');
 
         if (file_exists($defaultImg)) {
-            $imageUrl = asset('images/no_image.png');
+            $imageUrl = asset('images/no_image.webp');
         } else {
             $imageUrl = '';
         }

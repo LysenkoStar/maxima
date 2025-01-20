@@ -76,4 +76,5 @@ return [
     'about_product'     => 'Все о товаре',
     'characteristics'   => 'Характеристики',
     'on_request'        => 'Под заказ',
+    'image'             => 'Изображение',
 ];

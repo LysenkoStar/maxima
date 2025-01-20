@@ -20,6 +20,7 @@ class ConvertToWebPAction
 
         Image::load($imagePath)
             ->format(ProductImageFormats::Webp->value)
+            ->optimize()
             ->save($webpPath);
     }
 }

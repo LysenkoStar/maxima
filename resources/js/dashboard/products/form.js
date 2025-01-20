@@ -128,7 +128,7 @@ $( document ).ready(function() {
             div.setAttribute('data-sort', fileObj.sort || `${index}`);
 
             let imgSrc = isExisting ? url : URL.createObjectURL(file);
-            div.innerHTML = `<img src="${imgSrc}" class="absolute inset-0 w-full h-full object-cover" alt=""/>`;
+            div.innerHTML = `<img src="${imgSrc}" class="absolute inset-0 w-full h-full object-contain" alt=""/>`;
 
             // Delete button
             const deleteBtn = document.createElement('button');
