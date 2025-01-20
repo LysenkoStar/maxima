@@ -55,10 +55,10 @@ class Service extends Model
 
     public static function getDefaultImageUrl(): string
     {
-        $defaultImg = public_path('images/no_image.png');
+        $defaultImg = public_path('images/no_image.webp');
 
         if (file_exists($defaultImg)) {
-            $imageUrl = asset('images/no_image.png');
+            $imageUrl = asset('images/no_image.webp');
         } else {
             $imageUrl = '';
         }

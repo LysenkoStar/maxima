@@ -48,6 +48,11 @@ class ProductImage extends Model
             ->take(1);
     }
 
+    public function scopeActive($query): Builder
+    {
+        return $query->where('status', 1);
+    }
+
     // Relationships
     public function product(): BelongsTo
     {
@@ -95,7 +100,7 @@ class ProductImage extends Model
         return Storage::disk('uploads')->url("{$this->getDirectoryPath()}/{$this->image}");
     }
 
-    public function getImageAltAttribute(): string|null
+    public function getImageDescription(): string|null
     {
         return $this->description;
     }

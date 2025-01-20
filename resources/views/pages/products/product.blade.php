@@ -42,21 +42,21 @@
                                         {{ $product->getStockStatus() }}
                                     </div>
                                     <div class="swiper-wrapper min-h-min lg:min-h-72">
-                                        @foreach($productImages as $img)
+                                        @foreach($product->getImagesBySize(\App\Enums\Images\ProductImageSizes::medium) as $image)
                                             <div class="swiper-slide">
-                                                <img src="{{ $img->getImageUrlAttribute() }}"
-                                                     alt="{{ $img->getImageAltAttribute() }}"
-                                                     class="object-none flex-shrink-0 m-auto h-full">
+                                                <img src="{{ $image->url }}"
+                                                     alt="{{ $image->getImageDescription() }}"
+                                                     class="object-contain flex-shrink-0 m-auto h-full">
                                             </div>
                                         @endforeach
                                     </div>
                                 </div>
                                 <div thumbsSlider=""  class="product__image-secondary swiper h-16 mt-4 w-full">
                                     <div class="swiper-wrapper">
-                                        @foreach($productImages as $img)
+                                        @foreach($product->getImagesBySize(\App\Enums\Images\ProductImageSizes::small) as $image)
                                             <div class="product__image-secondary-item swiper-slide bg-darkslateblue-500 rounded-sm p-1">
-                                                <img src="{{ $img->getImageUrlAttribute() }}"
-                                                     alt="{{ $img->getImageAltAttribute() }}"
+                                                <img src="{{ $image->url }}"
+                                                     alt="{{ $image->getImageDescription() }}"
                                                      class="object-contain w-full h-full">
                                             </div>
                                         @endforeach
@@ -67,15 +67,21 @@
                             <!-- Product Details -->
                             <div class="page__product-info lg:w-2/3 lg:pl-8 mt-6 lg:mt-0 flex flex-col justify-between">
                                 <div class="page__product-info-top">
-                                    <h1 class="font-montserrat_b text-2xl lg:text-4xl font-bold mb-7">{{ $product->name }}</h1>
-                                    <div class="product__details font-montserrat text-white text-2xl">
-                                        {!! Str::limit($product->description, 70, '...'); !!}
+                                    <h1 class="font-montserrat_b text-2xl lg:text-2xl font-bold mb-7">{{ $product->name }}</h1>
+                                    <div class="product__details font-montserrat text-white text-xl mb-2">
+                                        {!! $product->description !!}
                                     </div>
                                 </div>
                                 <div class="page__product-info-bottom mt-auto">
                                     <div class="page__product-info-price text-white font-montserrat_b text-3xl">
-                                        <div class="product-price">1 000<span class="product-price-sign pl-1">&#8372;</span>
-                                        </div>
+                                        @if($product->isShowPrice())
+                                            {{ $product->getPrice() }}
+                                            <span class="page__product-info-price-sign pl-1">&#8372;</span>
+                                        @else
+                                            <span class="text-2xl">
+                                                {{ __(key: 'general.on_request') }}
+                                            </span>
+                                        @endif
                                     </div>
                                     <div class="page__product-info-actions flex space-x-2 mt-4">
                                         <button class="btn btn-primary bg-accent-500 filter">{{ __(key: 'general.button.order') }}</button>
@@ -105,7 +111,9 @@
                                         <div class="page__product-related-item-status absolute top-5 left-5 text-xs text-lightblue-500">
                                             {{ $product->getStockStatus() }}
                                         </div>
-                                        <img src="{{ $product->getMainImageUrl() }}" alt="{{ $product->name }}" class="max-h-48 m-auto">
+                                        <div class="relative w-full h-48 overflow-hidden mb-2">
+                                            <img src="{{ $product->getImageUrlBySize() }}" alt="{{ $product->name }}" class="w-full h-full object-cover">
+                                        </div>
                                         <p class="text-lg text-white flex-grow">{{ $product->name }}</p>
                                         <div class="flex justify-between items-center mt-auto w-full space-x-2">
                                             <div class="page__product-related-item-price text-white text-lg w-1/2 text-left">

@@ -76,4 +76,5 @@ return [
     'about_product'     => 'About the product',
     'characteristics'   => 'Characteristics',
     'on_request'        => 'On Request',
+    'image'             => 'Image',
 ];

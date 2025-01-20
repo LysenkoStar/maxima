@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="category__item-info flex flex-col flex-1 p-5 text-center">
                                     <div class="category__item-image pb-5">
-                                        <img class="max-h-48 m-auto" src="{{ asset("images/categories/1.png") }}" alt="">
+                                        <img class="max-h-48 m-auto" src="{{ $product->getImageUrlBySize() }}" alt="{{ $product->name }}">
                                     </div>
                                     <div class="category__item-title text-lg pb-3">{{ $product->name }}</div>
                                     <div class="category__item-action mt-auto flex justify-between items-center space-x-2 px-5 md:px-0">

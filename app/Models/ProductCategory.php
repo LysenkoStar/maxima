@@ -50,15 +50,15 @@ class ProductCategory extends Model
         return $query->where('status', 1);
     }
 
+    public function scopeNotEmpty($query): Builder
+    {
+        return $query->has('products');
+    }
+
     // Methods
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
-    }
-
-    public function scopeNotEmpty($query): Builder
-    {
-        return $query->has('products');
     }
 
     public function getImageUrl(): string
@@ -72,10 +72,10 @@ class ProductCategory extends Model
 
     public static function getDefaultImageUrl(): string
     {
-        $defaultImg = public_path('images/no_image.png');
+        $defaultImg = public_path('images/no_image.webp');
 
         if (file_exists($defaultImg)) {
-            $imageUrl = asset('images/no_image.png');
+            $imageUrl = asset('images/no_image.webp');
         } else {
             $imageUrl = '';
         }

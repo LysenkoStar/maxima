@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -11,21 +12,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if ( Schema::hasTable(table: 'max_product_images') ) {
-            Schema::table(table: 'max_product_images', callback: function (Blueprint $table) {
-                if (Schema::hasColumn('max_product_images', 'description')) {
-                    $table->renameColumn('description', 'original_name');
-                }
+        if (Schema::hasTable('max_product_images')) {
+            Schema::table('max_product_images', function (Blueprint $table) {
+                $table->string('original_name')->nullable()->after('description');
             });
 
+            DB::statement('UPDATE max_product_images SET original_name = description');
 
-            Schema::table(table: 'max_product_images', callback: function (Blueprint $table) {
-                $table->string(column: 'description', length: 255)
-                    ->nullable()
-                    ->after('original_name');
-                $table->string(column: 'mime_type', length: 255)
-                    ->nullable()
-                    ->after('description');
+            Schema::table('max_product_images', function (Blueprint $table) {
+                $table->dropColumn('description');
+            });
+
+            Schema::table('max_product_images', function (Blueprint $table) {
+                $table->string('description', 255)->nullable()->after('original_name');
+                $table->string('mime_type', 255)->nullable()->after('description');
             });
         }
     }

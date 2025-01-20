@@ -92,7 +92,7 @@ return [
         'array' => 'The :attribute field must not have more than :max items.',
         'file' => 'Поле :attribute не должно быть больше :max килобайт.',
         'numeric' => 'The :attribute field must not be greater than :max.',
-        'string' => 'The :attribute field must not be greater than :max characters.',
+        'string' => 'Поле :attribute не должно содержать больше :max символов.',
     ],
     'max_digits' => 'Поле :attribute не должно содержать более :max цифр.',
     'mimes' => 'Поле :attribute должно быть файлом типа: :values.',

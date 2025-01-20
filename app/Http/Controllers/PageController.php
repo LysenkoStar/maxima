@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\Micromarkup\JsonLdType;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Service;
 use App\Services\MicromarkupService;
